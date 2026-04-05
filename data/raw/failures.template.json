@@ -1,0 +1,20 @@
+[
+  {
+    "id": "example-failure-1",
+    "programId": "example-program-1",
+    "school": "学校名称",
+    "major": "专业名称",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "待补充",
+    "enteredRetest": false,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": ["信息误判"],
+    "reminder": "一句提醒",
+    "review": "失败复盘",
+    "retryChoice": "如果重来一次",
+    "advice": "给后来者的建议",
+    "sourceType": "公开整理"
+  }
+]

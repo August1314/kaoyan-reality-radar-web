@@ -5,7 +5,7 @@ export function SubmitPage() {
         <p className="eyebrow">投稿页</p>
         <h1>匿名补充失败经验</h1>
         <p>
-          第一版不自建后端，投稿先通过站外表单完成。这里先放说明骨架，下一步接入飞书表单链接。
+          如果你也经历过考研失利，欢迎匿名补充一条真实样本。提交内容会先人工审核，再整理进站点结果页。
         </p>
         <div className="info-block">
           <h2>默认原则</h2>
@@ -15,8 +15,13 @@ export function SubmitPage() {
             <li>所有内容先人工审核，再进入站点展示数据。</li>
           </ul>
         </div>
-        <a href="https://example.com" className="text-link" target="_blank" rel="noreferrer">
-          预留：打开投稿表单
+        <a
+          href="https://dcnq3h3ty7w5.feishu.cn/share/base/form/shrcnmJtPBlKTL2Ooj84m7JbMOf"
+          className="text-link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          立即匿名投稿
         </a>
       </section>
     </main>

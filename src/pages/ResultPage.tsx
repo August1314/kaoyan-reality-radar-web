@@ -12,8 +12,8 @@ export function ResultPage() {
     return (
       <main className="page narrow-page">
         <section className="card empty-state">
-          <h1>暂时没有这个结果页</h1>
-          <p>第一版只收录少量高需求目标，后续会随真实内容逐步补齐。</p>
+          <h1>暂时还没有找到这个目标</h1>
+          <p>可以先返回首页看看已收录的真实案例，或者换一个更接近的学校和专业试试。</p>
           <Link to="/" className="text-link">
             返回首页继续搜索
           </Link>
@@ -27,7 +27,7 @@ export function ResultPage() {
   return (
     <main className="page result-page">
       <section className="card page-head">
-        <p className="eyebrow">结果页</p>
+        <p className="eyebrow">目标判断</p>
         <h1>
           {program.school} · {program.major}
         </h1>
@@ -46,8 +46,8 @@ export function ResultPage() {
 
       <section className="card">
         <div className="section-head">
-          <h2>失败经验卡片</h2>
-          <p>先放 3~10 条短卡片，详情页再展开完整复盘。</p>
+          <h2>失败经验</h2>
+          <p>这些都是真实样本，先看共性问题，再点进去看完整复盘。</p>
         </div>
         <div className="failure-list">
           {result.failures.map((item) => (
@@ -59,7 +59,7 @@ export function ResultPage() {
       <section className="card submit-card">
         <div>
           <h2>你也经历过类似失败？</h2>
-          <p>匿名补充一条，会直接增强这个结果页的参考价值。</p>
+          <p>匿名补充一条真实经历，会让后来的人少踩一次坑。</p>
         </div>
         <Link to="/submit" className="text-link">
           去投稿

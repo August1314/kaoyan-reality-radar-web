@@ -1,0 +1,16 @@
+[
+  {
+    "id": "example-program-1",
+    "school": "学校名称",
+    "major": "专业名称",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": ["信息不透明"],
+    "summary": "一句话判断",
+    "sourceNote": "来源备注"
+  }
+]

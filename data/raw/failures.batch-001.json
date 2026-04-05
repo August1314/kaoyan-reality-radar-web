@@ -1,6 +1,4 @@
-import type { FailureExperience } from '../lib/types'
-
-export const failures: FailureExperience[] = [
+[
   {
     "id": "batch-001-failure-1",
     "programId": "batch-001-program-1",
@@ -12,15 +10,51 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "低分进复试"
-    ],
+    "failureTags": ["复试淘汰", "低分进复试"],
     "reminder": "过了复试线不等于稳录，复试名单和结果公示之间仍有明显淘汰。",
     "review": "根据中山大学计算机学院 2025 年复试名单与复试结果公示交叉整理，081200 计算机科学与技术普通计划约有 19 人进入复试，最终 14 人拟录取、4 人不录取、1 人放弃复试。该专业普通计划拟录取最低初试总分为 350，说明踩线或低分进入复试的考生在复试阶段风险很高。这里不是单个匿名自述，而是基于官方公示还原出的失败样本。",
     "retryChoice": "如果重来一次，应把目标从“过线即可”调整为“初试分数显著高于复试线”，并尽早准备复试机试、项目表达和导师沟通材料。",
     "advice": "查目标院校时不要只看复试线，还要核对复试人数、拟录取人数和最低拟录取分，先判断自己是否只是低位进场。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-001-failure-2",
+    "programId": "batch-001-program-1",
+    "school": "",
+    "major": "",
+    "year": 2025,
+    "attempt": "一战",
+    "scoreRange": "",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": [],
+    "reminder": "",
+    "review": "",
+    "retryChoice": "",
+    "advice": "",
+    "sourceType": "",
+    "status": "todo"
+  },
+  {
+    "id": "batch-001-failure-3",
+    "programId": "batch-001-program-1",
+    "school": "",
+    "major": "",
+    "year": 2025,
+    "attempt": "一战",
+    "scoreRange": "",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": [],
+    "reminder": "",
+    "review": "",
+    "retryChoice": "",
+    "advice": "",
+    "sourceType": "",
+    "status": "todo"
   },
   {
     "id": "batch-001-failure-4",
@@ -33,15 +67,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "高分落榜"
-    ],
+    "failureTags": ["复试淘汰", "高分落榜"],
     "reminder": "高分进复试也不等于稳录，404 分仍可能在复试阶段被刷。",
     "review": "根据中山大学计算机学院 2025 年复试结果公示，085404 计算机技术普通计划约有 94 人进入复试，最终 73 人拟录取、21 人不录取。公示名单中可见初试总分 404 的考生仍未录取，说明这个专业并不是“高分上岸保险”，复试表现和综合排序仍可能明显改写结果。这里同样不是匿名自述，而是基于官方公示还原出的高分落榜样本。",
     "retryChoice": "如果重来一次，应把准备重点从“只冲初试高分”扩展到复试面试、项目表达、英语口语和专业问答，尽量避免在复试环节被反超。",
     "advice": "看热门专硕时，除了复试线和最低拟录取分，还要检查是否出现高分不录取样本；一旦存在，就说明复试波动不能忽视。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-5",
@@ -54,15 +86,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "踩线进场"
-    ],
+    "failureTags": ["复试淘汰", "踩线进场"],
     "reminder": "刚过复试线只能说明拿到入场券，371 分进复试同样可能最终不录取。",
     "review": "根据中山大学计算机学院 2025 年复试结果公示，085404 计算机技术普通计划的最低拟录取初试总分是 371，同时公示名单中也可见 371 分进入复试但未录取的样本。这说明该专业复试线并不是安全线，踩线进入复试后，仍然可能因为复试表现和综合排序被淘汰。这里依然是基于官方公示还原出的结构化失败样本。",
     "retryChoice": "如果重来一次，不应把目标设为“刚过线就够”，而应该尽量把初试目标抬到高于复试线一个更安全的区间，并把复试准备前置。",
     "advice": "查目标专业时，看到复试线后还要继续核对最低拟录取分和不录取样本；如果同分段同时存在录取与淘汰，就说明复试波动非常大。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-6",
@@ -75,15 +105,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "中高分落榜"
-    ],
+    "failureTags": ["复试淘汰", "中高分落榜"],
     "reminder": "不是只有踩线考生会被刷，中高分进入复试也仍然可能落榜。",
     "review": "根据中山大学计算机学院 2025 年复试结果公示，085404 计算机技术普通计划除了 404 分不录取样本外，公示名单中还可见 38x、39x 分段的考生在进入复试后未被录取。这说明这个专业的风险不只是“低分进场危险”，而是复试本身足以重排一部分中高分考生。这里用分数段而不是单个匿名身份，是为了保留官方样本的真实性同时避免误导为个人叙事。",
     "retryChoice": "如果重来一次，应把复试当成第二场硬仗，而不是把全部筹码押在初试分数上；尤其要提前准备项目表达、机试题型和面试稳定性。",
     "advice": "看到热门专硕的高分段样本时，不要自动把它理解成稳录；先看同分段是否出现落榜，再决定自己的择校风险承受范围。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-7",
@@ -96,15 +124,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "中低分落榜"
-    ],
+    "failureTags": ["复试淘汰", "中低分落榜"],
     "reminder": "311 分进入复试也不代表稳录，复试表现仍可能直接改写结果。",
     "review": "根据中山大学计算机学院 2025 年复试结果公示，085411 大数据技术与工程（非全日制）普通计划共有 46 人进入复试，最终 35 人拟录取、11 人不录取。公示名单中可见初试总分 311 的考生仍未录取，说明这个专业并不是“过线后基本稳”的项目，复试阶段依然会筛掉一部分中低分考生。这里不是匿名自述，而是基于官方公示还原出的结构化失败样本。",
     "retryChoice": "如果重来一次，不应把目标停留在“刚过线后靠复试补回来”，而应该尽量把初试分数拉高，同时提前准备复试问答和项目表达，降低被复试重新排序的风险。",
     "advice": "看非全日制专硕时，也要核对复试名单和结果公示；只看复试线会低估复试阶段的淘汰比例。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-8",
@@ -117,15 +143,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "踩线进场"
-    ],
+    "failureTags": ["复试淘汰", "踩线进场"],
     "reminder": "301 分刚过复试线并不安全，同分段里已经同时出现录取与淘汰。",
     "review": "根据中山大学计算机学院 2025 年复试结果公示，085411 大数据技术与工程（非全日制）普通计划中，301 分这一踩线分段并不是统一录取：公示名单里既有 301 分拟录取样本，也有 301 分不录取样本。这说明该专业的复试线只是入场线，不是安全线；踩线进场后，复试表现和综合排序足以决定去留。这里依然是基于官方公示还原出的失败样本，而非单个匿名叙事。",
     "retryChoice": "如果重来一次，不能把目标设为“刚过线即可”，而应该尽量把初试目标抬到更安全的区间，并把复试准备前置，而不是等出分后再临时补。",
     "advice": "遇到复试线较低的项目时，不要默认风险也低；先看同分段是否出现拟录取和不录取并存，再判断自己是不是只拿到了一张入场券。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-9",
@@ -138,15 +162,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "中分落榜"
-    ],
+    "failureTags": ["复试淘汰", "中分落榜"],
     "reminder": "不是只有踩线考生会被刷，326-332 分段进入复试也仍然可能被淘汰。",
     "review": "根据中山大学计算机学院 2025 年复试结果公示，085411 大数据技术与工程（非全日制）普通计划中，除了 301 分踩线样本外，公示名单里还可见 326 分、332 分等中段分数考生在进入复试后未被录取。这说明该专业的风险不只是“低分踩线危险”，而是复试本身足以重排一部分中段考生。这里用分数段而不是单个个人故事，是为了保留官方样本的真实性同时避免误导为个体叙事。",
     "retryChoice": "如果重来一次，应把复试视为与初试同等重要的第二场筛选，而不是默认中段分数已经够用；准备节奏要更早，尤其要补足表达、项目和问答稳定性。",
     "advice": "选目标时不要只看最低录取分，还要看中段分数是否出现落榜样本；一旦存在，说明复试波动可能比想象更大。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-10",
@@ -159,15 +181,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "同分段分化"
-    ],
+    "failureTags": ["复试淘汰", "同分段分化"],
     "reminder": "372 分并不自动等于稳录，同分段里已经同时出现拟录取与未录取。",
     "review": "根据中山大学软件工程学院 2025 年复试名单与复试结果交叉整理，085405 软件工程普通计划中，372 分并不是一个稳定安全分段：结果公示里既有 372 分拟录取样本，也有 372 分未录取样本。这说明这个专业的复试不是形式流程，而是足以在同分段内部重新排序的关键环节。这里不是匿名自述，而是基于官方公示还原出的结构化失败样本。",
     "retryChoice": "如果重来一次，不应把目标设为“到 372 左右就差不多”，而应该尽量把初试目标继续抬高，并把复试准备前置到出分前，而不是等进面后再临时补。",
     "advice": "查软件工程这类热门专硕时，不能只看有没有进复试；要继续看同分段是否同时存在录取和淘汰，这比单独看复试线更能说明风险。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-11",
@@ -180,15 +200,13 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "低分进复试"
-    ],
+    "failureTags": ["复试淘汰", "低分进复试"],
     "reminder": "349 分能进复试，但真正拟录取的普通计划最低初试分已经抬到 355 分。",
     "review": "根据中山大学软件工程学院 2025 年复试名单与复试结果交叉整理，085405 软件工程普通计划复试名单中可见 349、350、352、353 分等考生进入复试，但结果公示显示普通计划最低拟录取初试总分为 355。这意味着低分进场虽然拿到了复试资格，但并没有形成实际录取安全垫，复试阶段依然会把这部分考生刷掉。",
     "retryChoice": "如果重来一次，不应把目标停留在“压线进面”，而应把初试目标抬到明显高于进场线的区间，同时更早准备复试表达、项目和问答，减少被复试再筛掉的概率。",
     "advice": "看到进面名单时，不要立刻把它理解成机会均等；先核对最低拟录取初试分，如果二者拉开差距，就说明压线进场风险非常高。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   },
   {
     "id": "batch-001-failure-12",
@@ -201,14 +219,12 @@ export const failures: FailureExperience[] = [
     "enteredRetest": true,
     "finalResult": "进入复试但未录取",
     "failureStage": "复试中",
-    "failureTags": [
-      "复试淘汰",
-      "中高分落榜"
-    ],
+    "failureTags": ["复试淘汰", "中高分落榜"],
     "reminder": "不是只有压线考生会被刷，376-385 分段进入复试也仍然可能落榜。",
     "review": "根据中山大学软件工程学院 2025 年复试结果公示，085405 软件工程普通计划里除了低分段淘汰样本外，还能看到 376、378、384、385 分等中高分考生进入复试后未被录取。这说明这个专业的风险不只是“低分踩线危险”，而是复试本身足以改写一批中高分考生的去留。这里同样是基于官方公示还原出的结构化失败样本，而非个人叙事。",
     "retryChoice": "如果重来一次，应把复试视为与初试同等重要的第二场筛选，而不是默认 380 左右已经足够安全；准备重心要提前覆盖项目表达、综合面试和稳定输出。",
     "advice": "判断热门专硕是否值得冲时，要检查中高分段有没有未录取样本；一旦存在，就说明复试波动不是边缘问题，而是主风险之一。",
-    "sourceType": "官方公示整理"
+    "sourceType": "官方公示整理",
+    "status": "verified"
   }
 ]

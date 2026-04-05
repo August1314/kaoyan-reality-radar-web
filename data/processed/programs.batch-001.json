@@ -1,6 +1,4 @@
-import type { Program } from '../lib/types'
-
-export const programs: Program[] = [
+[
   {
     "id": "batch-001-program-1",
     "school": "中山大学",

@@ -36,7 +36,6 @@ export function HomePage() {
   return (
     <main className="page home-page">
       <section className="hero-section card">
-        <p className="eyebrow">超小 MVP</p>
         <h1>考研现实雷达</h1>
         <p className="hero-copy">查难度，也看别人怎么失败。</p>
         <form className="search-panel" onSubmit={handleSearch}>
@@ -59,14 +58,14 @@ export function HomePage() {
           <button type="submit">开始判断</button>
         </form>
         {showEmptyHint ? (
-          <p className="hint danger">暂时没匹配到结果。第一版只覆盖少量高需求目标，可先点下面示例入口。</p>
+          <p className="hint danger">暂时没匹配到结果。你也可以先看看下面这些真实案例，快速感受不同目标的难度差异。</p>
         ) : null}
       </section>
 
       <section className="card">
         <div className="section-head">
-          <h2>示例入口</h2>
-          <p>先用示例感受首页到结果页的最小闭环。</p>
+          <h2>直接看真实案例</h2>
+          <p>先看几个已经整理好的目标，快速判断这类学校和专业到底难在哪。</p>
         </div>
         <div className="example-grid">
           {examples.map((item) => (
@@ -84,29 +83,9 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="card info-grid">
-        <div>
-          <h2>这版只做什么</h2>
-          <ul>
-            <li>搜索目标院校 / 专业</li>
-            <li>查看难度雷达与一句话判断</li>
-            <li>查看失败经验卡片</li>
-          </ul>
-        </div>
-        <div>
-          <h2>这版明确不做什么</h2>
-          <ul>
-            <li>导师点评</li>
-            <li>上岸概率预测</li>
-            <li>论坛式灌水社区</li>
-          </ul>
-        </div>
-      </section>
-
       <section className="card submit-card">
         <div>
           <h2>我也想匿名补充失败经验</h2>
-          <p>第一版先走站外投稿，降低实现成本。</p>
         </div>
         <Link to="/submit" className="text-link">
           去看投稿说明

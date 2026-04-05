@@ -1,6 +1,4 @@
-import type { FailureExperience } from '../lib/types'
-
-export const failures: FailureExperience[] = [
+[
   {
     "id": "batch-001-failure-1",
     "programId": "batch-001-program-1",
