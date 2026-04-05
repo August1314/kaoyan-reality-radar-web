@@ -1,0 +1,301 @@
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.narrow-page {
+  width: min(860px, calc(100% - 32px));
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  padding: 24px;
+}
+
+.page > .card + .card,
+.page > .card + .result-layout,
+.page > .result-layout + .card {
+  margin-top: 20px;
+}
+
+.hero-section {
+  padding: 40px 32px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #6d28d9;
+  font-weight: 600;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  color: #111827;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.hero-copy,
+.section-head p,
+.source-note,
+.meta-line,
+.detail-body p,
+.submit-card p,
+.reminder-card p {
+  color: #4b5563;
+}
+
+.hero-copy {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.search-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.search-panel label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.search-panel input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: #ffffff;
+}
+
+.search-panel button,
+.example-card {
+  border: none;
+  border-radius: 14px;
+}
+
+.search-panel button {
+  align-self: end;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.hint {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.danger {
+  color: #b45309;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.left-align {
+  align-items: start;
+  flex-direction: column;
+}
+
+.example-grid,
+.info-grid,
+.result-layout,
+.failure-list {
+  display: grid;
+  gap: 16px;
+}
+
+.example-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.example-card {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.example-card strong,
+.failure-card__top strong,
+.related-item strong,
+.metric-grid strong {
+  color: #111827;
+}
+
+.example-card span,
+.example-card small,
+.failure-card__top span,
+.related-item span,
+.metric-grid span {
+  color: #4b5563;
+}
+
+.info-grid,
+.result-layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.info-grid ul,
+.info-block ul {
+  margin-top: 12px;
+  padding-left: 20px;
+  color: #4b5563;
+}
+
+.submit-card,
+.page-head,
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.text-link {
+  color: #6d28d9;
+  font-weight: 600;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.metric-grid div {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 14px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+  margin-top: 18px;
+}
+
+.tag-list li {
+  padding: 8px 12px;
+  background: #ede9fe;
+  color: #5b21b6;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.muted-tags li {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.summary-box {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.failure-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.failure-card,
+.related-item {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.failure-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.empty-state {
+  display: grid;
+  gap: 12px;
+}
+
+.detail-body {
+  display: grid;
+  gap: 16px;
+}
+
+.related-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.info-block {
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .search-panel,
+  .example-grid,
+  .info-grid,
+  .result-layout,
+  .failure-list,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head,
+  .submit-card,
+  .page-head,
+  .detail-header,
+  .failure-card__top {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .hero-section {
+    padding: 28px 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+}
