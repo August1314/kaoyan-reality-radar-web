@@ -94,8 +94,8 @@ export function HomePage() {
 
       <section className="card">
         <div className="section-head">
-          <h2>已收录目标浏览入口</h2>
-          <p>不想输入关键词时，直接从站内已收录目标里挑一个看。</p>
+          <h2>按学校浏览已收录目标</h2>
+          <p>先看学校，再展开看学校下已经整理好的具体方向。</p>
         </div>
         <ProgramBrowseGrid />
       </section>

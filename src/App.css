@@ -105,6 +105,7 @@ h2 {
 .context-note,
 .context-missing__empty,
 .meta-line,
+.empty-state-note,
 .detail-body p,
 .submit-card p,
 .reminder-card p {
@@ -211,6 +212,82 @@ h2 {
   color: #4b5563;
 }
 
+.school-browse-list {
+  display: grid;
+  gap: 14px;
+}
+
+.school-browse-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.school-browse-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 20px;
+}
+
+.school-browse-summary::-webkit-details-marker {
+  display: none;
+}
+
+.school-browse-summary strong {
+  display: block;
+  color: #111827;
+  font-size: 18px;
+}
+
+.school-browse-summary span {
+  display: block;
+  margin-top: 4px;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.school-browse-summary small {
+  color: #6d28d9;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.school-browse-card[open] .school-browse-summary {
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.school-browse-programs {
+  display: grid;
+  gap: 10px;
+  padding: 16px 20px 20px;
+}
+
+.school-browse-program {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  text-decoration: none;
+}
+
+.school-browse-program strong {
+  color: #111827;
+}
+
+.school-browse-program span {
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 .info-grid,
 .result-layout {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -235,6 +312,21 @@ h2 {
 .text-link {
   color: #6d28d9;
   font-weight: 600;
+}
+
+.empty-state {
+  display: grid;
+  gap: 16px;
+}
+
+.empty-state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.empty-state-actions .route-button {
+  min-width: 148px;
 }
 
 .metric-grid {
@@ -382,9 +474,19 @@ h2 {
   .submit-card,
   .page-head,
   .detail-header,
-  .failure-card__top {
+  .failure-card__top,
+  .school-browse-summary {
     flex-direction: column;
     align-items: start;
+  }
+
+  .empty-state-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .empty-state-actions .route-button {
+    width: 100%;
   }
 
   .hero-section {

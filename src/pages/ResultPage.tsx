@@ -14,12 +14,27 @@ export function ResultPage() {
   if (!program) {
     return (
       <main className="page narrow-page">
+        <PageRouteBar
+          actions={[
+            { label: '返回首页', to: routeLinks.home() },
+            { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
+          ]}
+        />
         <section className="card empty-state">
           <h1>暂时还没有找到这个目标</h1>
           <p>可以先返回首页看看已收录的真实案例，或者换一个更接近的学校和专业试试。</p>
-          <Link to={routeLinks.home()} className="text-link">
-            返回首页继续搜索
-          </Link>
+          <div className="empty-state-actions">
+            <Link to={routeLinks.home()} className="route-button route-button--primary">
+              返回首页继续搜索
+            </Link>
+            <Link to={routeLinks.home()} className="route-button">
+              浏览已收录目标
+            </Link>
+            <Link to={routeLinks.submit()} className="route-button">
+              去匿名投稿
+            </Link>
+          </div>
+          <p className="empty-state-note">如果你只是关键词没打准，先回首页从真实案例入口挑一个相近目标再搜一次。</p>
         </section>
       </main>
     )

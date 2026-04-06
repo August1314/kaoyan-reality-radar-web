@@ -137,5 +137,39 @@ export const programs: Program[] = [
     ],
     "summary": "控制科学与工程普通计划 14 个名额、复试名单 26 人，333 分只是最低拟录取分，327 分和 325 分仍然未能留下，说明这一方向同样会在复试中重新洗牌。",
     "sourceNote": "中山大学智能工程学院《2025年硕士研究生复试录取实施细则》（https://ise.sysu.edu.cn/article/1241，2025-03-17）、《2025年硕士研究生统考各专业招生计划》（https://ise.sysu.edu.cn/article/1016，2024-10-10）、《2025年硕士研究生招生复试结果（第一批）》（https://ise.sysu.edu.cn/article/1416，2025-03-27）交叉整理：081100 控制科学与工程复试线为总分 280，公开招考计划 14 人，复试名单 26 人，普通计划最低拟录取初试总分为 333。"
+  },
+  {
+    "id": "batch-005-program-1",
+    "school": "西南石油大学",
+    "major": "智能综合能源系统工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 7,
+    "retestCount": 16,
+    "retestLine": 260,
+    "lowestAdmittedScore": 290,
+    "riskTags": [
+      "复试刷人明显",
+      "同分段分化明显"
+    ],
+    "summary": "调剂志愿 16 人符合复试条件，最终 7 人进入拟录取或递补拟录取名单；343 分和 330 分没能留下，290 分却能进入录取序列，说明这个方向的复试重排非常明显。",
+    "sourceNote": "西南石油大学电气信息学院《2025年硕士研究生招生复试录取工作办法》（https://www.swpu.edu.cn/__local/4/11/1D/425C40CDB0B1A2FE43CB2772FCC_8B376D4B_B155F.pdf）、《2025年硕士研究生招生调剂工作实施细则》（https://www.swpu.edu.cn/__local/0/D8/51/D3B8ABF2E4D2BC34B695DF6F17A_910EE793_5E580.pdf）、《电气信息学院2025年硕士研究生招生调剂考生符合复试条件名单》（https://www.swpu.edu.cn/__local/B/41/C6/8CAF6E5E1E1F081EA29063D7B3B_D8D8DE80_2D6D3.pdf）、《电气信息学院2025年硕士研究生招生拟录取名单公示（调剂志愿）》（https://www.swpu.edu.cn/__local/F/94/6D/14B3233BB4E1A233EA1EBD9AC43_688B59F4_1759B.pdf）与《电气信息学院2025年硕士研究生招生递补录取名单公示（二）》（https://www.swpu.edu.cn/__local/8/A6/7E/ABC9DE52DF0B8A0ED0511FB6218_B06CF88A_1DC77.pdf）交叉整理：0811J5 智能综合能源系统工程复试线为 260，调剂计划 5 人，调剂复试条件名单共 16 人，拟录取/递补拟录取共 7 人，最低录取初试总分为 290。官方材料未公开报名人数。"
+  },
+  {
+    "id": "batch-005-program-2",
+    "school": "西南石油大学",
+    "major": "控制工程（非全日制）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 2,
+    "retestCount": 10,
+    "retestLine": 260,
+    "lowestAdmittedScore": 281,
+    "riskTags": [
+      "复试刷人明显",
+      "信息不透明"
+    ],
+    "summary": "调剂志愿 10 人符合复试条件，最终只有 2 人拟录取；328 分没有留下，281 分却能进拟录取，说明非全控制工程同样会被复试彻底重排。",
+    "sourceNote": "西南石油大学电气信息学院《2025年硕士研究生招生复试录取工作办法》（https://www.swpu.edu.cn/__local/4/11/1D/425C40CDB0B1A2FE43CB2772FCC_8B376D4B_B155F.pdf）、《电气信息学院2025年硕士研究生招生调剂考生符合复试条件名单》（https://www.swpu.edu.cn/__local/B/41/C6/8CAF6E5E1E1F081EA29063D7B3B_D8D8DE80_2D6D3.pdf）与《电气信息学院2025年硕士研究生招生拟录取名单公示（调剂志愿）》（https://www.swpu.edu.cn/__local/F/94/6D/14B3233BB4E1A233EA1EBD9AC43_688B59F4_1759B.pdf）交叉整理：085406 控制工程（非全日制）常规复试线为 260，调剂复试条件名单共 10 人，最终拟录取 2 人，最低录取初试总分为 281。官方材料未公开报名人数。"
   }
 ]
