@@ -589,5 +589,131 @@
     "retryChoice": "如果重来一次，要把调剂也当作竞争环境，而不是“补录机会”。",
     "advice": "只看进面不看最终名单，很容易高估自己在调剂里的安全边界。",
     "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-006-failure-1",
+    "programId": "batch-006-program-1",
+    "school": "中山大学",
+    "major": "集成电路工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "387 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "高分未稳录"
+    ],
+    "reminder": "387 分也没有保住拟录取，集成电路工程这一批不是高分就稳。",
+    "review": "中山大学电子与信息工程学院（微电子学院）2025 年集成电路工程第一批复试结果中，387 分考生进入复试但最终不录取；同一批次里 342 分已经可以进入拟录取，说明复试阶段会对初试排名做明显重排。",
+    "retryChoice": "如果重来一次，不能把重点只放在初试提分，还要把复试笔试和面试当成真正的第二轮筛选。",
+    "advice": "高分只能换来更好的起点，不能替代复试表现。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-006-failure-2",
+    "programId": "batch-006-program-1",
+    "school": "中山大学",
+    "major": "集成电路工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "371 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "同分段分化"
+    ],
+    "reminder": "371 分在这批里既能拟录取，也可能复试后直接掉队。",
+    "review": "集成电路工程第一批复试结果里，371 分样本同时出现拟录取与不录取：有考生以 371 分进入拟录取，也有 371 分考生最终不录取。这说明同分段内部的复试表现会直接改写结果。",
+    "retryChoice": "如果重来一次，不能把同分段默认当成安全区，要把复试表达、项目经历和临场状态一起拉起来。",
+    "advice": "真正决定去留的不是同分段里谁更早进场，而是谁在复试里拿到更高综合成绩。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-006-failure-3",
+    "programId": "batch-006-program-1",
+    "school": "中山大学",
+    "major": "集成电路工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "344 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "同分段分化"
+    ],
+    "reminder": "344 分并不只是边缘位，这个分数段同样出现了拟录取和不录取两种结果。",
+    "review": "集成电路工程第一批复试结果里，344 分考生同时出现拟录取和不录取样本；而最低拟录取初试分只有 342。这意味着靠近底线的分段也会被复试重新洗牌，不能只看有没有进面。",
+    "retryChoice": "如果重来一次，应该把目标从“过线”改成“过线后还能在复试里往前冲”。",
+    "advice": "边缘位不是保底位，复试表现差一点就会被同分段内部挤掉。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-006-failure-4",
+    "programId": "batch-006-program-2",
+    "school": "中山大学",
+    "major": "光电信息工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "379 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "高分未稳录"
+    ],
+    "reminder": "379 分都可能被刷，说明光电信息工程这一批的复试竞争远比分数线看起来激烈。",
+    "review": "中山大学电子与信息工程学院（微电子学院）2025 年光电信息工程第一批复试结果中，379 分考生进入复试但最终不录取；同一批次里 372 分已经能进入拟录取，说明复试阶段会明显改写初试顺序。",
+    "retryChoice": "如果重来一次，要把复试准备提前，而不是默认高分能自动跨过去。",
+    "advice": "初试领先并不等于录取领先，复试翻车会直接吞掉分差优势。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-006-failure-5",
+    "programId": "batch-006-program-2",
+    "school": "中山大学",
+    "major": "光电信息工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "377 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "中高分落榜"
+    ],
+    "reminder": "377 分进场后还是被刷，说明中高分段也没有天然安全垫。",
+    "review": "光电信息工程第一批复试结果里，377 分考生最终不录取；而 375 分、373 分、372 分都有人进入拟录取。这个结果说明中高分段同样会被复试重新排序。",
+    "retryChoice": "如果重来一次，不能只盯着分数相对位置，还要把复试成绩拉到能覆盖波动的程度。",
+    "advice": "看起来靠前的初试分，进入复试之后也可能瞬间失效。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-006-failure-6",
+    "programId": "batch-006-program-2",
+    "school": "中山大学",
+    "major": "光电信息工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "351 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "低分进场"
+    ],
+    "reminder": "351 分虽然能进第一批复试，但离真正录取线还差得很远。",
+    "review": "光电信息工程第一批复试名单里，351 分考生已经拿到复试资格，但第一批拟录取最低初试总分实际抬到 372。这个落差说明复试线只是进场线，不是录取安全线。",
+    "retryChoice": "如果重来一次，不能把过学院线理解成“已经有戏”，而要按实际拟录取区间重新判断胜率。",
+    "advice": "复试线和最终录取线之间经常隔着一大段距离，尤其是热门工科方向。",
+    "sourceType": "官方公示整理"
   }
 ]

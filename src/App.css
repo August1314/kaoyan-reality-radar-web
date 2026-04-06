@@ -275,6 +275,7 @@ h2 {
   border-radius: 14px;
   border: 1px solid #e5e7eb;
   background: #f8fafc;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -286,6 +287,48 @@ h2 {
   color: #4b5563;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.school-program-links {
+  display: grid;
+  gap: 16px;
+}
+
+.school-program-links__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.school-program-link {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  color: inherit;
+  text-decoration: none;
+}
+
+.school-program-link strong {
+  color: #111827;
+}
+
+.school-program-link span {
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.school-program-link--current {
+  border-color: #c4b5fd;
+  background: #ede9fe;
+}
+
+.school-program-link--current span {
+  color: #5b21b6;
+  font-weight: 600;
 }
 
 .info-grid,
@@ -466,7 +509,8 @@ h2 {
   .result-layout,
   .failure-list,
   .metric-grid,
-  .context-grid {
+  .context-grid,
+  .school-program-links__grid {
     grid-template-columns: 1fr;
   }
 

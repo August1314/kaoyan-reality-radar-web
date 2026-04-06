@@ -169,5 +169,39 @@
     ],
     "summary": "调剂志愿 10 人符合复试条件，最终只有 2 人拟录取；328 分没有留下，281 分却能进拟录取，说明非全控制工程同样会被复试彻底重排。",
     "sourceNote": "西南石油大学电气信息学院《2025年硕士研究生招生复试录取工作办法》（https://www.swpu.edu.cn/__local/4/11/1D/425C40CDB0B1A2FE43CB2772FCC_8B376D4B_B155F.pdf）、《电气信息学院2025年硕士研究生招生调剂考生符合复试条件名单》（https://www.swpu.edu.cn/__local/B/41/C6/8CAF6E5E1E1F081EA29063D7B3B_D8D8DE80_2D6D3.pdf）与《电气信息学院2025年硕士研究生招生拟录取名单公示（调剂志愿）》（https://www.swpu.edu.cn/__local/F/94/6D/14B3233BB4E1A233EA1EBD9AC43_688B59F4_1759B.pdf）交叉整理：085406 控制工程（非全日制）常规复试线为 260，调剂复试条件名单共 10 人，最终拟录取 2 人，最低录取初试总分为 281。官方材料未公开报名人数。"
+  },
+  {
+    "id": "batch-006-program-1",
+    "school": "中山大学",
+    "major": "集成电路工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 54,
+    "retestCount": 91,
+    "retestLine": 340,
+    "lowestAdmittedScore": 342,
+    "riskTags": [
+      "复试刷人明显",
+      "同分段分化明显"
+    ],
+    "summary": "公开招考计划 54 人，但第一批复试名单共有 91 人；387 分仍可能不录取，342 分却能进拟录取，344 分和 371 分同分段也同时出现拟录取与不录取，复试重排非常明显。",
+    "sourceNote": "中山大学电子与信息工程学院（微电子学院）《2025年硕士研究生复试录取实施细则》（https://seit.sysu.edu.cn/article/2746，2025-03-17）、附件1《电子与信息工程学院（微电子学院）2025年硕士研究生复试名单》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E9%99%84%E4%BB%B61%EF%BC%9A%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95%E5%90%8D%E5%8D%95.pdf）与《电子与信息工程学院（微电子学院）2025年硕士研究生招生复试结果（第一批）》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E6%8B%9B%E7%94%9F%E5%A4%8D%E8%AF%95%E7%BB%93%E6%9E%9C%EF%BC%88%E7%AC%AC%E4%B8%80%E6%89%B9%EF%BC%89.pdf）交叉整理：085403 集成电路工程公开招考计划 54 人，第一批复试名单 91 人，第一批拟录取 54 人，第一批最低拟录取初试总分为 342。官方材料未公开报名人数。"
+  },
+  {
+    "id": "batch-006-program-2",
+    "school": "中山大学",
+    "major": "光电信息工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 15,
+    "retestCount": 24,
+    "retestLine": 320,
+    "lowestAdmittedScore": 372,
+    "riskTags": [
+      "复试刷人明显",
+      "分数线抬升"
+    ],
+    "summary": "公开招考计划 15 人，但第一批复试名单共有 24 人；复试线虽然只有 320，真正进入拟录取的最低初试分已经抬到 372，379 分也可能被刷掉。",
+    "sourceNote": "中山大学电子与信息工程学院（微电子学院）《2025年硕士研究生复试录取实施细则》（https://seit.sysu.edu.cn/article/2746，2025-03-17）、附件1《电子与信息工程学院（微电子学院）2025年硕士研究生复试名单》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E9%99%84%E4%BB%B61%EF%BC%9A%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95%E5%90%8D%E5%8D%95.pdf）与《电子与信息工程学院（微电子学院）2025年硕士研究生招生复试结果（第一批）》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E6%8B%9B%E7%94%9F%E5%A4%8D%E8%AF%95%E7%BB%93%E6%9E%9C%EF%BC%88%E7%AC%AC%E4%B8%80%E6%89%B9%EF%BC%89.pdf）交叉整理：085408 光电信息工程公开招考计划 15 人，第一批复试名单 24 人，第一批拟录取 15 人，第一批最低拟录取初试总分为 372。官方材料未公开报名人数。"
   }
 ]

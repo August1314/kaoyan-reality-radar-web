@@ -5,6 +5,7 @@
 ## 当前范围
 - 首页搜索
 - 已收录目标浏览
+- 按学校浏览已收录目标
 - 结果页难度判断
 - 失败经验卡片
 - 失败经验详情页
@@ -18,7 +19,7 @@
 
 ## 当前状态
 - 已接入真实整理数据，并支持通过脚本同步发布态数据
-- 当前发布态已有 8 个 verified program、22 条 verified failure
+- 当前发布态已有 12 个 verified program、34 条 verified failure
 - 已完成首页搜索、目标判断、失败经验浏览、失败详情、匿名投稿说明等最小闭环
 - 投稿页已接入真实飞书表单
 - 已支持通过 GitHub Actions 自动触发 Vercel Preview / Production 部署
@@ -29,7 +30,7 @@
 - `data/processed/`：同步脚本生成的清洗中间数据
 - `src/data/`：前端直接使用的发布态静态数据
 - `scripts/sync-data.ts`：将 `verified` 状态的数据同步到 `data/processed/` 与 `src/data/`
-- 批次文件会持续追加，当前仓库里的数据以 `batch-001`、`batch-002`、`batch-003`、`batch-004` 等文件为主
+- 批次文件会持续追加，当前仓库里的数据以 `batch-001`、`batch-002`、`batch-003`、`batch-004`、`batch-005`、`batch-006` 等文件为主
 
 当前已知数据口径：
 - 只有 `status: "verified"` 的记录会进入发布态

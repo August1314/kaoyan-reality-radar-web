@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { FailureCard } from '../components/FailureCard'
 import { PageRouteBar } from '../components/PageRouteBar'
+import { SchoolProgramLinks } from '../components/SchoolProgramLinks'
 import { RadarCard } from '../components/RadarCard'
 import { ResultContextCard } from '../components/ResultContextCard'
 import { RiskTagList } from '../components/RiskTagList'
@@ -60,6 +61,8 @@ export function ResultPage() {
       </section>
 
       <ResultContextCard program={program} />
+
+      <SchoolProgramLinks currentProgramId={program.id} school={program.school} />
 
       <section className="result-layout">
         <RadarCard program={program} />
