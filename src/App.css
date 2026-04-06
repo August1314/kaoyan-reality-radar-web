@@ -102,6 +102,8 @@ h2 {
 .hero-copy,
 .section-head p,
 .source-note,
+.context-note,
+.context-missing__empty,
 .meta-line,
 .detail-body p,
 .submit-card p,
@@ -279,6 +281,52 @@ h2 {
   background: #f8fafc;
 }
 
+.result-context-card {
+  display: grid;
+  gap: 16px;
+}
+
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.context-item {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.context-item span,
+.context-missing__label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.context-item strong {
+  color: #111827;
+}
+
+.context-note {
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+  line-height: 1.7;
+}
+
+.context-missing {
+  display: grid;
+  gap: 12px;
+}
+
+.context-tags {
+  margin-top: 0;
+}
+
 .failure-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -325,7 +373,8 @@ h2 {
   .info-grid,
   .result-layout,
   .failure-list,
-  .metric-grid {
+  .metric-grid,
+  .context-grid {
     grid-template-columns: 1fr;
   }
 

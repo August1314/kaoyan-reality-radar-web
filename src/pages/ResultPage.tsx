@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { FailureCard } from '../components/FailureCard'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { RadarCard } from '../components/RadarCard'
+import { ResultContextCard } from '../components/ResultContextCard'
 import { RiskTagList } from '../components/RiskTagList'
 import { routeLinks } from '../lib/routes'
 import { findProgramBySlug, searchProgram } from '../lib/search'
@@ -40,7 +41,10 @@ export function ResultPage() {
           {program.school} · {program.major}
         </h1>
         <p className="hero-copy">先看难度，再看失败路径，避免只看上岸叙事。</p>
+        <p className="meta-line">本页基于 {program.year} 年官方公开材料整理。</p>
       </section>
+
+      <ResultContextCard program={program} />
 
       <section className="result-layout">
         <RadarCard program={program} />

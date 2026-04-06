@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useMemo, useState } from 'react'
 import { PageRouteBar } from '../components/PageRouteBar'
+import { ProgramBrowseGrid } from '../components/ProgramBrowseGrid'
 import { programs } from '../data/programs'
 import { routeLinks } from '../lib/routes'
 import { buildProgramSlug, searchProgram } from '../lib/search'
@@ -89,6 +90,14 @@ export function HomePage() {
             </button>
           ))}
         </div>
+      </section>
+
+      <section className="card">
+        <div className="section-head">
+          <h2>已收录目标浏览入口</h2>
+          <p>不想输入关键词时，直接从站内已收录目标里挑一个看。</p>
+        </div>
+        <ProgramBrowseGrid />
       </section>
 
       <section className="card submit-card">

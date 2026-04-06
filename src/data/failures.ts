@@ -339,5 +339,131 @@ export const failures: FailureExperience[] = [
     "retryChoice": "如果重来一次，不应把目标停留在“高于复试线二十来分就够”，而要把初试目标继续抬高，并尽早把复试材料、项目细节和面试问答准备到位。",
     "advice": "看热门 AI 专硕时，复试线只是起跑线，不是安全线。先看进复试人数和公开招考计划差了多少，再判断自己是不是处在最容易被挤掉的边缘位。",
     "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-004-failure-1",
+    "programId": "batch-004-program-1",
+    "school": "中山大学",
+    "major": "电子信息",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "351 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "同分段分化"
+    ],
+    "reminder": "351 分在这个方向里并不稳，同分段既有拟录取，也有未录取。",
+    "review": "根据智能工程学院 2025 年硕士研究生招生复试结果（第一批），电子信息方向里既有 351 分拟录取样本，也有 351 分未拟录取样本。对考生来说，这说明 351 分不是安全分，而只是把人送进复试洗牌池。",
+    "retryChoice": "如果重来一次，不能把目标卡在 351 左右，而要继续抬高初试分数，同时把项目表达和面试准备前置。",
+    "advice": "只看进复试名单是不够的，同分段里有没有分化，才是判断风险的关键。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-004-failure-2",
+    "programId": "batch-004-program-1",
+    "school": "中山大学",
+    "major": "电子信息",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "357 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "边缘位风险"
+    ],
+    "reminder": "357 分也没有形成录取安全垫，依然可能被后面的复试排序挤出去。",
+    "review": "第一批结果公示里，357 分的杨嘉豪未进入拟录取名单，而同方向的 355 分、351 分和 339 分又分别出现在拟录取行列中。这说明在电子信息方向，边缘位不是自然安全区。",
+    "retryChoice": "如果重来一次，应该把目标从“差不多够用”改成“留出明显安全垫”。",
+    "advice": "高竞争方向里，分数越接近边缘，越不能默认自己稳了。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-004-failure-3",
+    "programId": "batch-004-program-1",
+    "school": "中山大学",
+    "major": "电子信息",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "343 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "中低分落榜"
+    ],
+    "reminder": "343 分进入复试仍然没有留下，说明这个方向对中低分段同样不宽松。",
+    "review": "电子信息方向的第一批结果里，343 分的王秦宇出现在未拟录取行列。这与同方向更高分但未录取的样本一起说明，复试阶段并不是简单按初试分排序，综合表现会重排。",
+    "retryChoice": "如果重来一次，不要只在初试上补分，也要把复试口头表达和项目经历打磨到能和高分段竞争的程度。",
+    "advice": "碰到热门工科专硕时，低于安全线附近的分数不要抱侥幸，复试会继续筛人。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-004-failure-4",
+    "programId": "batch-004-program-2",
+    "school": "中山大学",
+    "major": "控制科学与工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "327 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "踩线后失利"
+    ],
+    "reminder": "327 分在控制科学与工程里仍然没能守住名额，踩线后并不安全。",
+    "review": "控制科学与工程方向第一批复试结果中，327 分的郭烨年未被拟录取。这个分段已经低于最终最低拟录取分，说明复试前的初试优势不足以抵消后续排序压力。",
+    "retryChoice": "如果重来一次，应把初试目标往更高的安全区抬，不要寄希望于复试临场补回来。",
+    "advice": "控制类方向看似分数线不高，但低位进面依然有明显被刷风险。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-004-failure-5",
+    "programId": "batch-004-program-2",
+    "school": "中山大学",
+    "major": "控制科学与工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "325 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "边缘位风险"
+    ],
+    "reminder": "325 分也没有留在拟录取名单里，边缘位压力很直接。",
+    "review": "在控制科学与工程方向的第一批结果里，325 分的陈书洋未被拟录取。与 333 分最低拟录取线对照，这意味着 325 分还差一个稳定的安全垫。",
+    "retryChoice": "如果重来一次，不应把目标设为刚过线，而要给自己留出更大的初试优势。",
+    "advice": "看到控制类方向的复试名单时，别只看能不能进面，要看进面后的边缘位淘汰强度。",
+    "sourceType": "官方公示整理"
+  },
+  {
+    "id": "batch-004-failure-6",
+    "programId": "batch-004-program-2",
+    "school": "中山大学",
+    "major": "控制科学与工程",
+    "year": 2025,
+    "attempt": "未知",
+    "scoreRange": "335 分",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "复试淘汰",
+      "同分段挤压"
+    ],
+    "reminder": "335 分没有直接换来拟录取，说明同分段挤压和综合排序都会影响去留。",
+    "review": "控制科学与工程方向第一批结果里，335 分的姜广玉未被拟录取；而同方向 333 分、336 分、338 分又出现在拟录取区间附近。这说明控制类方向的边缘分段竞争并不松。",
+    "retryChoice": "如果重来一次，要把复试表现和项目沟通当成和初试一样重要的事情。",
+    "advice": "边缘分段最容易吃亏的不是‘差一点’，而是‘没有把复试优势讲出来’。",
+    "sourceType": "官方公示整理"
   }
 ]
