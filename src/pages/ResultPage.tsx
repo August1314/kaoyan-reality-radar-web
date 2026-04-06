@@ -1,7 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
 import { FailureCard } from '../components/FailureCard'
+import { PageRouteBar } from '../components/PageRouteBar'
 import { RadarCard } from '../components/RadarCard'
 import { RiskTagList } from '../components/RiskTagList'
+import { routeLinks } from '../lib/routes'
 import { findProgramBySlug, searchProgram } from '../lib/search'
 
 export function ResultPage() {
@@ -14,7 +16,7 @@ export function ResultPage() {
         <section className="card empty-state">
           <h1>暂时还没有找到这个目标</h1>
           <p>可以先返回首页看看已收录的真实案例，或者换一个更接近的学校和专业试试。</p>
-          <Link to="/" className="text-link">
+          <Link to={routeLinks.home()} className="text-link">
             返回首页继续搜索
           </Link>
         </section>
@@ -26,6 +28,12 @@ export function ResultPage() {
 
   return (
     <main className="page result-page">
+      <PageRouteBar
+        actions={[
+          { label: '返回首页', to: routeLinks.home() },
+          { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
+        ]}
+      />
       <section className="card page-head">
         <p className="eyebrow">目标判断</p>
         <h1>
@@ -61,7 +69,7 @@ export function ResultPage() {
           <h2>你也经历过类似失败？</h2>
           <p>匿名补充一条真实经历，会让后来的人少踩一次坑。</p>
         </div>
-        <Link to="/submit" className="text-link">
+        <Link to={routeLinks.submit()} className="text-link">
           去投稿
         </Link>
       </section>

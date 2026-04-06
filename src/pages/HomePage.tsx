@@ -1,6 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useMemo, useState } from 'react'
+import { PageRouteBar } from '../components/PageRouteBar'
 import { programs } from '../data/programs'
+import { routeLinks } from '../lib/routes'
 import { buildProgramSlug, searchProgram } from '../lib/search'
 
 export function HomePage() {
@@ -20,7 +22,7 @@ export function HomePage() {
       return
     }
 
-    navigate(`/result/${encodeURIComponent(buildProgramSlug(result.program))}`)
+    navigate(routeLinks.result(buildProgramSlug(result.program)))
   }
 
   const handleExampleClick = (exampleSchool: string, exampleMajor: string) => {
@@ -29,12 +31,18 @@ export function HomePage() {
     const result = searchProgram({ school: exampleSchool, major: exampleMajor })
 
     if (result.program) {
-      navigate(`/result/${encodeURIComponent(buildProgramSlug(result.program))}`)
+      navigate(routeLinks.result(buildProgramSlug(result.program)))
     }
   }
 
   return (
     <main className="page home-page">
+      <PageRouteBar
+        actions={[
+          { label: '首页', to: routeLinks.home() },
+          { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
+        ]}
+      />
       <section className="hero-section card">
         <h1>考研现实雷达</h1>
         <p className="hero-copy">查难度，也看别人怎么失败。</p>
@@ -87,7 +95,7 @@ export function HomePage() {
         <div>
           <h2>我也想匿名补充失败经验</h2>
         </div>
-        <Link to="/submit" className="text-link">
+        <Link to={routeLinks.submit()} className="text-link">
           去看投稿说明
         </Link>
       </section>

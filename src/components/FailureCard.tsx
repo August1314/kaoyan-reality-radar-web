@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { routeLinks } from '../lib/routes'
 import type { FailureExperience } from '../lib/types'
 
 interface FailureCardProps {
@@ -22,7 +23,7 @@ export function FailureCard({ failure }: FailureCardProps) {
         ))}
       </ul>
       <p>{failure.reminder}</p>
-      <Link to={`/failure/${failure.id}`} className="text-link">
+      <Link to={routeLinks.failure(failure.id)} className="text-link">
         查看详情
       </Link>
     </article>

@@ -1,5 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
-import { findFailureById, findRelatedFailures } from '../lib/search'
+import { PageRouteBar } from '../components/PageRouteBar'
+import { routeLinks } from '../lib/routes'
+import { buildProgramSlug, findFailureById, findProgramById, findRelatedFailures } from '../lib/search'
 
 export function FailureDetailPage() {
   const { id = '' } = useParams()
@@ -10,7 +12,7 @@ export function FailureDetailPage() {
       <main className="page narrow-page">
         <section className="card empty-state">
           <h1>这条失败经验不存在</h1>
-          <Link to="/" className="text-link">
+          <Link to={routeLinks.home()} className="text-link">
             返回首页
           </Link>
         </section>
@@ -19,9 +21,16 @@ export function FailureDetailPage() {
   }
 
   const related = findRelatedFailures(failure.programId, failure.id)
+  const program = findProgramById(failure.programId)
+  const actions = [
+    { label: '返回首页', to: routeLinks.home() },
+    ...(program ? [{ label: '回到结果页', to: routeLinks.result(buildProgramSlug(program)) }] : []),
+    { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' as const },
+  ]
 
   return (
     <main className="page narrow-page">
+      <PageRouteBar actions={actions} />
       <section className="card detail-header">
         <p className="eyebrow">失败经验详情</p>
         <h1>
@@ -48,7 +57,7 @@ export function FailureDetailPage() {
         </div>
         <div className="related-list">
           {related.map((item) => (
-            <Link key={item.id} to={`/failure/${item.id}`} className="related-item">
+            <Link key={item.id} to={routeLinks.failure(item.id)} className="related-item">
               <strong>{item.reminder}</strong>
               <span>
                 {item.failureStage} · {item.finalResult}

@@ -1,6 +1,15 @@
+import { PageRouteBar } from '../components/PageRouteBar'
+import { routeLinks } from '../lib/routes'
+
 export function SubmitPage() {
   return (
     <main className="page narrow-page">
+      <PageRouteBar
+        actions={[
+          { label: '返回首页', to: routeLinks.home() },
+          { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
+        ]}
+      />
       <section className="card detail-body">
         <p className="eyebrow">投稿页</p>
         <h1>匿名补充失败经验</h1>
