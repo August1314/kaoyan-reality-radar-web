@@ -1,0 +1,62 @@
+[
+  {
+    "id": "batch-007-program-1",
+    "school": "南方医科大学",
+    "major": "口腔医学（专硕）",
+    "year": 2025,
+    "status": "verified",
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 335,
+    "lowestAdmittedScore": null,
+    "riskTags": ["分数线抬升", "信息不透明"],
+    "summary": "口腔专硕2025年复试线335分（较2024年上涨），排名约105名。统考录取名额约53人（比2024年64人减少约10人）。",
+    "sourceNote": "来源1：抖音(2025-03-13)「25考研南方医科大学复试线口腔专硕335分，335排105名左右，1:2进技能考核约53名额，比去年64少十个」。来源2：知乎历史数据-2023年口腔医学统考录取75人。来源3：大学生必备网-2025年口腔专硕复试线335分。"
+  },
+  {
+    "id": "batch-007-program-2",
+    "school": "南方医科大学",
+    "major": "口腔医学（学硕）",
+    "year": 2025,
+    "status": "verified",
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": ["信息不透明"],
+    "summary": "口腔学硕2025年具体招生数据官网未公开详细名单，报名人数和录取人数均未知。",
+    "sourceNote": "南方医科大学研究生院官网2025年招生专业目录未公布口腔学硕具体统考招生人数，需进一步查询各附属医院公示信息。"
+  },
+  {
+    "id": "batch-007-program-3",
+    "school": "中山大学",
+    "major": "口腔医学（光华口腔医学院）-学硕",
+    "year": 2025,
+    "status": "verified",
+    "applicants": null,
+    "admitted": 8,
+    "retestCount": null,
+    "retestLine": 320,
+    "lowestAdmittedScore": null,
+    "riskTags": ["信息不透明"],
+    "summary": "光华口腔医学院口腔医学（学硕）2025年总计划16人，其中推免8人，公开招生8人（含退役大学生士兵计划1人），复试线320分。招生人数较少，竞争有一定难度。",
+    "sourceNote": "中山大学光华口腔医学院2025年硕士研究生复试录取实施细则（2025-03-18）：100300口腔医学总计划16人，已招推免生8人，公开招生计划8人（含退役大学生士兵计划1人），复试分数线320分（政治55/外语55/业务课180）。来源：中山大学附属口腔医院官网(zdkqyy.com)"
+  },
+  {
+    "id": "batch-007-program-4",
+    "school": "中山大学",
+    "major": "口腔医学（光华口腔医学院）-专硕",
+    "year": 2025,
+    "status": "verified",
+    "applicants": null,
+    "admitted": 22,
+    "retestCount": null,
+    "retestLine": 355,
+    "lowestAdmittedScore": null,
+    "riskTags": ["分数线抬升", "信息不透明"],
+    "summary": "光华口腔医学院口腔医学（专硕）2025年总计划89人，其中推免67人，公开招生22人（含少干计划1人+退役大学生士兵计划1人），复试线355分。推免占比高达75%，统考竞争激烈。",
+    "sourceNote": "中山大学光华口腔医学院2025年硕士研究生复试录取实施细则（2025-03-18）：105200口腔医学总计划89人，已招推免生67人，公开招生计划22人（含少数民族高层次骨干人才计划1人、退役大学生士兵计划1人），复试分数线355分（政治55/外语55/业务课200）。来源：中山大学附属口腔医院官网(zdkqyy.com)"
+  }
+]
