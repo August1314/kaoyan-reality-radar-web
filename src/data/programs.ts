@@ -537,5 +537,140 @@ export const programs: Program[] = [
     ],
     "summary": "吉林大学白求恩口腔医学院2025年口腔医学专硕复试线：总分346分，政治55分，外语55分，专业课180分。吉大口腔专硕分数线高于校线（校线335分）。2024年专硕院线366分，拟录取48人（统考44人，最高422分最低371分）。",
     "sourceNote": "来源：吉林大学白求恩口腔医学院官网(2025-03-18)「2025年硕士研究生复试录取实施细则-专硕总分346」。补充：知乎经验帖「2024年吉大口腔专硕院线366分，拟录取48人」。"
+  },
+  {
+    "id": "batch-012-program-1",
+    "school": "清华大学",
+    "major": "电子信息（电子与通信工程）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 325,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "复试刷人明显"
+    ],
+    "summary": "清华大学2025年电子信息专硕复试线：政治50、外语40、业务课一80、业务课二70、总分325分。2024年电子信息电子与通信工程复试线365分，一志愿进复试46人，实际录取29人，最高分429，最低分365，录取平均分约390+。",
+    "sourceNote": "来源：清华大学官网(2025-03-13)「2025年硕士研究生招生复试基本分数线-电子信息325分」。补充：搜狐(2024-11-22)「2024清华电子信息复试线365分，46人进复试录取29人」。"
+  },
+  {
+    "id": "batch-012-program-2",
+    "school": "北京大学",
+    "major": "电子信息（软件工程/人工智能）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 357,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "北京大学软件与微电子学院2025年电子信息（软件工程、人工智能、网络与信息安全）复试线：政治50、外语50、业务课三90、业务课四90、总分357分。集成电路工程复试线350分，金融科技复试线353分。",
+    "sourceNote": "来源：掌上考研(2025-03-15)「北京大学软件与微电子学院2025年硕士研究生招生复试分数线-电子信息357分」。"
+  },
+  {
+    "id": "batch-012-program-3",
+    "school": "北京大学",
+    "major": "电子科学与技术（学硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "北京大学电子学院2025年电子科学与技术学硕复试线：政治50、外语50、业务课一90、业务课二90、总分300分。电子学院采用线下复试方式，硕士复试面试时间一般不少于20分钟。",
+    "sourceNote": "来源：北京大学电子学院官网(2025-03-18)「电子学院2025年硕士统考复试安排-总分300分」。"
+  },
+  {
+    "id": "batch-012-program-4",
+    "school": "复旦大学",
+    "major": "信息与通信工程（学硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "复旦大学2025年工学学硕复试线：单科50分、业务课75分、总分300分。信息与通信工程历年分数线：2024年320分、2023年320分、2022年345分。复试采用现场复试方式。",
+    "sourceNote": "来源：希赛网(2025-03-13)「2025年复旦大学考研复试分数线-工学300分」。补充：搜狐(2024-04-28)「复旦信息与通信工程历年分数线」。"
+  },
+  {
+    "id": "batch-012-program-5",
+    "school": "上海交通大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "上海交通大学2025年电子信息专硕复试线：总分300分。上交大电子信息专业分数线相对稳定，与工学分数线一致。",
+    "sourceNote": "来源：今日头条(2025-03-13)「2025年复试分数线-上交大电子信息300分」。"
+  },
+  {
+    "id": "batch-012-program-6",
+    "school": "南京大学",
+    "major": "电子信息（通信工程）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 373,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升",
+      "复试刷人明显"
+    ],
+    "summary": "南京大学电子科学与工程学院2025年通信工程专硕复试线：政治55、外语55、业务课85、总分373分，竞争白热化。集成电路工程专硕复试线315分，统考名额37人仅34人上线。调剂政策严格，仅开放南疆高校教师专项调剂。",
+    "sourceNote": "来源：搜狐(2025-04-04)「2025年南京大学电子科学与工程学院考研复试分数线-通信工程专硕373分」。"
+  },
+  {
+    "id": "batch-012-program-7",
+    "school": "中国科学技术大学",
+    "major": "电子信息（电子与通信工程）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "中国科学技术大学电子工程与信息科学系2025年电子信息（电子与通信工程）复试线：政治50、英语50、数学70、专业课70、总分300分。信息与通信工程学硕复试线310分。复试成绩低于60分为不合格，不予录取。",
+    "sourceNote": "来源：中科大电子工程与信息科学系官网(2025-03-17)「2025年硕士研究生招生复试办法-电子信息300分」。"
+  },
+  {
+    "id": "batch-012-program-8",
+    "school": "哈尔滨工业大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "哈尔滨工业大学2025年电子信息专硕复试线：政治50、外语42、业务课一70、业务课二70、总分300分。哈工大为34所自划线院校，校复试基本线是最低复试分数要求，各学科可根据生源实际情况确定本学科的复试资格线。",
+    "sourceNote": "来源：武汉文都(2025-03-13)「哈尔滨工业大学2025考研复试基本分数线-电子信息300分」。"
+  },
+  {
+    "id": "batch-012-program-9",
+    "school": "西安交通大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 320,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "西安交通大学2025年工学复试线：总分320分。信息与通信工程学院有非全日制调剂名额。退役大学生士兵计划复试线：报考全日制单科降5分总分降10分，报考非全日制单科降10分总分降10分。",
+    "sourceNote": "来源：今日头条(2025-03-13)「2025年复试分数线-西交大工学320分」。补充：西交大信息与通信工程学院官网(2025-04-11)「调剂复试拟录取名单公示」。"
   }
 ]
