@@ -5,10 +5,12 @@ import { FailureDetailPage } from './pages/FailureDetailPage'
 import { HomePage } from './pages/HomePage'
 import { ResultPage } from './pages/ResultPage'
 import { SubmitPage } from './pages/SubmitPage'
+import { ScrollToTop } from './components/ScrollToTop'
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path={routePaths.home} element={<HomePage />} />
         <Route path={routePaths.result} element={<ResultPage />} />
