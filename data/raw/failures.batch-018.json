@@ -1,0 +1,21 @@
+[
+  {
+    "id": "failure-batch-018-001",
+    "programId": "batch-018-program-3",
+    "school": "浙江大学",
+    "major": "软件工程",
+    "year": 2024,
+    "attempt": "一战",
+    "scoreRange": "340-350",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": ["未过复试线"],
+    "reminder": "浙大软件工程2024年复试线较高，初试需充分准备",
+    "review": "浙江大学软件学院软件工程专业竞争激烈，2025年A线351分、B线349分。浙大软件工程学科评估A+，是国内顶尖软件学院，报考人数多，分数线持续走高。",
+    "retryChoice": "如果重来，会提高数学和专业课成绩，争取初试360分以上",
+    "advice": "浙大软件工程分数线较高，建议：1.数学目标120分以上；2.专业课（数据结构、操作系统等）扎实掌握；3.关注浙大软件学院官网复试通知；4.初试目标比复试线高20分以上。",
+    "sourceType": "公开整理-浙大软件学院官网",
+    "status": "verified"
+  }
+]
