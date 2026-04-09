@@ -1,0 +1,21 @@
+[
+  {
+    "id": "failure-batch-016-001",
+    "programId": "batch-016-program-3",
+    "school": "西安交通大学",
+    "major": "计算机科学与技术",
+    "year": 2024,
+    "attempt": "一战",
+    "scoreRange": "360-370",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": ["复试淘汰", "机试不合格"],
+    "reminder": "西交计算机复试机试不合格直接淘汰",
+    "review": "西安交通大学计算机学院复试含笔试、机试、面试三部分。机试卷面满分120分，合格线60分，不合格直接淘汰。CCF CSP认证350分以上可免机试。机试主要考察编程能力，C/C++/Java任选。",
+    "retryChoice": "如果重来，会提前刷题准备机试，或考取CCF CSP 350分以上免机试",
+    "advice": "西交计算机复试机试很重要，占复试成绩25%。建议：1.提前刷LeetCode/力扣；2.熟悉C/C++/Java语法；3.考取CCF CSP认证（350分以上免机试）；4.笔试两门科目均需60分以上；5.面试准备项目经历和专业知识。",
+    "sourceType": "公开整理-西交计算机学院官网",
+    "status": "verified"
+  }
+]

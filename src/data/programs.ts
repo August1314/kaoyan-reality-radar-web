@@ -879,5 +879,63 @@ export const programs: Program[] = [
     ],
     "summary": "上海交通大学2025年电气工程复试线435分，逐年上升。交大电气学科实力强，分数线持续走高。",
     "sourceNote": "来源：搜狐(2025-04-02)「上交电气2025复试线435分」。"
+  },
+  {
+    "id": "batch-016-program-1",
+    "school": "南京大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 10,
+    "retestCount": 12,
+    "retestLine": 357,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "南京大学智能科学与技术学院2025年计算机科学与技术学硕复试线357分（政治50/外语50/业务课75/业务课75）。统考名额10人，复试12人，复录比1.2:1。不接受破格及调剂申请。复试含机试+笔试+面试，总成绩=初试+复试。",
+    "sourceNote": "来源：鸿知考研网(2025-04-02)「复试线357分，10人名额12人复试」。补充：南大人工智能学院官网(2025-03-19)「复录比1:1.2」。"
+  },
+  {
+    "id": "batch-016-program-2",
+    "school": "中国科学技术大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "中国科学技术大学2025年工学门类复试基本线300分（政治45/外语45/业务课一70/业务课二70）。计算机应用技术科学岛分院复试线300分（较2024年310分降10分）。各院系可在基本线基础上自行划定复试资格线。",
+    "sourceNote": "来源：希赛网(2025-03-13)「工学基本线300分」。补充：考研营(2025-05-29)「计算机应用技术300分」。"
+  },
+  {
+    "id": "batch-016-program-3",
+    "school": "西安交通大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 365,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "西安交通大学计算机科学与技术学院2025年计算机科学与技术学硕复试线365分（政治50/外语50/业务课一90/业务课二90），专硕计算机技术375分。复试含笔试+机试+面试，CCF CSP认证350分以上可免机试。复试成绩=笔试25%+机试25%+面试50%。",
+    "sourceNote": "来源：西交计算机学院官网(2025-03-18)「学硕365分，专硕375分」。"
+  },
+  {
+    "id": "batch-016-program-4",
+    "school": "复旦大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "复旦大学2025年计算机科学与技术分数线未单独公布，按学校基本线执行。复旦计算机学科评估A-，竞争激烈。建议关注复旦计算机学院官网复试通知。",
+    "sourceNote": "来源：复旦大学官网(2025-03-13)「复试基本分数线公布」。"
   }
 ]
