@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .vercel
 .tmp/
+
+# 本地开发文档（不上传）
+docs/
+*.dev.md
