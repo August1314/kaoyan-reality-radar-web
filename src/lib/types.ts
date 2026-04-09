@@ -5,6 +5,7 @@ export type RiskTag =
   | '调剂机会少'
   | '信息不透明'
   | '同分段分化明显'
+  | '中分段仍有风险'
 
 export type FailureStage = '初试前' | '初试后' | '复试前' | '复试中' | '调剂阶段'
 
