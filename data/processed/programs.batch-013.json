@@ -1,0 +1,50 @@
+[
+  {
+    "id": "batch-013-program-1",
+    "school": "浙江大学",
+    "major": "信息与通信工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "浙江大学2025年工学门类基本分数线300分（政治50/外语50/业务课一75/业务课二75/总分300）。各院系可在此基础上自行划定，信息与电子工程学院可能划定更高分数线。考数学一、英语一、信号与系统与数字电路。",
+    "sourceNote": "来源：浙江大学研究生院官网(2025-03-12)「2025年硕士研究生招生考试复试分数线基本要求-工学总分300分」。"
+  },
+  {
+    "id": "batch-013-program-2",
+    "school": "浙江大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "浙江大学2025年工学专硕基本分数线300分（政治50/外语50/业务课一75/业务课二75/总分300）。计算机科学与技术学院2025届拟录取推免生192人。初复试占比约6.5:3.5或7:3，复试足以改变结果。",
+    "sourceNote": "来源：浙江大学研究生院官网(2025-03-12)「工学专硕基本线300分」。补充：高顿教育(2025-01-22)「计算机学院拟录取推免生192人」。"
+  },
+  {
+    "id": "batch-013-program-3",
+    "school": "浙江大学",
+    "major": "电子科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "浙江大学2025年工学门类基本分数线300分（政治50/外语50/业务课一75/业务课二75/总分300）。电子科学与技术学硕考数学一、英语一、电子技术基础。",
+    "sourceNote": "来源：浙江大学研究生院官网(2025-03-12)「工学门类基本线300分」。"
+  }
+]
