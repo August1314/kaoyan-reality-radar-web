@@ -10,25 +10,32 @@ export function HomePage() {
   const navigate = useNavigate()
   const [school, setSchool] = useState('')
   const [major, setMajor] = useState('')
-  const [showEmptyHint, setShowEmptyHint] = useState(false)
+  const [hintMessage, setHintMessage] = useState('')
 
   const examples = useMemo(() => programs.slice(0, 3), [])
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const result = searchProgram({ school, major })
-    if (!result.program) {
-      setShowEmptyHint(true)
+    if (!school.trim() && !major.trim()) {
+      setHintMessage('请至少输入学校或专业中的一项，再开始判断。')
       return
     }
 
+    const result = searchProgram({ school, major })
+    if (!result.program) {
+      setHintMessage('暂时没匹配到结果。你也可以先看看下面这些真实案例，快速感受不同目标的难度差异。')
+      return
+    }
+
+    setHintMessage('')
     navigate(routeLinks.result(buildProgramSlug(result.program)))
   }
 
   const handleExampleClick = (exampleSchool: string, exampleMajor: string) => {
     setSchool(exampleSchool)
     setMajor(exampleMajor)
+    setHintMessage('')
     const result = searchProgram({ school: exampleSchool, major: exampleMajor })
 
     if (result.program) {
@@ -66,9 +73,7 @@ export function HomePage() {
           </label>
           <button type="submit">开始判断</button>
         </form>
-        {showEmptyHint ? (
-          <p className="hint danger">暂时没匹配到结果。你也可以先看看下面这些真实案例，快速感受不同目标的难度差异。</p>
-        ) : null}
+        {hintMessage ? <p className="hint danger">{hintMessage}</p> : null}
       </section>
 
       <section className="card">

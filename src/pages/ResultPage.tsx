@@ -77,7 +77,7 @@ export function ResultPage() {
       <section className="card">
         <div className="section-head">
           <h2>失败经验</h2>
-          <p>这些都是真实样本，先看共性问题，再点进去看完整复盘。</p>
+          <p>样本可能来自官方公示整理、名单推导或匿名投稿；先看来源口径，再点进去看完整复盘。</p>
         </div>
         <div className="failure-list">
           {result.failures.map((item) => (

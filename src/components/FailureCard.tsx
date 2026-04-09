@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { formatFailureSourceLabel } from '../lib/format'
 import { routeLinks } from '../lib/routes'
 import type { FailureExperience } from '../lib/types'
 
@@ -23,6 +24,7 @@ export function FailureCard({ failure }: FailureCardProps) {
         ))}
       </ul>
       <p>{failure.reminder}</p>
+      <p className="failure-source">{formatFailureSourceLabel(failure.sourceType)}</p>
       <Link to={routeLinks.failure(failure.id)} className="text-link">
         查看详情
       </Link>

@@ -15,7 +15,7 @@ export interface SearchResult {
 }
 
 export function buildProgramSlug(program: Program) {
-  return `${program.school}-${program.major}`
+  return `${program.school}-${program.major}-${program.year}`
 }
 
 export function findProgramBySlug(slug: string) {
@@ -30,10 +30,14 @@ export function searchProgram({ school, major }: SearchInput): SearchResult {
   const schoolKey = normalize(school)
   const majorKey = normalize(major)
 
+  if (!schoolKey && !majorKey) {
+    return { program: null, failures: [] }
+  }
+
   const program =
     programs.find((item) => {
-      const schoolMatched = normalize(item.school).includes(schoolKey)
-      const majorMatched = normalize(item.major).includes(majorKey)
+      const schoolMatched = schoolKey ? normalize(item.school).includes(schoolKey) : true
+      const majorMatched = majorKey ? normalize(item.major).includes(majorKey) : true
       return schoolMatched && majorMatched
     }) ?? null
 

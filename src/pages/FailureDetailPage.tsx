@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { PageRouteBar } from '../components/PageRouteBar'
+import { formatFailureSourceNote } from '../lib/format'
 import { routeLinks } from '../lib/routes'
 import { buildProgramSlug, findFailureById, findProgramById, findRelatedFailures } from '../lib/search'
 
@@ -42,6 +43,7 @@ export function FailureDetailPage() {
       </section>
 
       <section className="card detail-body">
+        <p className="detail-source-note">{formatFailureSourceNote(failure.sourceType)}</p>
         <h2>失败路径</h2>
         <p>{failure.review}</p>
         <h2>如果重来一次</h2>

@@ -482,6 +482,11 @@ h2 {
   gap: 12px;
 }
 
+.failure-source {
+  font-size: 14px;
+  color: #6b7280;
+}
+
 .empty-state {
   display: grid;
   gap: 12px;
@@ -490,6 +495,15 @@ h2 {
 .detail-body {
   display: grid;
   gap: 16px;
+}
+
+.detail-source-note {
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #4b5563;
+  line-height: 1.7;
 }
 
 .related-list {

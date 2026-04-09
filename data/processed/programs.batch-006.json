@@ -32,5 +32,22 @@
     ],
     "summary": "公开招考计划 15 人，但第一批复试名单共有 24 人；复试线虽然只有 320，真正进入拟录取的最低初试分已经抬到 372，379 分也可能被刷掉。",
     "sourceNote": "中山大学电子与信息工程学院（微电子学院）《2025年硕士研究生复试录取实施细则》（https://seit.sysu.edu.cn/article/2746，2025-03-17）、附件1《电子与信息工程学院（微电子学院）2025年硕士研究生复试名单》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E9%99%84%E4%BB%B61%EF%BC%9A%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95%E5%90%8D%E5%8D%95.pdf）与《电子与信息工程学院（微电子学院）2025年硕士研究生招生复试结果（第一批）》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E6%8B%9B%E7%94%9F%E5%A4%8D%E8%AF%95%E7%BB%93%E6%9E%9C%EF%BC%88%E7%AC%AC%E4%B8%80%E6%89%B9%EF%BC%89.pdf）交叉整理：085408 光电信息工程公开招考计划 15 人，第一批复试名单 24 人，第一批拟录取 15 人，第一批最低拟录取初试总分为 372。官方材料未公开报名人数。"
+  },
+  {
+    "id": "batch-006-program-3",
+    "school": "中山大学",
+    "major": "通信工程（含宽带网络、移动通信等）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 13,
+    "retestCount": 17,
+    "retestLine": 325,
+    "lowestAdmittedScore": 325,
+    "riskTags": [
+      "复试刷人明显",
+      "分数线抬升"
+    ],
+    "summary": "公开招考计划 13 人，但第一批复试名单共有 17 人；349 分和 352 分都可能不录取，325 分才是这一批次的最低拟录取初试分，复试会直接改写进场后的分差优势。",
+    "sourceNote": "中山大学电子与信息工程学院（微电子学院）《2025年硕士研究生复试录取实施细则》（https://seit.sysu.edu.cn/article/2746，2025-03-17）、附件1《电子与信息工程学院（微电子学院）2025年硕士研究生复试名单》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E9%99%84%E4%BB%B61%EF%BC%9A%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95%E5%90%8D%E5%8D%95.pdf）与《电子与信息工程学院（微电子学院）2025年硕士研究生招生复试结果（第一批）》（https://seit.sysu.edu.cn/sites/default/files/2025-03/%E7%94%B5%E5%AD%90%E4%B8%8E%E4%BF%A1%E6%81%AF%E5%B7%A5%E7%A8%8B%E5%AD%A6%E9%99%A2%EF%BC%88%E5%BE%AE%E7%94%B5%E5%AD%90%E5%AD%A6%E9%99%A2%EF%BC%892025%E5%B9%B4%E7%A1%95%E5%A3%AB%E7%A0%94%E7%A9%B6%E7%94%9F%E6%8B%9B%E7%94%9F%E5%A4%8D%E8%AF%95%E7%BB%93%E6%9E%9C%EF%BC%88%E7%AC%AC%E4%B8%80%E6%89%B9%EF%BC%89.pdf）交叉整理：085402 通信工程（含宽带网络、移动通信等）公开招考计划 13 人，第一批复试名单 17 人，第一批拟录取 13 人；结果公示中可见 352 分、349 分进入复试但未录取，325 分为第一批最低拟录取初试总分，另有 342 分样本放弃复试。官方材料未公开报名人数。"
   }
 ]

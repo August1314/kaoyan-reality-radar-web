@@ -91,6 +91,52 @@ function toPublishedFailure(item: RawFailure): PublishedFailure {
   return published
 }
 
+function buildProgramSlug(program: PublishedProgram) {
+  return `${program.school}-${program.major}-${program.year}`
+}
+
+function assertUniqueIds(items: Array<{ id: string }>, label: string) {
+  const seen = new Set<string>()
+
+  for (const item of items) {
+    if (seen.has(item.id)) {
+      throw new Error(`${label} 存在重复 id：${item.id}`)
+    }
+
+    seen.add(item.id)
+  }
+}
+
+function assertUniqueProgramSlugs(programs: PublishedProgram[]) {
+  const seen = new Set<string>()
+
+  for (const program of programs) {
+    const slug = buildProgramSlug(program)
+    if (seen.has(slug)) {
+      throw new Error(`program slug 冲突：${slug}`)
+    }
+
+    seen.add(slug)
+  }
+}
+
+function assertFailureProgramLinks(programs: PublishedProgram[], failures: PublishedFailure[]) {
+  const validProgramIds = new Set(programs.map((program) => program.id))
+
+  for (const failure of failures) {
+    if (!validProgramIds.has(failure.programId)) {
+      throw new Error(`failure 存在断链 programId：${failure.id} -> ${failure.programId}`)
+    }
+  }
+}
+
+function validatePublishedData(programs: PublishedProgram[], failures: PublishedFailure[]) {
+  assertUniqueIds(programs, 'program')
+  assertUniqueIds(failures, 'failure')
+  assertUniqueProgramSlugs(programs)
+  assertFailureProgramLinks(programs, failures)
+}
+
 function toTsModule<T>(constName: string, typeName: string, items: T[]) {
   return `import type { ${typeName} } from '../lib/types'\n\nexport const ${constName}: ${typeName}[] = ${JSON.stringify(items, null, 2)}\n`
 }
@@ -114,6 +160,8 @@ async function main() {
     processedFailures.push(...readyFailures)
     await writeFile(path.join(processedDir, fileName), `${JSON.stringify(readyFailures, null, 2)}\n`, 'utf-8')
   }
+
+  validatePublishedData(processedPrograms, processedFailures)
 
   await writeFile(processedProgramsPath, `${JSON.stringify(processedPrograms, null, 2)}\n`, 'utf-8')
   await writeFile(processedFailuresPath, `${JSON.stringify(processedFailures, null, 2)}\n`, 'utf-8')
