@@ -1,47 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useMemo } from 'react'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { ProgramBrowseGrid } from '../components/ProgramBrowseGrid'
+import { SearchInput } from '../components/SearchInput'
 import { programs } from '../data/programs'
 import { routeLinks } from '../lib/routes'
-import { buildProgramSlug, searchProgram } from '../lib/search'
 
 export function HomePage() {
-  const navigate = useNavigate()
-  const [school, setSchool] = useState('')
-  const [major, setMajor] = useState('')
-  const [hintMessage, setHintMessage] = useState('')
-
   const examples = useMemo(() => programs.slice(0, 3), [])
-
-  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
-    if (!school.trim() && !major.trim()) {
-      setHintMessage('请至少输入学校或专业中的一项，再开始判断。')
-      return
-    }
-
-    const result = searchProgram({ school, major })
-    if (!result.program) {
-      setHintMessage('暂时没匹配到结果。你也可以先看看下面这些真实案例，快速感受不同目标的难度差异。')
-      return
-    }
-
-    setHintMessage('')
-    navigate(routeLinks.result(buildProgramSlug(result.program)))
-  }
-
-  const handleExampleClick = (exampleSchool: string, exampleMajor: string) => {
-    setSchool(exampleSchool)
-    setMajor(exampleMajor)
-    setHintMessage('')
-    const result = searchProgram({ school: exampleSchool, major: exampleMajor })
-
-    if (result.program) {
-      navigate(routeLinks.result(buildProgramSlug(result.program)))
-    }
-  }
 
   return (
     <main className="page home-page">
@@ -54,26 +20,17 @@ export function HomePage() {
       <section className="hero-section card">
         <h1>考研现实雷达</h1>
         <p className="hero-copy">查难度，也看别人怎么失败。</p>
-        <form className="search-panel" onSubmit={handleSearch}>
-          <label>
-            学校
-            <input
-              value={school}
-              onChange={(event) => setSchool(event.target.value)}
-              placeholder="例如：中山大学"
-            />
-          </label>
-          <label>
-            专业
-            <input
-              value={major}
-              onChange={(event) => setMajor(event.target.value)}
-              placeholder="例如：计算机科学与技术"
-            />
-          </label>
-          <button type="submit">开始判断</button>
-        </form>
-        {hintMessage ? <p className="hint danger">{hintMessage}</p> : null}
+
+        {/* 智能搜索框：替代旧的 school + major 双输入 */}
+        <SearchInput className="hero-search" />
+
+        <p className="search-hint">
+          试试：<button type="button" onClick={() => {/* 由 SearchInput 内部处理 */}}>中山大学</button>
+          {' · '}
+          <button type="button">浙江大学</button>
+          {' · '}
+          <button type="button">计算机</button>
+        </p>
       </section>
 
       <section className="card">
@@ -83,16 +40,15 @@ export function HomePage() {
         </div>
         <div className="example-grid">
           {examples.map((item) => (
-            <button
+            <Link
               key={item.id}
-              type="button"
+              to={routeLinks.result(`${item.year}-${item.school}-${item.major}`)}
               className="example-card"
-              onClick={() => handleExampleClick(item.school, item.major)}
             >
               <strong>{item.school}</strong>
               <span>{item.major}</span>
               <small>{item.summary}</small>
-            </button>
+            </Link>
           ))}
         </div>
       </section>
