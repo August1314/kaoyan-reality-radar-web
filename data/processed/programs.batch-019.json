@@ -1,0 +1,72 @@
+[
+  {
+    "id": "batch-019-program-1",
+    "school": "清华大学",
+    "major": "网络空间安全",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 13,
+    "retestCount": 13,
+    "retestLine": 335,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "清华大学网络科学与网络空间研究院2025年网络空间安全复试线335分（政治60/外语60/业务课一88/业务课二88）。一志愿进入复试13人（含3名强军计划），录取13人。专业课单科线88分，要求较高。建议初试目标360分以上。",
+    "sourceNote": "来源：清华研招网(2025-03-12)「工学基本线325分」。补充：搜狐(2024-12-07)「网安复试线335分，录取13人」。"
+  },
+  {
+    "id": "batch-019-program-2",
+    "school": "武汉大学",
+    "major": "网络空间安全",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "武汉大学国家网络安全学院2025年网络空间安全复试线按国家A类线执行（总分300分，政治38/外语38/业务课一57/业务课二57）。武大网络空间安全学科评估A，是国家网络安全人才培养基地。",
+    "sourceNote": "来源：掌上考研(2025-03-20)「武大网安复试实施细则」。"
+  },
+  {
+    "id": "batch-019-program-3",
+    "school": "华中科技大学",
+    "major": "网络空间安全",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "华中科技大学网络空间安全学院2025年信息与通信工程复试线300分（政治50/外语45/业务课一85/业务课二85），较2024年下降35分。网安学院是华中大重点建设学院。",
+    "sourceNote": "来源：抖音(2025-03-14)「网安学院信息与通信工程复试线300分」。"
+  },
+  {
+    "id": "batch-019-program-4",
+    "school": "西安电子科技大学",
+    "major": "网络空间安全",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 305,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "西安电子科技大学网络与信息安全学院2025年网络空间安全复试线305分。西电是国内网络安全领域顶尖高校，网络空间安全学科评估A+，与清华、武大并列国内前三。",
+    "sourceNote": "来源：大学生必备网(2025-03-23)「西电网安复试线」。补充：CSDN(2025-03-22)「2023-2025复试线对比」。"
+  },
+  {
+    "id": "batch-019-program-5",
+    "school": "电子科技大学",
+    "major": "网络空间安全",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "电子科技大学2025年工学门类复试基本线310分（政治50/外语50/业务课一75/业务课二75）。网络空间安全按工学基本线执行。成电是两电一邮成员，信息安全方向实力强。",
+    "sourceNote": "来源：大学生必备网(2025-03-14)「工学基本线310分」。"
+  }
+]
