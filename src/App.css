@@ -937,3 +937,123 @@ h2 {
     max-height: 60vh;
   }
 }
+
+/* ═══════════════════════════════════════════
+   P0-1 RadarChart SVG 可视化
+   ═══════════════════════════════════════════ */
+.radar-chart-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 8px 0 4px;
+}
+
+.radar-chart {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  overflow: visible;
+}
+
+/* 雷达图整体交互 */
+.radar-chart polygon {
+  transition: filter 0.2s ease;
+}
+
+.radar-chart circle[data-interactive] {
+  cursor: pointer;
+}
+
+/* 工具提示 */
+.radar-tooltip {
+  position: fixed;
+  background: #1f2937;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 9999;
+  transform: translateX(-50%) translateY(-100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 风险等级图例 */
+.radar-legend {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px 4px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 4px;
+}
+
+.radar-legend-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.radar-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.radar-legend-label {
+  font-size: 11px;
+  color: #6b7280;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.radar-legend-level {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7c3aed;
+  text-align: center;
+}
+
+/* 原始数据行 */
+.radar-raw-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.radar-raw-values span {
+  font-size: 13px;
+  color: #4b5563;
+  white-space: nowrap;
+}
+
+.radar-raw-values span::before {
+  content: '• ';
+  color: #a78bfa;
+}
+
+/* 响应式 */
+@media (max-width: 600px) {
+  .radar-legend {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .radar-raw-values {
+    gap: 6px 12px;
+  }
+
+  .radar-raw-values span {
+    font-size: 12px;
+  }
+}
