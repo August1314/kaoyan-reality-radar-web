@@ -1,0 +1,128 @@
+[
+  {
+    "id": "batch-025-failure-1",
+    "programId": "batch-025-program-1",
+    "school": "北京大学",
+    "major": "会计硕士（光华管理学院）",
+    "year": 2025,
+    "attempt": "二战",
+    "scoreRange": "230-244",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": [
+      "分数偏低"
+    ],
+    "reminder": "北大光华MPAcc2025年校线245分，但实际院线更高，2318名报考者中仅录取21人，报录比约110:1，压线几乎不可能录取。",
+    "review": "初试总分约243分，擦线达到校线245分。北大光华MPAcc竞争极为激烈，271分为初试最高分，压线245分排名极靠后无法录取。",
+    "retryChoice": "二战继续冲击北大光华，目标分数260+，或调整为其他MPAcc院校。",
+    "advice": "1. 北大光华MPAcc目标分数应在260分以上，270+更为稳妥；2. 2318人报考仅录取21人，报录比约110:1，竞争极为激烈；3. 建议初试分数240分以下考生优先考虑其他院校；4. 光华MPAcc学费较高（15.8万/2年），需综合考虑性价比。",
+    "sourceType": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-failure-2",
+    "programId": "batch-025-program-2",
+    "school": "上海交通大学",
+    "major": "会计硕士（安泰经济与管理学院）",
+    "year": 2025,
+    "attempt": "二战",
+    "scoreRange": "240-243",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": [
+      "分数偏低"
+    ],
+    "reminder": "上交安泰MPAcc2025年分数线244分（120/60），统考名额仅14人，244分仅是进入复试的门槛，244-247分区间被淘汰。",
+    "review": "初试总分约242分，低于校线244分，无法进入复试。上交安泰MPAcc统考名额少（仅14人），竞争极为激烈。",
+    "retryChoice": "二战继续冲击上交安泰，目标分数250+，或调整为其他MPAcc院校。",
+    "advice": "1. 上交安泰MPAcc目标分数应在250分以上，260+更为稳妥；2. 统考名额仅14人，244-247分区间的考生几乎全部被淘汰；3. 提前批面试优秀可降分录取，建议优先参加提前批；4. 上交安泰MPAcc学费15.8万/2年，就业前景好。",
+    "sourceType": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-failure-3",
+    "programId": "batch-025-program-3",
+    "school": "复旦大学",
+    "major": "会计硕士（管理学院）",
+    "year": 2025,
+    "attempt": "二战",
+    "scoreRange": "190-204",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": [
+      "分数偏低"
+    ],
+    "reminder": "复旦管院MPAcc2025年A线205分（130/70），但B线195分、C线179分。不同分数线对应不同外语和综合单科线，压线A线但单科受限则无法录取。",
+    "review": "初试总分约203分，达到A线总分205分但外语单科受限（复旦MPAcc外语单科要求高）。复旦MPAcc不同批次分数线差异大，A线外语要求70分。",
+    "retryChoice": "二战继续冲击复旦MPAcc，目标分数220+，同时注意单科线要求。",
+    "advice": "1. 复旦管院MPAcc目标分数应在220分以上（对应A线）；2. 复旦MPAcc分A/B/C三档线，不同档次外语单科要求不同；3. C线179分看似友好但竞争激烈，实际录取分数远高于此；4. 复旦MPAcc学费22.8万/2.5年。",
+    "sourceType": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-failure-4",
+    "programId": "batch-025-program-4",
+    "school": "上海财经大学",
+    "major": "会计硕士（全日制A组）",
+    "year": 2025,
+    "attempt": "二战",
+    "scoreRange": "230-235",
+    "enteredRetest": true,
+    "finalResult": "进入复试但未录取",
+    "failureStage": "复试中",
+    "failureTags": [
+      "中分段仍有风险"
+    ],
+    "reminder": "上财MPAcc A组2025年236分，98人进复试录取61人，复录比1:1.61。236-239分区25人仅录取5人，复录比1:5，竞争极为残酷！",
+    "review": "初试总分约233分，压线进入上财MPAcc A组复试。上财MPAcc A组竞争激烈，236-239分区25人仅录取5人，复录比1:5，擦线进面者最终被刷。",
+    "retryChoice": "二战继续冲击上财MPAcc，目标分数245+，或调整为上财B组（231分）。",
+    "advice": "1. 上财MPAcc A组目标分数应在245分以上，250+更为稳妥；2. 236-239分区25人仅录取5人，复录比1:5，压线风险极大；3. 上财MPAcc分A/B/C三组，A组竞争最激烈，B组相对温和；4. 上财MPAcc扩招幅度大，关注历年扩招信息。",
+    "sourceType": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-failure-5",
+    "programId": "batch-025-program-5",
+    "school": "中国人民大学",
+    "major": "会计硕士（商学院）",
+    "year": 2025,
+    "attempt": "二战",
+    "scoreRange": "190-193",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": [
+      "分数偏低"
+    ],
+    "reminder": "人大MPAcc2025年校线194分（48/96），但商学院院线远高于校线。2024年院线255分，录取最高分272分，最低分256分，压线校线194分远低于院线。",
+    "review": "初试总分约193分，低于校线194分无法进入复试。人大MPAcc校线与院线差异极大，校线194分仅是国家线水平，实际院线远高于此。",
+    "retryChoice": "二战继续冲击人大MPAcc，目标分数250+，同时务必关注院线而非校线。",
+    "advice": "1. 人大MPAcc务必以院线为目标，2024年院线255分，2025年预计更高；2. 校线194分远低于院线，备考时切勿以校线为参考；3. 人大MPAcc历年复录比约1.3:1，压线风险大；4. 人大MPAcc全日制学制2年，就业极好。",
+    "sourceType": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-failure-6",
+    "programId": "batch-025-program-6",
+    "school": "厦门大学",
+    "major": "会计硕士（管理学院）",
+    "year": 2025,
+    "attempt": "一战",
+    "scoreRange": "250-262",
+    "enteredRetest": false,
+    "finalResult": "未过初试",
+    "failureStage": "初试后",
+    "failureTags": [
+      "分数偏低"
+    ],
+    "reminder": "厦大管院MPAcc2025年复试线高达263分（55/110），满分300分距满分仅差37分。历年分数线：2024年201分，2023年197分，2025年飙升至263分，难度飙升。",
+    "review": "初试总分约262分，低于厦大管院MPAcc分数线263分。厦大MPAcc2025年分数线从201分飙升至263分，难度急剧上升。",
+    "retryChoice": "二战继续冲击厦大MPAcc，目标分数270+，或调整为其他MPAcc院校。",
+    "advice": "1. 厦大管院MPAcc目标分数应在270分以上；2. 2025年分数线从201分飙升至263分，难度飙升63分，需高度关注；3. 厦大MPAcc属34所自划线院校，院线远高于校线；4. 厦大MPAcc在福建省内就业优势明显。",
+    "sourceType": "院校情报整理",
+    "status": "verified"
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "batch-025-program-1",
+    "school": "北京大学",
+    "major": "会计硕士（光华管理学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 21,
+    "retestCount": null,
+    "retestLine": 245,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年北大光华管理学院MPAcc校线245分（55/55/150）。光华MPAcc从2318名报考者中录取21人，竞争极为激烈。2025年会计方向271分初试最高分创下近五年纪录（初试最高分=271分）。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-program-2",
+    "school": "上海交通大学",
+    "major": "会计硕士（安泰经济与管理学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 14,
+    "retestCount": 19,
+    "retestLine": 244,
+    "lowestAdmittedScore": 244,
+    "riskTags": [
+      "复试刷人明显"
+    ],
+    "summary": "2025年上交安泰MPAcc分数线244分（120/60），较2024年250分下降6分。统考总计划招生36人，实际推免22人，统考名额14人，进复试19人（含1人弃考），录取14人，复录比1:1.36。录取最高分265分，最低分244分，平均分254分。淘汰集中在244-247分区间！",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-program-3",
+    "school": "复旦大学",
+    "major": "会计硕士（管理学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 162,
+    "retestCount": null,
+    "retestLine": 205,
+    "lowestAdmittedScore": 179,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "2025年复旦管理学院MPAcc分数线：A线205分（130/70），B线195分（125/60），C线179分（114/60）。较2024年A线215分大幅下降10分。拟录取162人，最高分257分，最低分179分（走C线）。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-program-4",
+    "school": "上海财经大学",
+    "major": "会计硕士（全日制A组）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 61,
+    "retestCount": 98,
+    "retestLine": 236,
+    "lowestAdmittedScore": 236,
+    "riskTags": [
+      "复试刷人明显"
+    ],
+    "summary": "2025年上财全日制MPAcc A组分数线236分（100/50）。98人进复试录取61人（含10人专项计划），扩招40人！另B组231分录取22人，C组241分录取6人。A组复录比1:1.61。236-239分进复试25人仅录取5人，复录比1:5，竞争极为激烈。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-program-5",
+    "school": "中国人民大学",
+    "major": "会计硕士（商学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 194,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压",
+      "中分段仍有风险"
+    ],
+    "summary": "2025年人大MPAcc校线194分（48/96），但院线更高。历年分数线：2024年255分（降61分），2023年264分，2022年248分。2024年全日制22人进复试录取17人，录取最高分272分，最低分256分；255-259分段8人进复试仅录取4人。院线远高于校线！",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-025-program-6",
+    "school": "厦门大学",
+    "major": "会计硕士（管理学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 263,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压",
+      "分数线抬升"
+    ],
+    "summary": "厦门大学管理学院MPAcc2025年复试线高达263分（55/110），满分300分距满分仅差37分。厦门大学属34所自划线院校之一，管院MPAcc线远超国家线和校线。历年分数线：2024年201分，2023年197分，2025年飙升至263分，难度飙升。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  }
+]
