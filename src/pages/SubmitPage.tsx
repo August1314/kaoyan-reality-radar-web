@@ -3,7 +3,7 @@ import { routeLinks } from '../lib/routes'
 
 export function SubmitPage() {
   return (
-    <main className="page narrow-page">
+    <main id="main-content" className="page narrow-page">
       <PageRouteBar
         actions={[
           { label: '返回首页', to: routeLinks.home() },

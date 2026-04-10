@@ -15,7 +15,7 @@ export function HomePage() {
   useScrollRestoration()
 
   return (
-    <main className="page home-page">
+    <main id="main-content" className="page home-page">
       <PageRouteBar
         actions={[
           { label: '首页', to: routeLinks.home() },

@@ -673,6 +673,75 @@ h2 {
 }
 
 /* ═══════════════════════════════════════════
+   Screen Reader Only (视觉隐藏但屏幕阅读器可读)
+   ═══════════════════════════════════════════ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ═══════════════════════════════════════════
+   Focus Visible (键盘焦点样式)
+   ═══════════════════════════════════════════ */
+
+/* 全局 focus-visible 样式 */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 移除默认 focus 样式（仅鼠标点击时） */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 按钮 focus 样式 */
+button:focus-visible,
+.route-button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 输入框 focus 样式 */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0;
+}
+
+/* ═══════════════════════════════════════════
+   Skip Link (跳过导航)
+   ═══════════════════════════════════════════ */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ═══════════════════════════════════════════
    Page Loader
    ═══════════════════════════════════════════ */
 .page-loader {

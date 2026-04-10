@@ -50,7 +50,7 @@ export function ResultPage() {
   const result = searchProgram({ school: program.school, major: program.major })
 
   return (
-    <main className="page result-page">
+    <main id="main-content" className="page result-page">
       <Breadcrumb
         items={[
           { label: program.school },

@@ -10,7 +10,7 @@ export function FailureDetailPage() {
 
   if (!failure) {
     return (
-      <main className="page narrow-page">
+      <main id="main-content" className="page narrow-page">
         <section className="card empty-state">
           <h1>这条失败经验不存在</h1>
           <Link to={routeLinks.home()} className="text-link">
@@ -30,7 +30,7 @@ export function FailureDetailPage() {
   ]
 
   return (
-    <main className="page narrow-page">
+    <main id="main-content" className="page narrow-page">
       <PageRouteBar actions={actions} />
       <section className="card detail-header">
         <p className="eyebrow">失败经验详情</p>

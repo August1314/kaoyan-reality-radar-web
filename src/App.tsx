@@ -4,6 +4,7 @@ import './App.css'
 import { routeLinks, routePaths } from './lib/routes'
 import { ScrollToTop } from './components/ScrollToTop'
 import { GlobalShortcuts } from './components/GlobalShortcuts'
+import { SkipLink } from './components/SkipLink'
 
 // 懒加载页面组件
 const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })))
@@ -26,6 +27,7 @@ function PageLoader() {
 function App() {
   return (
     <BrowserRouter>
+      <SkipLink />
       <ScrollToTop />
       <GlobalShortcuts />
       <Suspense fallback={<PageLoader />}>
