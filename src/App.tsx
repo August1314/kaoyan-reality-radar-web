@@ -12,6 +12,7 @@ const ResultPage = lazy(() => import('./pages/ResultPage').then(m => ({ default:
 const FailureDetailPage = lazy(() => import('./pages/FailureDetailPage').then(m => ({ default: m.FailureDetailPage })))
 const SubmitPage = lazy(() => import('./pages/SubmitPage').then(m => ({ default: m.SubmitPage })))
 const StatsPage = lazy(() => import('./pages/StatsPage').then(m => ({ default: m.StatsPage })))
+const ComparePage = lazy(() => import('./pages/ComparePage').then(m => ({ default: m.ComparePage })))
 
 // 加载占位
 function PageLoader() {
@@ -38,6 +39,7 @@ function App() {
           <Route path={routePaths.failure} element={<FailureDetailPage />} />
           <Route path={routePaths.submit} element={<SubmitPage />} />
           <Route path={routePaths.stats} element={<StatsPage />} />
+          <Route path={routePaths.compare} element={<ComparePage />} />
           <Route path="*" element={<Navigate to={routeLinks.home()} replace />} />
         </Routes>
       </Suspense>

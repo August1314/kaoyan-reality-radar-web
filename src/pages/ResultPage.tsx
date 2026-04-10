@@ -7,6 +7,7 @@ import { RadarCard } from '../components/RadarCard'
 import { ResultContextCard } from '../components/ResultContextCard'
 import { RiskTagList } from '../components/RiskTagList'
 import { ShareButton } from '../components/ShareButton'
+import { CompareToggle } from '../components/CompareButton'
 import { routeLinks } from '../lib/routes'
 import { findProgramBySlug, searchProgram } from '../lib/search'
 import { useResultPageSEO } from '../hooks/useSEO'
@@ -76,6 +77,7 @@ export function ResultPage() {
           title={`${program.school} · ${program.major} - 考研现实雷达`}
           text={`看看${program.school}${program.major}的真实难度和失败经验`}
         />
+        <CompareToggle programId={program.id} />
       </section>
 
       <ResultContextCard program={program} />

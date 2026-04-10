@@ -4,6 +4,7 @@ export const routePaths = {
   failure: '/failure/:id',
   submit: '/submit',
   stats: '/stats',
+  compare: '/compare',
 } as const
 
 export const routeLinks = {
@@ -12,4 +13,5 @@ export const routeLinks = {
   failure: (id: string) => `/failure/${encodeURIComponent(id)}`,
   submit: () => routePaths.submit,
   stats: () => routePaths.stats,
+  compare: () => routePaths.compare,
 } as const
