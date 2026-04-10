@@ -1,3 +1,54 @@
+/* ═══════════════════════════════════════════
+   CSS Variables
+   ═══════════════════════════════════════════ */
+:root {
+  /* Light mode colors */
+  --color-bg: #ffffff;
+  --color-bg-elevated: #f8fafc;
+  --color-bg-muted: #f1f5f9;
+  --color-border: #e5e7eb;
+  --color-border-hover: #c4b5fd;
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-primary: #5b21b6;
+  --color-primary-light: #f5f3ff;
+  --color-primary-muted: #7c3aed;
+  --color-accent: #8b5cf6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-card-bg: #ffffff;
+  --color-input-bg: #ffffff;
+  --color-input-border: #e5e7eb;
+}
+
+/* Dark mode */
+:root.dark {
+  --color-bg: #0f172a;
+  --color-bg-elevated: #1e293b;
+  --color-bg-muted: #334155;
+  --color-border: #334155;
+  --color-border-hover: #8b5cf6;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-primary: #a78bfa;
+  --color-primary-light: #1e1b4b;
+  --color-primary-muted: #8b5cf6;
+  --color-accent: #c4b5fd;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-card-bg: #1e293b;
+  --color-input-bg: #1e293b;
+  --color-input-border: #475569;
+}
+
+/* ═══════════════════════════════════════════
+   Base
+   ═══════════════════════════════════════════ */
+
 .page {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
@@ -56,8 +107,8 @@
 }
 
 .card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
   padding: 24px;
@@ -619,6 +670,50 @@ h2 {
   h1 {
     font-size: 32px;
   }
+}
+
+/* ═══════════════════════════════════════════
+   Page Transitions
+   ═══════════════════════════════════════════ */
+.page {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Theme Toggle
+   ═══════════════════════════════════════════ */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-card-bg);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-primary);
+}
+
+.theme-toggle svg {
+  flex-shrink: 0;
 }
 
 /* ═══════════════════════════════════════════

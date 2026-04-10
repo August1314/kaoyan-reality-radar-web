@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { ThemeToggle } from './ThemeToggle'
 import { routeLinks } from '../lib/routes'
 
 interface RouteAction {
@@ -32,6 +33,7 @@ export function PageRouteBar({ actions }: PageRouteBarProps) {
           {action.label}
         </NavLink>
       ))}
+      <ThemeToggle />
     </nav>
   )
 }
