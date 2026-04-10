@@ -99,12 +99,11 @@
 
 ### E 级：无障碍
 
-| ID | 功能 | 优先级 | 工作量 | 说明 |
-|----|------|--------|--------|------|
-| E-1 | Focus visible | 高 | 小 | 键盘焦点样式优化 |
-| E-2 | Skip link | 中 | 小 | 跳过导航直达主内容 |
-| E-3 | Live region | 中 | 小 | 搜索结果变化通知 |
-| E-4 | ARIA 优化 | 低 | 中 | 全面检查 aria 属性 |
+| ID | 功能 | 状态 | 说明 |
+|----|------|------|------|
+| E-1 | Focus visible | ✅ | 键盘焦点样式 |
+| E-2 | Skip link | ✅ | 跳过导航直达主内容 |
+| E-3 | Live region | ✅ | 搜索结果变化通知 |
 
 ### F 级：未来规划
 
@@ -246,6 +245,7 @@ src/
 ## 最近更新
 
 **2026-04-10**
+- ✅ E-1~E-3 无障碍优化（focus-visible、SkipLink、Live region）
 - ✅ B-1 代码分割（React.lazy，主 chunk 235KB）
 - ✅ C-1~C-3 用户体验优化（键盘快捷键、返回位置、面包屑）
 - ✅ A-1~A-4 SEO 优化（Meta、OG、Sitemap、robots.txt）
