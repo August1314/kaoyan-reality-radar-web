@@ -8,10 +8,14 @@ import { RiskTagList } from '../components/RiskTagList'
 import { ShareButton } from '../components/ShareButton'
 import { routeLinks } from '../lib/routes'
 import { findProgramBySlug, searchProgram } from '../lib/search'
+import { useResultPageSEO } from '../hooks/useSEO'
 
 export function ResultPage() {
   const { slug = '' } = useParams()
   const program = findProgramBySlug(slug)
+
+  // SEO - 必须在条件判断之前调用
+  useResultPageSEO(program ?? { school: '', major: '', year: 0, summary: '' })
 
   if (!program) {
     return (
