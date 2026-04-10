@@ -1,0 +1,98 @@
+[
+  {
+    "id": "batch-029-program-1",
+    "school": "清华大学",
+    "major": "金融学（经济学门类）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 350,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年清华经济学门类（含金融学）学术学位校线350分（55/60/90/90）。清华经管学院和五道口均招收金融学硕，名额极少竞争极为激烈。清华金融专硕校线365分（2025），学硕校线350分。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-029-program-2",
+    "school": "北京大学",
+    "major": "金融学（应用经济学）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 374,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年北大应用经济学（含金融学硕）校线374分（50/50/90/90），与金融专硕同线。北大数科院也招收金融学硕（数学方向），方向不同竞争差异大。2024年光华金融专硕405分，最高分454分，平均分419分。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-029-program-3",
+    "school": "复旦大学",
+    "major": "金融学（经济学门类）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "2025年复旦经济学门类学术学位校线310分（50/50/190）。复旦金融专硕校线365分，学硕校线310分。复旦经济学学硕（含金融学）各方向院线不同，实际录取分数因方向而异。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-029-program-4",
+    "school": "上海交通大学",
+    "major": "金融学（应用经济学）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 340,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年上交应用经济学（含金融学硕）校线340分（55/55/90/90）。上交安泰金融专硕校线340分（2025年），学硕与专硕同线。上交金融学硕名额极少，竞争极为激烈。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-029-program-5",
+    "school": "中国人民大学",
+    "major": "金融学（应用经济学）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 350,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年人大应用经济学（含金融学硕）校线350分（55/55/90/90）。人大财政金融学院金融专硕校线385分，应用经济学学硕350分。人大经济学学科评估A+，金融学为国内顶尖。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-029-program-6",
+    "school": "中央财经大学",
+    "major": "金融学（应用经济学）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 350,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "2025年央财应用经济学（含金融学硕）校线350分。央财金融专硕校线339分，学硕350分。央财为211顶尖财经院校，金融学为A类学科，学硕性价比高于专硕。",
+    "sourceNote": "院校情报整理"
+  }
+]
