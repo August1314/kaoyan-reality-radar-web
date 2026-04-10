@@ -6,11 +6,13 @@ import { HomePage } from './pages/HomePage'
 import { ResultPage } from './pages/ResultPage'
 import { SubmitPage } from './pages/SubmitPage'
 import { ScrollToTop } from './components/ScrollToTop'
+import { GlobalShortcuts } from './components/GlobalShortcuts'
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <GlobalShortcuts />
       <Routes>
         <Route path={routePaths.home} element={<HomePage />} />
         <Route path={routePaths.result} element={<ResultPage />} />

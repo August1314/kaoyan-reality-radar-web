@@ -6,9 +6,13 @@ import { SearchHistory } from '../components/SearchHistory'
 import { SearchInput } from '../components/SearchInput'
 import { programs } from '../data/programs'
 import { routeLinks } from '../lib/routes'
+import { useScrollRestoration } from '../hooks/useScrollRestoration'
 
 export function HomePage() {
   const examples = useMemo(() => programs.slice(0, 3), [])
+  
+  // 恢复滚动位置
+  useScrollRestoration()
 
   return (
     <main className="page home-page">

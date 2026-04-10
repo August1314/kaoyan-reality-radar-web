@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { Breadcrumb } from '../components/Breadcrumb'
 import { FailureCard } from '../components/FailureCard'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { SchoolProgramLinks } from '../components/SchoolProgramLinks'
@@ -50,6 +51,12 @@ export function ResultPage() {
 
   return (
     <main className="page result-page">
+      <Breadcrumb
+        items={[
+          { label: program.school },
+          { label: program.major },
+        ]}
+      />
       <PageRouteBar
         actions={[
           { label: '返回首页', to: routeLinks.home() },

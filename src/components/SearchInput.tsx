@@ -167,10 +167,11 @@ export function SearchInput({ className }: SearchInputProps) {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
-  // 清理防抖
+  // 注册搜索框引用到全局快捷键系统
+  const inputRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current)
+    if (inputRef.current) {
+      window.dispatchEvent(new CustomEvent('registerSearchInput', { detail: inputRef.current }))
     }
   }, [])
 
@@ -195,6 +196,7 @@ export function SearchInput({ className }: SearchInputProps) {
         </svg>
 
         <input
+          ref={inputRef}
           type="text"
           value={rawQuery}
           onChange={(e) => handleInput(e.target.value)}
@@ -202,7 +204,7 @@ export function SearchInput({ className }: SearchInputProps) {
           onFocus={() => {
             if (suggestions.length > 0) setIsOpen(true)
           }}
-          placeholder="输入学校或专业，例如：中山大学 计算机"
+          placeholder="输入学校或专业，例如：中山大学 计算机（按 / 快捷聚焦）"
           aria-label="输入学校或专业，搜索考研目标难度"
           aria-autocomplete="list"
           aria-controls="search-suggestions"
