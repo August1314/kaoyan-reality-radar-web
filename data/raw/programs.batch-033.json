@@ -1,0 +1,108 @@
+[
+  {
+    "id": "batch-033-program-1",
+    "school": "北京大学",
+    "major": "法律硕士（035102法学本科）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 355,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升",
+      "同分段分化明显"
+    ],
+    "summary": "2025年北京大学法律硕士（法学本科）校线355分（50/90），较2024年382分暴跌27分！是法本JM中降分最多的顶级院校。但这只是校线，实际录取中位分在380分左右。北大法学院招收法本JM，2024年52人进复试录取40人，最高分399分，最低分382分。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-033-program-2",
+    "school": "清华大学",
+    "major": "法律硕士（035102法学本科）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 340,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "重要！清华大学法学院自2024年起已明确不招收统考法律硕士（JM），无论法本还是非法本均只招推免生。清华大学法学院招生方向为030100法学硕士（学术型），2025年法学硕士线340/55/90。考生若想读清华法律，只能走030100学硕路线，初试考632法学基础+858法学综合。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-033-program-3",
+    "school": "复旦大学",
+    "major": "法律硕士（035102法学本科）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 350,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升",
+      "报录比高压"
+    ],
+    "summary": "2025年复旦大学法律硕士（法学本科）校线350分（55/90），较2024年370分大降20分。复旦法学院2024年法本JM进复试67人。复旦法本JM和非法本JM使用同一校线（2024年：法本370/非法本335），专业课考397法律硕士专业基础（法学）+497法律硕士综合（法学）。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-033-program-4",
+    "school": "上海交通大学凯原法学院",
+    "major": "法律硕士（035102法学本科）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明",
+      "调剂机会少"
+    ],
+    "summary": "重要！上海交通大学凯原法学院自2024年起已明确不招收统考法律硕士（法学本科），只招收推免生和法律硕士（非法学）。2024年法学学硕（030100）复试线高达403分（55/55/90/90），26人进复试录取21人，最高422分，最低403分。上交凯原法学院QS法学排名中国第一，但统考法本JM通道已关闭。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-033-program-5",
+    "school": "中国人民大学法学院",
+    "major": "法律硕士（035102法学本科）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 340,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升",
+      "同分段分化明显"
+    ],
+    "summary": "2025年中国人民大学法律硕士（法学本科）校线340分（50/90），较2024年375分骤降35分。但这是校线，法学院院线更高——2025年院线法学硕士368分（55/90），院线比校线高28分。法本JM院线虽未单独公布，但实际录取分数应与院线接近。人大法学全国顶尖，复试淘汰率高。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-033-program-6",
+    "school": "中国政法大学",
+    "major": "法律硕士（035102法学本科）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 335,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "调剂机会少"
+    ],
+    "summary": "2025年中国政法大学法律硕士（法学本科）校线335分（50/90）。法大法本JM分散在法律硕士学院和证据科学学院，2025年证据科学学院法本JM仅335分（接近国家线323分）。法大法学硕士（学硕）有66个调剂名额，但法本JM校内调剂竞争也激烈。法大是法学顶级院校，统考难度相对清北人复更低。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  }
+]
