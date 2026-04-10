@@ -1,0 +1,87 @@
+[
+  {
+    "id": "batch-031-program-1",
+    "school": "北京大学",
+    "major": "应用心理（0454专硕）",
+    "year": 2025,
+    "applicants": 82,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 365,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年北大应用心理专硕院线365分（55/55/180），与2024年相同。一志愿进复试82人，最高分423分，主要集中在379-389分（27人）和390-420分（24人）。录取名额约70人，录取率约85%。北大347心理学综合难度极高，跨考友好度相对较高。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-031-program-2",
+    "school": "清华大学",
+    "major": "应用心理（0454专硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 341,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "2025年清华应用心理专硕院线341分（50/50/180），较2024年下降34分！清华心理学虽非传统强势，但背靠清华平台，就业前景极好。2025年拟招24人。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-031-program-3",
+    "school": "复旦大学",
+    "major": "应用心理（0454专硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 380,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年复旦应用心理专硕院线380分（60/60/210），与2024年相同。复旦心理学在认知心理学和社会心理学领域有较强实力，就业方向包括用户体验、市场研究等。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-031-program-4",
+    "school": "浙江大学",
+    "major": "应用心理（0454专硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 370,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "2025年浙大应用心理专硕院线370分（50/50/210），较2024年下降10分。浙大心理学在工程心理学和管理心理学方向有较强实力，与计算机科学交叉明显。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-031-program-5",
+    "school": "北京师范大学",
+    "major": "应用心理（0454专硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 394,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年北师大应用心理专硕院线394分（咨询方向小道消息）。北师大心理学为全国第一，学科评估A+，在咨询方向和临床方向有极强实力，就业极好。2025年拟招94人（含65推免）。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  }
+]
