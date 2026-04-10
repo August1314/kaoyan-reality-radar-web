@@ -1,0 +1,100 @@
+[
+  {
+    "id": "batch-034-program-1",
+    "school": "同济大学",
+    "major": "土木工程（0814学硕/0859专硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "同分段分化明显"
+    ],
+    "summary": "2025年同济大学土木水利专硕校线310分（50/50/65/75），各学院自主划线（结构工程315分/岩土310分/防灾310分）。同济土木全国第一（学科评估A+），但分数线并非想象中高——2023年校线310分，2024年结构工程315分。由于土木行业整体遇冷，同济分数线稳定在310-315之间，性价比极高。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-034-program-2",
+    "school": "清华大学",
+    "major": "土木工程（0814学硕）",
+    "year": 2025,
+    "applicants": 17,
+    "admitted": 2,
+    "retestCount": 3,
+    "retestLine": 327,
+    "lowestAdmittedScore": 327,
+    "riskTags": [
+      "报录比高压",
+      "信息不透明"
+    ],
+    "summary": "2025年清华大学土木工程硕士计划招聘17人，但仅有3人进复试！进复试分数：343/331/327分。最终录取2人，淘汰1人（327分最低分被淘汰）。清华明确不接收任何调剂名额。清华始终宁缺毋滥——即使招不满也不降分录取。清华土木的时代正在终结，土木行业整体颓势明显。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-034-program-3",
+    "school": "东南大学",
+    "major": "土木工程（0814学硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 355,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升",
+      "同分段分化明显"
+    ],
+    "summary": "2025年东南大学土木工程学硕各方向院线：结构与防灾方向355分（50/50/90/90），桥隧地下方向356分（50/50/90/90），比校线310分高40+分！东南土木学科评估A+（全国并列第一），但各方向分数线差距明显（结构方向355/桥隧方向356/市政方向359）。总成绩超院线20分以上，单科可降2分。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-034-program-4",
+    "school": "哈尔滨工业大学",
+    "major": "土木工程（0814学硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年哈尔滨工业大学土木工程校线310分（50/45/70/70），执行学校基本线。各学院自主划线，未来交通学院土木水利专硕大量缺额（统招300人仅99人上线，缺额200+）。哈工大土木C9+985+老牌工科院校，性价比极高，但缺额大意味着大量考生不敢报考或主动放弃。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-034-program-5",
+    "school": "浙江大学",
+    "major": "土木工程（0814学硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年浙江大学土木工程校线仅300分！较2024年360分暴跌60分！浙大土木从热门跌落神坛，反映了整个土木行业的颓势。浙大土木C9+985，300分即可过线，数学(一)和结构力学是专业课科目。2025年300分过线是历史性低点，但也要注意：行业颓势可能导致更多人观望，明年后年可能反弹。",
+    "sourceNote": "院校情报整理"
+  },
+  {
+    "id": "batch-034-program-6",
+    "school": "中南大学",
+    "major": "土木工程（0814学硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "同分段分化明显"
+    ],
+    "summary": "2025年中南大学土木工程执行校线310分（参照国家工科线），较2024年有小幅上涨（英语单科线从70→75分）。中南土木学科评估B+，性价比高。2025年考研整体难度稳定，但土木行业就业压力使更多考生转向其他专业，导致竞争下降。中南大学是湖南省985院校，土木水利方向统招人数多。",
+    "sourceNote": "院校情报整理"
+  }
+]
