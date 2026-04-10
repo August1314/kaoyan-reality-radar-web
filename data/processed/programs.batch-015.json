@@ -1,0 +1,81 @@
+[
+  {
+    "id": "batch-015-program-1",
+    "school": "清华大学",
+    "major": "电气工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 19,
+    "retestCount": 26,
+    "retestLine": 349,
+    "lowestAdmittedScore": 349,
+    "riskTags": [
+      "复试刷人明显"
+    ],
+    "summary": "清华大学电机系2025年电气工程专硕复试线349分（政治50/外语50/业务课一90/业务课二90）。26人进复试录取19人，复录比1.37:1，最高分402、最低分349、平均分373.11。初复试占比：初试+复试笔试×2+复试面试×3。",
+    "sourceNote": "来源：今日头条(2025-04-14)「26人进复试录取19人，最高402最低349」。补充：掌上考研(2025-03-20)「复试线349分」。"
+  },
+  {
+    "id": "batch-015-program-2",
+    "school": "西安交通大学",
+    "major": "电气工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 346,
+    "retestCount": 525,
+    "retestLine": 365,
+    "lowestAdmittedScore": 374,
+    "riskTags": [
+      "分数线抬升",
+      "报录比高压"
+    ],
+    "summary": "西安交通大学电气学院2025年电气学硕复试线365分（较2024年335分涨30分），专硕360分。招生346人，第346名高达374分。525人过线，400分以上69人。西交电气国内第一，清华也甘拜下风。",
+    "sourceNote": "来源：今日头条(2025-03-19)「复试线365/360分，招346人，525人过线」。补充：抖音(2025-05-03)「学硕涨30分」。"
+  },
+  {
+    "id": "batch-015-program-3",
+    "school": "华中科技大学",
+    "major": "电气工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 29,
+    "retestCount": 29,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "华中科技大学电气与电子工程学院2025年电气学硕复试线300分（政治45/外语45/业务课一70/业务课二70），专硕同线。学硕招生计划29人，上线29人，1:1等额复试。电气学科评估A。",
+    "sourceNote": "来源：抖音(2025-03-15)「电气学硕专硕均300分」。补充：今日头条(2025-03-17)「学硕1:1等额复试」。"
+  },
+  {
+    "id": "batch-015-program-4",
+    "school": "浙江大学",
+    "major": "电气工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 410,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "浙江大学2025年电气工程复试线410分，略有下降。浙大电气工程学院2025届拟录取推免生91人。电气学科实力强，竞争激烈。",
+    "sourceNote": "来源：搜狐(2025-04-02)「浙大电气2025复试线410分」。补充：高顿教育(2025-01-22)「电气学院推免91人」。"
+  },
+  {
+    "id": "batch-015-program-5",
+    "school": "上海交通大学",
+    "major": "电气工程",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 435,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "上海交通大学2025年电气工程复试线435分，逐年上升。交大电气学科实力强，分数线持续走高。",
+    "sourceNote": "来源：搜狐(2025-04-02)「上交电气2025复试线435分」。"
+  }
+]

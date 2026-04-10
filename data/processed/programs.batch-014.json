@@ -1,0 +1,82 @@
+[
+  {
+    "id": "batch-014-program-1",
+    "school": "清华大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 15,
+    "retestCount": 22,
+    "retestLine": 356,
+    "lowestAdmittedScore": 363,
+    "riskTags": [
+      "复试刷人明显",
+      "报录比高压"
+    ],
+    "summary": "清华大学计算机系2025年计算机科学与技术复试线356分（政治60/外语65/业务课一105/业务课二90）。2024年复试线365分，22人进复试录取13人，最高分408、最低分367。专业课考826（原912），难度极大。初复试占比1:1，复试含机考(4小时)+面试。",
+    "sourceNote": "来源：高顿教育(2025-02-08)「2024复试线356分，拟录取最低363分」。补充：搜狐(2024-11-22)「22人进复试录取13人」。"
+  },
+  {
+    "id": "batch-014-program-2",
+    "school": "北京大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": 17,
+    "retestCount": 26,
+    "retestLine": 370,
+    "lowestAdmittedScore": 382,
+    "riskTags": [
+      "分数线抬升",
+      "复试刷人明显"
+    ],
+    "summary": "北京大学计算机学院2025年复试线370分（政治50/外语50/业务课一90/业务课二90）。2024年复试线380分，26人进复试录取17人，最高分428、最低分382。复试采用机考+面试，复试成绩满分100分，60分及格。",
+    "sourceNote": "来源：北大计算机学院官网(2025-03-18)「复试线370分」。补充：搜狐(2024-11-01)「2024复试线380分，26人进复试录取17人」。"
+  },
+  {
+    "id": "batch-014-program-3",
+    "school": "浙江大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 375,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "浙江大学2025年计算机科学与技术学硕复试线375分，分数线飙升至400+，单科线高（数学需120+）。考408统考+数学一+英语一。初复试占比约6.5:3.5或7:3。2023年181人进复试录取139人。",
+    "sourceNote": "来源：今日头条(2025-03-20)「计算机学硕375分」。补充：知乎(2025-01-25)「2023年181人进复试录取139人」。"
+  },
+  {
+    "id": "batch-014-program-4",
+    "school": "上海交通大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "上海交通大学计算机科学与技术2025年分数线未单独公布，按工学门类基本线执行。交大计算机评级A，竞争激烈。专业课考自命题，难度较大。",
+    "sourceNote": "来源：中国研究生招生网(2025-03-13)「上交2025复试基本分数线」。"
+  },
+  {
+    "id": "batch-014-program-5",
+    "school": "哈尔滨工业大学",
+    "major": "计算机科学与技术",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 300,
+    "lowestAdmittedScore": null,
+    "riskTags": [],
+    "summary": "哈尔滨工业大学2025年工学门类复试基本线300分（政治50/外语42/业务课一70/业务课二70）。各学科可在基本线基础上自行划定复试资格线。计算机学部竞争激烈。",
+    "sourceNote": "来源：哈工大研招办(2025-03-12)「工学复试基本线300分」。"
+  }
+]
