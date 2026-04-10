@@ -1,0 +1,104 @@
+[
+  {
+    "id": "batch-026-program-1",
+    "school": "北京协和医学院",
+    "major": "药学",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 304,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "2025年北京协和医学院药学专业执行国家线A类考生分数线（304/43/129）。各专业方向根据招生人数及生源情况按复试比例200%确定复试名单。协和医学院为国家药学顶尖学府，药学学科评估A+，基础医学和临床医学均为A+。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-026-program-2",
+    "school": "北京大学",
+    "major": "药学（药学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": 357,
+    "riskTags": [
+      "信息不透明"
+    ],
+    "summary": "2025年北大药学院药学硕士复试比例按统考录取规模≥120%确定。拟录取名单显示初试最高分357分，复试最高分93.20分。复试含专业课+专业外语笔试+面试（含外语听力及口语）。总成绩=初试成绩/5*0.5+复试成绩*0.5，60分为合格线。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-026-program-3",
+    "school": "中国药科大学",
+    "major": "药学",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年中国药科大学药学专业按研究方向自划线，各方向根据教育部A类基本分数线和统考招生计划数按差额复试比例约150%确定复试名单。中国药科大学为药学学科全国顶尖院校，药学学科评估A+（与北京协和并列），国内唯一211药学高校。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-026-program-4",
+    "school": "复旦大学",
+    "major": "药学（药学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 330,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升"
+    ],
+    "summary": "2025年复旦药学院药学专硕分数线330分（50/50/195），药学学硕分数线310分（50/50/190）。复旦药学院专业型硕士（全日制+非全日制）执行330分线。2024年药学专硕320分，2025年上涨10分。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-026-program-5",
+    "school": "浙江大学",
+    "major": "药学（药学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年浙江大学药学院药学专业执行浙大校线。药学学科评估A+，属浙大强势学科。各专业复试分数线根据招生名额及生源情况确定。2025年药学院复试名单已公布，但具体各方向院线需进一步查证。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-026-program-6",
+    "school": "上海交通大学",
+    "major": "药学（药学院）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年上海交通大学药学院药学专业执行上交医学院自划线。上交药学院药学学科评估B+，各研究方向根据生源情况自主确定院线。上交医学院独立于校本部招生，复试名单及院线需在上交医学院官网查证。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  }
+]
