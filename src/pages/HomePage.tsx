@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useMemo } from 'react'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { ProgramBrowseGrid } from '../components/ProgramBrowseGrid'
+import { SearchHistory } from '../components/SearchHistory'
 import { SearchInput } from '../components/SearchInput'
 import { programs } from '../data/programs'
 import { routeLinks } from '../lib/routes'
@@ -23,6 +24,9 @@ export function HomePage() {
 
         {/* 智能搜索框：替代旧的 school + major 双输入 */}
         <SearchInput className="hero-search" />
+
+        {/* 搜索历史 */}
+        <SearchHistory />
 
         <p className="search-hint">
           试试：<button type="button" onClick={() => {/* 由 SearchInput 内部处理 */}}>中山大学</button>

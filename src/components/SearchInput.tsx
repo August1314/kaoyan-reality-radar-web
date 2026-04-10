@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { programs } from '../data/programs'
 import { routeLinks } from '../lib/routes'
 import { buildProgramSlug } from '../lib/search'
+import { useSearchHistory } from '../hooks/useSearchHistory'
 import type { Program } from '../lib/types'
 
 /**
@@ -62,6 +63,7 @@ interface SearchInputProps {
 
 export function SearchInput({ className }: SearchInputProps) {
   const navigate = useNavigate()
+  const { addHistory } = useSearchHistory()
 
   // 显示"重新搜索"模式（从结果页来）时 school+major 有初值
   const [rawQuery, setRawQuery] = useState('')
@@ -118,9 +120,15 @@ export function SearchInput({ className }: SearchInputProps) {
       setSuggestions([])
       setIsOpen(false)
       setActiveIndex(-1)
+      // 保存搜索历史
+      addHistory({
+        id: program.id,
+        label: `${program.school} · ${program.major}`,
+        slug: buildProgramSlug(program),
+      })
       navigate(routeLinks.result(buildProgramSlug(program)))
     },
-    [navigate],
+    [navigate, addHistory],
   )
 
   // 键盘导航

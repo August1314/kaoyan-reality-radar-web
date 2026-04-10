@@ -5,6 +5,7 @@ import { SchoolProgramLinks } from '../components/SchoolProgramLinks'
 import { RadarCard } from '../components/RadarCard'
 import { ResultContextCard } from '../components/ResultContextCard'
 import { RiskTagList } from '../components/RiskTagList'
+import { ShareButton } from '../components/ShareButton'
 import { routeLinks } from '../lib/routes'
 import { findProgramBySlug, searchProgram } from '../lib/search'
 
@@ -52,12 +53,18 @@ export function ResultPage() {
         ]}
       />
       <section className="card page-head">
-        <p className="eyebrow">目标判断</p>
-        <h1>
-          {program.school} · {program.major}
-        </h1>
-        <p className="hero-copy">先看难度，再看失败路径，避免只看上岸叙事。</p>
-        <p className="meta-line">本页基于 {program.year} 年官方公开材料整理。</p>
+        <div className="page-head-content">
+          <p className="eyebrow">目标判断</p>
+          <h1>
+            {program.school} · {program.major}
+          </h1>
+          <p className="hero-copy">先看难度，再看失败路径，避免只看上岸叙事。</p>
+          <p className="meta-line">本页基于 {program.year} 年官方公开材料整理。</p>
+        </div>
+        <ShareButton
+          title={`${program.school} · ${program.major} - 考研现实雷达`}
+          text={`看看${program.school}${program.major}的真实难度和失败经验`}
+        />
       </section>
 
       <ResultContextCard program={program} />
