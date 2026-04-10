@@ -19,6 +19,7 @@ export function HomePage() {
       <PageRouteBar
         actions={[
           { label: '首页', to: routeLinks.home() },
+          { label: '数据统计', to: routeLinks.stats() },
           { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
         ]}
       />

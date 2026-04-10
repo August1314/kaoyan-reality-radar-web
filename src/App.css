@@ -1629,3 +1629,333 @@ select:focus-visible {
     font-size: 12px;
   }
 }
+
+/* ═══════════════════════════════════════════
+   Stats Page（数据统计页）
+   ═══════════════════════════════════════════ */
+
+.stats-hero {
+  margin-bottom: 20px;
+}
+
+.stats-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stats-kpi {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stats-kpi-num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.stats-kpi-label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.stats-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stats-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stats-bar-label {
+  width: 100px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stats-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stats-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.stats-bar-count {
+  width: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.stats-more {
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+}
+
+.stats-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stats-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.stats-tag-count {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .stats-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stats-kpi-num {
+    font-size: 1.8rem;
+  }
+  .stats-bar-label {
+    width: 72px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Compare / 对比功能
+   ═══════════════════════════════════════════ */
+
+/* Compare Toggle Button */
+.compare-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition: all 0.2s;
+}
+
+.compare-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.compare-toggle--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.compare-toggle--active:hover {
+  background: var(--color-primary-dark, #4c1d95);
+  border-color: var(--color-primary-dark, #4c1d95);
+  color: #fff;
+}
+
+/* Compare Bar (compare page header) */
+.compare-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.compare-count {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.compare-btn {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+}
+
+/* Compare Page */
+.compare-hero {
+  margin-bottom: 20px;
+}
+
+.compare-hero h1 { margin-bottom: 4px; }
+
+.compare-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* Radar grid */
+.compare-grid {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.compare-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.compare-grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+.compare-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.compare-item-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.compare-item-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.compare-item-major {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.compare-item-year {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.compare-radar-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+/* 雷达图并排时缩小 */
+.compare-radar-wrap svg {
+  width: 220px;
+  height: 190px;
+}
+
+.compare-item-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.compare-metric {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.compare-metric-label {
+  color: var(--color-text-secondary);
+}
+
+.compare-metric-val {
+  font-weight: 600;
+}
+
+/* 对比表格 */
+.compare-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.compare-table th {
+  background: var(--color-surface);
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.compare-table td {
+  background: var(--color-bg);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .compare-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .compare-radar-wrap svg {
+    width: 180px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  .compare-grid--2,
+  .compare-grid--3 { grid-template-columns: 1fr; }
+  .compare-radar-wrap svg {
+    width: 200px;
+    height: 175px;
+  }
+}
