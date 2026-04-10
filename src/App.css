@@ -1629,3 +1629,133 @@ select:focus-visible {
     font-size: 12px;
   }
 }
+
+/* ═══════════════════════════════════════════
+   Stats Page（数据统计页）
+   ═══════════════════════════════════════════ */
+
+.stats-hero {
+  margin-bottom: 20px;
+}
+
+.stats-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stats-kpi {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stats-kpi-num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.stats-kpi-label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.stats-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stats-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stats-bar-label {
+  width: 100px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stats-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stats-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.stats-bar-count {
+  width: 28px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.stats-more {
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+}
+
+.stats-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stats-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.stats-tag-count {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .stats-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stats-kpi-num {
+    font-size: 1.8rem;
+  }
+  .stats-bar-label {
+    width: 72px;
+    font-size: 0.8rem;
+  }
+}
