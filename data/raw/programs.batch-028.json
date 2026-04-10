@@ -1,0 +1,88 @@
+[
+  {
+    "id": "batch-028-program-1",
+    "school": "电子科技大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 285,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年电子科技大学（成电）电子信息0854校线285分（50/50/75/75），各学院自主上浮院线。电子科技大学为985高校，信息与通信工程、计算机科学均为A+学科，与清华、北大、复旦、上交并列全国第一。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-028-program-2",
+    "school": "北京航空航天大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压",
+      "分数线抬升"
+    ],
+    "summary": "2025年北京航空航天大学（北航）电子信息0854属34所自划线院校，各学院自主划定院线。北航为985高校，教育部学科评估中航空宇航科学与技术、仪器科学与技术、软件工程、计算机科学均为A+学科，是电子信息领域顶尖院校。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-028-program-3",
+    "school": "北京邮电大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年北京邮电大学（北邮）电子信息各方向院线不同（新一代电子信息技术301分等）。北邮虽为211但信息与通信工程、计算机科学均为A+学科，与清华并列全国第一，就业质量不输985。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-028-program-4",
+    "school": "东南大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 310,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年东南大学电子信息0854校线310分。东南大学为985高校，信息科学与工程学院的电子科学与技术专业评估A-，计算机科学A-，电子信息方向实力强劲。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  },
+  {
+    "id": "batch-028-program-5",
+    "school": "西安电子科技大学",
+    "major": "电子信息",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 285,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "报录比高压"
+    ],
+    "summary": "2025年西安电子科技大学（西电）电子信息校线285分，但通信工程学院院线330分、电子信息学院院线300分。西电为211高校，信息与通信工程、计算机科学均为A类学科，电子信息性价比极高。",
+    "sourceNote": "院校情报整理",
+    "status": "verified"
+  }
+]
