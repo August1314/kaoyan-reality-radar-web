@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaoyan-reality-radar-web.vercel.app/sitemap.xml
