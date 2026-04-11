@@ -3684,7 +3684,7 @@ export const failures: FailureExperience[] = [
     "scoreRange": "290-292",
     "enteredRetest": false,
     "finalResult": "未过初试",
-    "failureStage": "初试前",
+    "failureStage": "初试后",
     "failureTags": [
       "分数偏低"
     ],
@@ -4040,7 +4040,7 @@ export const failures: FailureExperience[] = [
     "school": "985高校",
     "major": "土木工程",
     "year": 2026,
-    "attempt": "五战",
+    "attempt": "二战",
     "scoreRange": "未达校线",
     "enteredRetest": false,
     "finalResult": "未过初试",
