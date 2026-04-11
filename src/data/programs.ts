@@ -2373,23 +2373,22 @@ export const programs: Program[] = [
     ],
     "summary": "2025年中南大学土木工程执行校线310分（参照国家工科线），较2024年有小幅上涨（英语单科线从70→75分）。中南土木学科评估B+，性价比高。2025年考研整体难度稳定，但土木行业就业压力使更多考生转向其他专业，导致竞争下降。中南大学是湖南省985院校，土木水利方向统招人数多。",
     "sourceNote": "院校情报整理"
-  }
-],
+  },
 {
-        "id": "batch-035-program-1",
-        "school": "985高校（综合）",
-        "major": "土木工程（0814/0859）",
-        "year": 2026,
-        "applicants": null,
-        "admitted": null,
-        "retestCount": null,
-        "retestLine": null,
-        "lowestAdmittedScore": null,
-        "riskTags": [
-            "报录比高压",
-            "信息不透明"
-        ],
-        "summary": "小红书Nicole是个普通人发布的考研咨询案例：某双非土木本科男生，2021年毕业后连续5年死磕同一所985高校，目标从985降档211再回到985，始终未能上线。案例揭示了土木工程专业考研的典型困境：行业下行、就业压力导致考生路径依赖与执念强化。5年内未有任何一年达到985校线，反映出土木考研竞争格局的变化与职业规划失误的双重影响。",
-        "sourceNote": "小红书 Nicole是个普通人 2026-04-10 https://www.xiaohongshu.com/explore/69d79ca4000000002202aa03"
-    }
-  }]
+    "id": "batch-035-program-1",
+    "school": "985高校（综合）",
+    "major": "土木工程（0814/0859）",
+    "year": 2026,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+        "报录比高压",
+        "信息不透明"
+    ],
+    "summary": "小红书Nicole是个普通人发布的考研咨询案例：某双非土木本科男生，2021年毕业后连续5年死磕同一所985高校，目标从985降档211再回到985，始终未能上线。案例揭示了土木工程专业考研的典型困境：行业下行、就业压力导致考生路径依赖与执念强化。5年内未有任何一年达到985校线，反映出土木考研竞争格局的变化与职业规划失误的双重影响。",
+    "sourceNote": "小红书 Nicole是个普通人 2026-04-10 https://www.xiaohongshu.com/explore/69d79ca4000000002202aa03"
+}
+]
