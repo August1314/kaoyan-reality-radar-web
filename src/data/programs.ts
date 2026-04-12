@@ -2374,55 +2374,157 @@ export const programs: Program[] = [
     "summary": "2025年中南大学土木工程执行校线310分（参照国家工科线），较2024年有小幅上涨（英语单科线从70→75分）。中南土木学科评估B+，性价比高。2025年考研整体难度稳定，但土木行业就业压力使更多考生转向其他专业，导致竞争下降。中南大学是湖南省985院校，土木水利方向统招人数多。",
     "sourceNote": "院校情报整理"
   },
-{
-    "id": "batch-035-program-1",
-    "school": "985高校（综合）",
-    "major": "土木工程（0814/0859）",
-    "year": 2026,
+  {
+    "id": "batch-036-program-1",
+    "school": "清华大学深圳国际研究生院",
+    "major": "人工智能（085410专硕）",
+    "year": 2025,
     "applicants": null,
     "admitted": null,
     "retestCount": null,
     "retestLine": null,
     "lowestAdmittedScore": null,
     "riskTags": [
-        "报录比高压",
-        "信息不透明"
+      "复试刷人明显",
+      "同分段分化明显"
     ],
-    "summary": "小红书Nicole是个普通人发布的考研咨询案例：某双非土木本科男生，2021年毕业后连续5年死磕同一所985高校，目标从985降档211再回到985，始终未能上线。案例揭示了土木工程专业考研的典型困境：行业下行、就业压力导致考生路径依赖与执念强化。5年内未有任何一年达到985校线，反映出土木考研竞争格局的变化与职业规划失误的双重影响。",
-    "sourceNote": "小红书 Nicole是个普通人 2026-04-10 https://www.xiaohongshu.com/explore/69d79ca4000000002202aa03"
-},
+    "summary": "清华深圳AI 840方向2025年竞争激烈，380-410分段仍有被刷风险。专业课840难度高，复试权重占比大。近年来热度持续上升。",
+    "sourceNote": "知乎经验贴（286票）：https://zhuanlan.zhihu.com/p/1891792192084873488"
+  },
   {
-  "id": "batch-036-program-1",
-  "school": "中山大学",
-  "major": "通信工程（含宽带网络、移动通信等）",
-  "year": 2026,
-  "applicants": null,
-  "admitted": null,
-  "retestCount": null,
-  "retestLine": null,
-  "lowestAdmittedScore": null,
-  "riskTags": [
-    "报录比高压",
-    "复试刷人明显"
-  ],
-  "summary": "2026年中山大学电子与通信工程学院085402方向出现极端案例：初试第一名440分考生，复试仅得284.6分不及格（全场唯一不及格），直接被判定不合格无缘录取。初试占总分50%、复试占50%，即使初试领先60分，复试不及格仍一票否决。再次验证高分不等于稳录。",
-  "sourceNote": "搜狐网 2026-04-07 https://www.sohu.com/a/1006483934_120960385 | 今日头条 2026-04-02 https://www.toutiao.com/article/7624080958639161897"
-},
+    "id": "batch-036-program-2",
+    "school": "北京大学软件与微电子学院",
+    "major": "计算机技术（085404专硕）",
+    "year": 2024,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "复试刷人明显",
+      "调剂机会少"
+    ],
+    "summary": "北大软微计算机专硕竞争激烈，350-370分段进入复试后可能被刷，调剂至双非院校是常见结果。计算机方向调剂名额极少。",
+    "sourceNote": "知乎经验贴（235票）：https://zhuanlan.zhihu.com/p/625169730"
+  },
   {
-  "id": "batch-036-program-2",
-  "school": "三峡大学",
-  "major": "电气工程",
-  "year": 2020,
-  "applicants": null,
-  "admitted": null,
-  "retestCount": null,
-  "retestLine": null,
-  "lowestAdmittedScore": null,
-  "riskTags": [
-    "复试刷人明显",
-    "信息不透明"
-  ],
-  "summary": "电力院校本科考生，初试近380分，一志愿报考本校电气工程专硕，进入复试后因准备不充分（仅准备了两天，未准备英语口语）导致面试崩盘，被刷后调剂至广西大学上岸。案例揭示初试高分不等于复试安全，需提前系统准备。",
-  "sourceNote": "知乎经验帖 https://zhuanlan.zhihu.com/p/143532097"
-}
+    "id": "batch-036-program-3",
+    "school": "北京大学信息科学技术学院",
+    "major": "计算机科学与技术（081200学硕）",
+    "year": 2023,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": 350,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升",
+      "复试刷人明显"
+    ],
+    "summary": "北大信科计算机学硕分数线常年350+，名额少竞争激烈。340-360分段处于边缘，需要同时准备复试和调剂。",
+    "sourceNote": "知乎经验贴（209票）：https://zhuanlan.zhihu.com/p/626591656"
+  },
+  {
+    "id": "batch-036-program-4",
+    "school": "清华大学软件学院",
+    "major": "软件工程（083500学硕）",
+    "year": 2024,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "分数线抬升",
+      "调剂机会少"
+    ],
+    "summary": "清华软院学硕分数线高，名额少，330-350分段难以进入复试。专硕是更稳妥的选择。",
+    "sourceNote": "知乎经验贴（157票）：https://zhuanlan.zhihu.com/p/38772354"
+  },
+  {
+    "id": "batch-036-program-5",
+    "school": "上海交通大学",
+    "major": "电子信息（0854专硕，819方向）",
+    "year": 2024,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "复试刷人明显",
+      "同分段分化明显"
+    ],
+    "summary": "上交819方向竞争激烈，初试分数高也可能在复试被刷。上交电院复试对专业基础要求高，复试权重占比大。",
+    "sourceNote": "知乎经验贴（69票）：https://zhuanlan.zhihu.com/p/693136960"
+  },
+  {
+    "id": "batch-036-program-6",
+    "school": "南京大学",
+    "major": "计算机科学与技术（081200学硕）",
+    "year": 2023,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "复试刷人明显",
+      "调剂机会少"
+    ],
+    "summary": "南大计算机学硕竞争激烈，340-360分段进入复试后可能被刷，调剂至双非是常见结果。计算机调剂名额极少。",
+    "sourceNote": "知乎回答（69票）：https://www.zhihu.com/question/454908981/answer/1849257890"
+  },
+  {
+    "id": "batch-036-program-7",
+    "school": "华南理工大学",
+    "major": "计算机技术（085404专硕）",
+    "year": 2024,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "复试刷人明显",
+      "调剂机会少"
+    ],
+    "summary": "华工计算机方向校内调剂机会有限，一志愿被刷后调剂难度大。计算机是热门方向，调剂名额极少。",
+    "sourceNote": "知乎经验贴（110票）：https://zhuanlan.zhihu.com/p/143292760"
+  },
+  {
+    "id": "batch-036-program-8",
+    "school": "医学类院校（综合）",
+    "major": "临床医学（105100专硕）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "复试刷人明显",
+      "调剂机会少"
+    ],
+    "summary": "医学考研竞争激烈，临床医学专硕是热门方向，一志愿失败后调剂难度大。医学考研需要同时准备西综和英语。",
+    "sourceNote": "小红书帖子（316赞）：https://www.xiaohongshu.com/explore/69c7ca530000000022028756"
+  },
+  {
+    "id": "batch-036-program-9",
+    "school": "MPAcc相关院校（综合）",
+    "major": "会计专硕（125300）",
+    "year": 2025,
+    "applicants": null,
+    "admitted": null,
+    "retestCount": null,
+    "retestLine": null,
+    "lowestAdmittedScore": null,
+    "riskTags": [
+      "复试刷人明显",
+      "同分段分化明显"
+    ],
+    "summary": "MPAcc管综254分属于高分，但复试竞争激烈，高分被刷现象常见。MPAcc复试对专业课和综合素质要求高。",
+    "sourceNote": "小红书帖子（170赞）：https://www.xiaohongshu.com/explore/69bbf74d000000001a02ac04"
+  }
 ]
