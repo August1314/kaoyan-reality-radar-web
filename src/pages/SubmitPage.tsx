@@ -6,7 +6,6 @@ export function SubmitPage() {
     <main id="main-content" className="page narrow-page">
       <PageRouteBar
         actions={[
-          { label: '返回首页', to: routeLinks.home() },
           { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
         ]}
       />

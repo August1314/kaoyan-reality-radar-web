@@ -1,6 +1,9 @@
 import { failures } from '../data/failures'
 import { programs } from '../data/programs'
+import { buildProgramSlug } from './programSlug'
 import type { FailureExperience, Program } from './types'
+
+export { buildProgramSlug } from './programSlug'
 
 const normalize = (value: string) => value.trim().toLowerCase()
 
@@ -12,10 +15,6 @@ export interface SearchInput {
 export interface SearchResult {
   program: Program | null
   failures: FailureExperience[]
-}
-
-export function buildProgramSlug(program: Program) {
-  return `${program.school}-${program.major}-${program.year}`
 }
 
 export function findProgramBySlug(slug: string) {

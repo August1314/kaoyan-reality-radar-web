@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { programs } from '../data/programs'
+import { programIndex } from '../data/programIndex'
+import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
-import { buildProgramSlug } from '../lib/search'
 import { useSearchHistory } from '../hooks/useSearchHistory'
-import type { Program } from '../lib/types'
+import type { ProgramIndexEntry } from '../lib/types'
 
 /**
  * 高亮匹配文字
@@ -18,7 +18,7 @@ function HighlightedMatch({ text, query }: { text: string; query: string }) {
   return (
     <>
       {text.slice(0, idx)}
-      <mark style={{ background: 'none', color: '#6d28d9', fontWeight: 700 }}>
+      <mark style={{ background: 'none', color: 'var(--color-primary)', fontWeight: 700 }}>
         {text.slice(idx, idx + q.length)}
       </mark>
       {text.slice(idx + q.length)}
@@ -29,11 +29,13 @@ function HighlightedMatch({ text, query }: { text: string; query: string }) {
 /** 单条建议行 */
 function SuggestionItem({
   program,
+  query,
   isActive,
   onMouseEnter,
   onClick,
 }: {
-  program: Program
+  program: ProgramIndexEntry
+  query: string
   isActive: boolean
   onMouseEnter: () => void
   onClick: () => void
@@ -47,10 +49,10 @@ function SuggestionItem({
       onClick={onClick}
     >
       <span className="search-suggestion-school">
-        <HighlightedMatch text={program.school} query={program.school} />
+        <HighlightedMatch text={program.school} query={query} />
       </span>
       <span className="search-suggestion-major">
-        <HighlightedMatch text={program.major} query={program.major} />
+        <HighlightedMatch text={program.major} query={query} />
       </span>
     </li>
   )
@@ -67,7 +69,7 @@ export function SearchInput({ className }: SearchInputProps) {
 
   // 显示"重新搜索"模式（从结果页来）时 school+major 有初值
   const [rawQuery, setRawQuery] = useState('')
-  const [suggestions, setSuggestions] = useState<Program[]>([])
+  const [suggestions, setSuggestions] = useState<ProgramIndexEntry[]>([])
   const [isOpen, setIsOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState(-1)
 
@@ -89,7 +91,7 @@ export function SearchInput({ className }: SearchInputProps) {
 
     debounceRef.current = setTimeout(() => {
       const q = value.trim().toLowerCase()
-      const matched = programs
+      const matched = programIndex
         .filter(
           (p) =>
             p.school.toLowerCase().includes(q) ||
@@ -109,13 +111,13 @@ export function SearchInput({ className }: SearchInputProps) {
         .slice(0, 6)
 
       setSuggestions(matched)
-      setIsOpen(matched.length > 0)
+      setIsOpen(true)
     }, 200)
   }, [])
 
   // 选中建议 → 跳转结果页
   const selectSuggestion = useCallback(
-    (program: Program) => {
+    (program: ProgramIndexEntry) => {
       setRawQuery('')
       setSuggestions([])
       setIsOpen(false)
@@ -220,7 +222,7 @@ export function SearchInput({ className }: SearchInputProps) {
           onFocus={() => {
             if (suggestions.length > 0) setIsOpen(true)
           }}
-          placeholder="输入学校或专业，例如：中山大学 计算机（按 / 快捷聚焦）"
+          placeholder="学校或专业"
           aria-label="输入学校或专业，搜索考研目标难度"
           aria-autocomplete="list"
           aria-controls="search-suggestions"
@@ -263,13 +265,14 @@ export function SearchInput({ className }: SearchInputProps) {
             <SuggestionItem
               key={program.id}
               program={program}
+              query={rawQuery}
               isActive={i === activeIndex}
               onMouseEnter={() => setActiveIndex(i)}
               onClick={() => selectSuggestion(program)}
             />
           ))}
           <li className="search-suggestion-tip">
-            共 {suggestions.length} 条，按 ↑↓ 选，Enter 确认
+            {suggestions.length} 条结果
           </li>
         </ul>
       )}
@@ -277,8 +280,8 @@ export function SearchInput({ className }: SearchInputProps) {
       {/* 无匹配提示 */}
       {isOpen && suggestions.length === 0 && rawQuery.trim().length >= 2 && (
         <div className="search-suggestions search-suggestions--empty">
-          <span>暂无匹配的学校或专业</span>
-          <span className="search-empty-tip">试试：中山大学 · 浙江大学 · 计算机技术</span>
+          <span>暂无匹配</span>
+          <span className="search-empty-tip">试试 中山大学 或 计算机</span>
         </div>
       )}
     </div>

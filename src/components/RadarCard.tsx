@@ -11,7 +11,7 @@ export function RadarCard({ program }: RadarCardProps) {
     <section className="card radar-card">
       <div className="section-head left-align">
         <h2>难度雷达</h2>
-        <p>{program.year} 年最近数据</p>
+        <p>{program.year}</p>
       </div>
       <RadarChart program={program} />
       <RiskTagList tags={program.riskTags} />

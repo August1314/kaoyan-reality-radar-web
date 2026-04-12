@@ -1,8 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { formatFailureSourceNote } from '../lib/format'
+import { findFailureById, findRelatedFailures } from '../lib/failures'
+import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
-import { buildProgramSlug, findFailureById, findProgramById, findRelatedFailures } from '../lib/search'
 
 export function FailureDetailPage() {
   const { id = '' } = useParams()
@@ -22,10 +23,8 @@ export function FailureDetailPage() {
   }
 
   const related = findRelatedFailures(failure.programId, failure.id)
-  const program = findProgramById(failure.programId)
   const actions = [
-    { label: '返回首页', to: routeLinks.home() },
-    ...(program ? [{ label: '回到结果页', to: routeLinks.result(buildProgramSlug(program)) }] : []),
+    { label: '回到结果页', to: routeLinks.result(buildProgramSlug(failure)) },
     { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' as const },
   ]
 

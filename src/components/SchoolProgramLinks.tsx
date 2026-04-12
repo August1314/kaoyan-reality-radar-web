@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { programs } from '../data/programs'
+import { programIndex } from '../data/programIndex'
+import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
-import { buildProgramSlug } from '../lib/search'
 
 interface SchoolProgramLinksProps {
   currentProgramId: string
@@ -9,7 +9,7 @@ interface SchoolProgramLinksProps {
 }
 
 export function SchoolProgramLinks({ currentProgramId, school }: SchoolProgramLinksProps) {
-  const sameSchoolPrograms = programs
+  const sameSchoolPrograms = programIndex
     .filter((program) => program.school === school)
     .sort((a, b) => {
       if (b.year !== a.year) {
@@ -27,7 +27,7 @@ export function SchoolProgramLinks({ currentProgramId, school }: SchoolProgramLi
     <section className="card school-program-links">
       <div className="section-head left-align">
         <h2>同校已收录目标</h2>
-        <p>先看同一所学校里其它已经整理好的方向，再决定要不要继续往下查。</p>
+        <p>{school}</p>
       </div>
       <div className="school-program-links__grid">
         {sameSchoolPrograms.map((program) => {
@@ -36,7 +36,7 @@ export function SchoolProgramLinks({ currentProgramId, school }: SchoolProgramLi
             return (
               <article key={program.id} className="school-program-link school-program-link--current" aria-current="page">
                 <strong>{program.major}</strong>
-                <span>当前目标</span>
+                <span>当前</span>
               </article>
             )
           }
@@ -44,7 +44,7 @@ export function SchoolProgramLinks({ currentProgramId, school }: SchoolProgramLi
           return (
             <Link key={program.id} to={routeLinks.result(buildProgramSlug(program))} className="school-program-link">
               <strong>{program.major}</strong>
-              <span>{program.summary}</span>
+              <span>{program.year}</span>
             </Link>
           )
         })}

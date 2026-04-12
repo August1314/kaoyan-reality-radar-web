@@ -1,6 +1,7 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+import { buildProgramSlug } from '../src/lib/programSlug.ts'
 
 type RiskTag = '报录比高压' | '复试刷人明显' | '分数线抬升' | '调剂机会少' | '信息不透明' | '同分段分化明显'
 type FailureStage = '初试前' | '初试后' | '复试前' | '复试中' | '调剂阶段'
@@ -8,7 +9,7 @@ type FinalResult = '未过初试' | '进入复试但未录取' | '调剂失败' 
 type Attempt = '一战' | '二战' | '未知'
 type RecordStatus = 'todo' | 'draft' | 'verified'
 
-interface RawProgram {
+export interface RawProgram {
   id: string
   school: string
   major: string
@@ -24,7 +25,7 @@ interface RawProgram {
   status?: RecordStatus
 }
 
-interface RawFailure {
+export interface RawFailure {
   id: string
   programId: string
   school: string
@@ -44,8 +45,15 @@ interface RawFailure {
   status?: RecordStatus
 }
 
-type PublishedProgram = Omit<RawProgram, 'status'>
-type PublishedFailure = Omit<RawFailure, 'status'>
+export type PublishedProgram = Omit<RawProgram, 'status'>
+export type PublishedFailure = Omit<RawFailure, 'status'>
+export interface PublishedProgramIndexEntry {
+  id: string
+  school: string
+  major: string
+  year: number
+  summary: string
+}
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -56,8 +64,9 @@ const processedProgramsPath = path.join(processedDir, 'programs.json')
 const processedFailuresPath = path.join(processedDir, 'failures.json')
 const publishProgramsPath = path.join(rootDir, 'src/data/programs.ts')
 const publishFailuresPath = path.join(rootDir, 'src/data/failures.ts')
+const publishProgramIndexPath = path.join(rootDir, 'src/data/programIndex.ts')
 
-function compareFileName(a: string, b: string) {
+export function compareFileName(a: string, b: string) {
   return a.localeCompare(b, 'en')
 }
 
@@ -71,31 +80,37 @@ async function readJsonFile<T>(filePath: string): Promise<T> {
   return JSON.parse(content) as T
 }
 
-function isReadyProgram(item: RawProgram) {
+export function isReadyProgram(item: RawProgram) {
   return item.status === 'verified'
 }
 
-function isReadyFailure(item: RawFailure) {
+export function isReadyFailure(item: RawFailure) {
   return item.status === 'verified'
 }
 
-function toPublishedProgram(item: RawProgram): PublishedProgram {
+export function toPublishedProgram(item: RawProgram): PublishedProgram {
   const { status, ...published } = item
   void status
   return published
 }
 
-function toPublishedFailure(item: RawFailure): PublishedFailure {
+export function toPublishedFailure(item: RawFailure): PublishedFailure {
   const { status, ...published } = item
   void status
   return published
 }
 
-function buildProgramSlug(program: PublishedProgram) {
-  return `${program.school}-${program.major}-${program.year}`
+export function toPublishedProgramIndex(item: PublishedProgram): PublishedProgramIndexEntry {
+  return {
+    id: item.id,
+    school: item.school,
+    major: item.major,
+    year: item.year,
+    summary: item.summary,
+  }
 }
 
-function assertUniqueIds(items: Array<{ id: string }>, label: string) {
+export function assertUniqueIds(items: Array<{ id: string }>, label: string) {
   const seen = new Set<string>()
 
   for (const item of items) {
@@ -107,7 +122,7 @@ function assertUniqueIds(items: Array<{ id: string }>, label: string) {
   }
 }
 
-function assertUniqueProgramSlugs(programs: PublishedProgram[]) {
+export function assertUniqueProgramSlugs(programs: PublishedProgram[]) {
   const seen = new Set<string>()
 
   for (const program of programs) {
@@ -120,7 +135,7 @@ function assertUniqueProgramSlugs(programs: PublishedProgram[]) {
   }
 }
 
-function assertFailureProgramLinks(programs: PublishedProgram[], failures: PublishedFailure[]) {
+export function assertFailureProgramLinks(programs: PublishedProgram[], failures: PublishedFailure[]) {
   const validProgramIds = new Set(programs.map((program) => program.id))
 
   for (const failure of failures) {
@@ -130,18 +145,18 @@ function assertFailureProgramLinks(programs: PublishedProgram[], failures: Publi
   }
 }
 
-function validatePublishedData(programs: PublishedProgram[], failures: PublishedFailure[]) {
+export function validatePublishedData(programs: PublishedProgram[], failures: PublishedFailure[]) {
   assertUniqueIds(programs, 'program')
   assertUniqueIds(failures, 'failure')
   assertUniqueProgramSlugs(programs)
   assertFailureProgramLinks(programs, failures)
 }
 
-function toTsModule<T>(constName: string, typeName: string, items: T[]) {
+export function toTsModule<T>(constName: string, typeName: string, items: T[]) {
   return `import type { ${typeName} } from '../lib/types'\n\nexport const ${constName}: ${typeName}[] = ${JSON.stringify(items, null, 2)}\n`
 }
 
-async function main() {
+export async function main() {
   const [programBatchFiles, failureBatchFiles] = await Promise.all([listBatchFiles('programs'), listBatchFiles('failures')])
 
   const processedPrograms: PublishedProgram[] = []
@@ -168,12 +183,19 @@ async function main() {
 
   await writeFile(publishProgramsPath, toTsModule('programs', 'Program', processedPrograms), 'utf-8')
   await writeFile(publishFailuresPath, toTsModule('failures', 'FailureExperience', processedFailures), 'utf-8')
+  await writeFile(
+    publishProgramIndexPath,
+    toTsModule('programIndex', 'ProgramIndexEntry', processedPrograms.map(toPublishedProgramIndex)),
+    'utf-8',
+  )
 
   console.log(`同步完成：programs=${processedPrograms.length}, failures=${processedFailures.length}`)
 }
 
-main().catch((error) => {
-  console.error('同步失败')
-  console.error(error)
-  process.exit(1)
-})
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error('同步失败')
+    console.error(error)
+    process.exit(1)
+  })
+}

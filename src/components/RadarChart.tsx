@@ -94,6 +94,11 @@ function riskLabel(value: number | null): string {
 export function RadarChart({ program }: RadarChartProps) {
   const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null)
   const axes = buildAxes(program)
+  const gridColor = 'var(--color-border-strong)'
+  const accentColor = 'var(--color-accent)'
+  const primaryColor = 'var(--color-primary)'
+  const mutedColor = 'var(--color-text-muted)'
+  const surfaceColor = 'var(--color-bg-strong)'
 
   // 雷达区域多边形（数据多边形）
   const dataPoints = axes.map((a, i) => {
@@ -114,8 +119,8 @@ export function RadarChart({ program }: RadarChartProps) {
       >
         <defs>
           <linearGradient id="radarFill" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.30" />
-            <stop offset="100%" stopColor="#2563eb" stopOpacity="0.15" />
+            <stop offset="0%" style={{ stopColor: accentColor, stopOpacity: 0.3 }} />
+            <stop offset="100%" style={{ stopColor: primaryColor, stopOpacity: 0.14 }} />
           </linearGradient>
           <filter id="radarGlow">
             <feGaussianBlur stdDeviation="3" result="blur" />
@@ -134,7 +139,7 @@ export function RadarChart({ program }: RadarChartProps) {
               key={level}
               points={pts.map(([x, y]) => `${x},${y}`).join(' ')}
               fill="none"
-              stroke="#e5e7eb"
+              stroke={gridColor}
               strokeWidth="1"
             />
           )
@@ -143,14 +148,14 @@ export function RadarChart({ program }: RadarChartProps) {
         {/* 轴线 */}
         {axes.map((_, i) => {
           const [ex, ey] = axisPoint(i, R)
-          return <line key={i} x1={CX} y1={CY} x2={ex} y2={ey} stroke="#e5e7eb" strokeWidth="1" />
+          return <line key={i} x1={CX} y1={CY} x2={ex} y2={ey} stroke={gridColor} strokeWidth="1" />
         })}
 
         {/* 数据区域 */}
         <polygon
           points={dataPoly}
           fill="url(#radarFill)"
-          stroke="#7c3aed"
+          stroke={accentColor}
           strokeWidth="2"
           strokeLinejoin="round"
           filter="url(#radarGlow)"
@@ -189,8 +194,8 @@ export function RadarChart({ program }: RadarChartProps) {
                 cx={px}
                 cy={py}
                 r={axis.value == null ? 4 : 5}
-                fill={axis.value == null ? '#d1d5db' : '#7c3aed'}
-                stroke="#ffffff"
+                fill={axis.value == null ? mutedColor : accentColor}
+                stroke={surfaceColor}
                 strokeWidth="2"
               />
             </g>
@@ -210,7 +215,7 @@ export function RadarChart({ program }: RadarChartProps) {
               textAnchor={textAnchor}
             dominantBaseline="auto"
               fontSize="12"
-              fill="#6b7280"
+              fill={mutedColor}
               fontWeight="600"
             >
               {axis.label}
@@ -225,7 +230,7 @@ export function RadarChart({ program }: RadarChartProps) {
           textAnchor="middle"
           dominantBaseline="middle"
           fontSize="10"
-          fill="#9ca3af"
+          fill={mutedColor}
           pointerEvents="none"
         >
           难度
@@ -249,7 +254,7 @@ export function RadarChart({ program }: RadarChartProps) {
             <span
               className="radar-legend-dot"
               style={{
-                background: axis.value == null ? '#d1d5db' : '#7c3aed',
+                background: axis.value == null ? mutedColor : accentColor,
               }}
             />
             <span className="radar-legend-label">{axis.label}</span>

@@ -8,9 +8,9 @@ export function SearchHistory() {
   if (history.length === 0) return null
 
   return (
-    <section className="search-history card">
+    <section className="search-history">
       <div className="section-head">
-        <h2>最近搜索</h2>
+        <h2>最近查看</h2>
         <button
           type="button"
           className="search-history-clear"

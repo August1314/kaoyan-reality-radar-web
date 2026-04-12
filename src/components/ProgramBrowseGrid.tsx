@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useMemo } from 'react'
-import { programs } from '../data/programs'
+import { programIndex } from '../data/programIndex'
+import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
-import { buildProgramSlug } from '../lib/search'
 
 export function ProgramBrowseGrid() {
   const groupedPrograms = useMemo(() => {
-    const groups = new Map<string, typeof programs>()
+    const groups = new Map<string, typeof programIndex>()
 
-    for (const program of programs) {
+    for (const program of programIndex) {
       const existing = groups.get(program.school)
       if (existing) {
         existing.push(program)
@@ -31,9 +31,9 @@ export function ProgramBrowseGrid() {
           <summary className="school-browse-summary">
             <div>
               <strong>{group.school}</strong>
-              <span>{group.items.length} 个已收录目标</span>
+              <span>{group.items.length} 个目标</span>
             </div>
-            <small>展开查看</small>
+            <small>展开</small>
           </summary>
           <div className="school-browse-programs">
             {group.items.map((program) => (
@@ -43,7 +43,7 @@ export function ProgramBrowseGrid() {
                 className="school-browse-program"
               >
                 <strong>{program.major}</strong>
-                <span>{program.summary}</span>
+                <span>{program.year} · {program.summary}</span>
               </Link>
             ))}
           </div>

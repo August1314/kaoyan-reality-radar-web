@@ -1,31 +1,25 @@
 import fs from 'fs'
 import path from 'path'
-import { fileURLToPath } from 'url'
+import { fileURLToPath, pathToFileURL } from 'url'
+import { buildProgramSlug } from '../src/lib/programSlug.ts'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
 
-interface Program {
+export interface Program {
   id: string
   school: string
   major: string
   year: number
 }
-
-function buildProgramSlug(program: Program): string {
-  return `${program.year}-${program.school}-${program.major}`
-    .replace(/\s+/g, '-')
-    .replace(/[()（）]/g, '')
+function readPrograms(): Program[] {
+  const programsPath = path.resolve(__dirname, '../data/processed/programs.json')
+  return JSON.parse(fs.readFileSync(programsPath, 'utf-8')) as Program[]
 }
 
-function generateSitemap(): string {
-  const now = new Date().toISOString().split('T')[0]
-
-  // 读取 programs 数据
-  const programsPath = path.resolve(__dirname, '../data/processed/programs.json')
-  const programs: Program[] = JSON.parse(fs.readFileSync(programsPath, 'utf-8'))
+export function generateSitemap(programs: Program[], now = new Date().toISOString().split('T')[0]): string {
 
   const urls: string[] = []
 
@@ -63,7 +57,7 @@ ${urls.join('\n')}
 `
 }
 
-function generateRobotsTxt(): string {
+export function generateRobotsTxt(): string {
   return `User-agent: *
 Allow: /
 
@@ -71,12 +65,16 @@ Sitemap: ${SITE_URL}/sitemap.xml
 `
 }
 
-// 生成 sitemap.xml
-const sitemap = generateSitemap()
-fs.writeFileSync(path.resolve(__dirname, '../public/sitemap.xml'), sitemap)
-console.log(`✅ Generated sitemap.xml`)
+export function main() {
+  const sitemap = generateSitemap(readPrograms())
+  fs.writeFileSync(path.resolve(__dirname, '../public/sitemap.xml'), sitemap)
+  console.log('✅ Generated sitemap.xml')
 
-// 生成 robots.txt
-const robots = generateRobotsTxt()
-fs.writeFileSync(path.resolve(__dirname, '../public/robots.txt'), robots)
-console.log('✅ Generated robots.txt')
+  const robots = generateRobotsTxt()
+  fs.writeFileSync(path.resolve(__dirname, '../public/robots.txt'), robots)
+  console.log('✅ Generated robots.txt')
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main()
+}

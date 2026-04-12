@@ -8,8 +8,10 @@ import { ResultContextCard } from '../components/ResultContextCard'
 import { RiskTagList } from '../components/RiskTagList'
 import { ShareButton } from '../components/ShareButton'
 import { CompareToggle } from '../components/CompareButton'
-import { routeLinks } from '../lib/routes'
-import { findProgramBySlug, searchProgram } from '../lib/search'
+import { findFailuresByProgramId } from '../lib/failures'
+import { formatMetricValue, formatRatio, formatRetestRate } from '../lib/format'
+import { findProgramBySlug } from '../lib/programs'
+import { resultSectionLinks, routeLinks } from '../lib/routes'
 import { useResultPageSEO } from '../hooks/useSEO'
 
 export function ResultPage() {
@@ -24,31 +26,32 @@ export function ResultPage() {
       <main className="page narrow-page">
         <PageRouteBar
           actions={[
-            { label: '返回首页', to: routeLinks.home() },
             { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
           ]}
         />
         <section className="card empty-state">
           <h1>暂时还没有找到这个目标</h1>
-          <p>可以先返回首页看看已收录的真实案例，或者换一个更接近的学校和专业试试。</p>
+          <p>先回首页换一个目标。</p>
           <div className="empty-state-actions">
             <Link to={routeLinks.home()} className="route-button route-button--primary">
-              返回首页继续搜索
-            </Link>
-            <Link to={routeLinks.home()} className="route-button">
-              浏览已收录目标
+              返回首页
             </Link>
             <Link to={routeLinks.submit()} className="route-button">
               去匿名投稿
             </Link>
           </div>
-          <p className="empty-state-note">如果你只是关键词没打准，先回首页从真实案例入口挑一个相近目标再搜一次。</p>
         </section>
       </main>
     )
   }
 
-  const result = searchProgram({ school: program.school, major: program.major })
+  const resultFailures = findFailuresByProgramId(program.id)
+  const metrics = [
+    { label: '报录比', value: formatRatio(program.applicants, program.admitted) ? `${formatRatio(program.applicants, program.admitted)} : 1` : '未公开' },
+    { label: '复录比', value: formatRetestRate(program.retestCount, program.admitted) ? `${formatRetestRate(program.retestCount, program.admitted)} : 1` : '未公开' },
+    { label: '复试线', value: formatMetricValue(program.retestLine) },
+    { label: '最低录取', value: formatMetricValue(program.lowestAdmittedScore) },
+  ]
 
   return (
     <main id="main-content" className="page result-page">
@@ -60,60 +63,94 @@ export function ResultPage() {
       />
       <PageRouteBar
         actions={[
-          { label: '返回首页', to: routeLinks.home() },
           { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
         ]}
       />
-      <section className="card page-head">
-        <div className="page-head-content">
+
+      <section className="card page-head result-hero">
+        <div className="page-head-content result-hero__content">
           <p className="eyebrow">目标判断</p>
           <h1>
             {program.school} · {program.major}
           </h1>
-          <p className="hero-copy">先看难度，再看失败路径，避免只看上岸叙事。</p>
-          <p className="meta-line">本页基于 {program.year} 年官方公开材料整理。</p>
+          <p className="hero-copy">先看难度，再看失败路径。</p>
+          <div className="result-kpis">
+            {metrics.map((item) => (
+              <div key={item.label} className="result-kpi">
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+              </div>
+            ))}
+          </div>
         </div>
-        <ShareButton
-          title={`${program.school} · ${program.major} - 考研现实雷达`}
-          text={`看看${program.school}${program.major}的真实难度和失败经验`}
-        />
-        <CompareToggle programId={program.id} />
+        <div className="result-hero__actions">
+          <ShareButton
+            title={`${program.school} · ${program.major} - 考研现实雷达`}
+            text={`看看${program.school}${program.major}的真实难度和失败经验`}
+          />
+          <CompareToggle programId={program.id} />
+        </div>
       </section>
 
-      <ResultContextCard program={program} />
+      <nav className="result-anchor-nav" aria-label="结果页分区导航">
+        {resultSectionLinks.map((item) => (
+          <a key={item.id} href={`#${item.id}`} className="result-anchor-link">
+            {item.label}
+          </a>
+        ))}
+      </nav>
 
-      <SchoolProgramLinks currentProgramId={program.id} school={program.school} />
+      <section id="overview" className="result-stack">
+        <div className="result-layout">
+          <RadarCard program={program} />
+          <ResultContextCard program={program} />
+        </div>
+      </section>
 
-      <section className="result-layout">
-        <RadarCard program={program} />
-        <section className="card reminder-card">
-          <h2>现实提醒</h2>
-          <p>数字只能说明一部分。真正影响决策的，往往是别人在哪一步掉坑。</p>
+      <section id="signals" className="card reminder-card">
+        <div className="section-head left-align">
+          <h2>风险信号</h2>
+          <p>这页先看这些</p>
+        </div>
+        <div className="reminder-card__body">
           <RiskTagList tags={program.riskTags} />
-          <p className="source-note">来源备注：{program.sourceNote}</p>
-        </section>
+          <p className="summary-box">{program.summary}</p>
+          <p className="source-note">{program.sourceNote}</p>
+        </div>
       </section>
 
-      <section className="card">
+      <section id="failures" className="card">
         <div className="section-head">
           <h2>失败经验</h2>
-          <p>样本可能来自官方公示整理、名单推导或匿名投稿；先看来源口径，再点进去看完整复盘。</p>
+          <p>{resultFailures.length} 条样本</p>
         </div>
         <div className="failure-list">
-          {result.failures.map((item) => (
+          {resultFailures.map((item) => (
             <FailureCard key={item.id} failure={item} />
           ))}
         </div>
       </section>
 
-      <section className="card submit-card">
+      <section id="alternatives">
+        <SchoolProgramLinks currentProgramId={program.id} school={program.school} />
+      </section>
+
+      <section id="next-step" className="card submit-card submit-card--hero">
         <div>
-          <h2>你也经历过类似失败？</h2>
-          <p>匿名补充一条真实经历，会让后来的人少踩一次坑。</p>
+          <p className="eyebrow">下一步</p>
+          <h2>继续补样本，或者开始对比。</h2>
         </div>
-        <Link to={routeLinks.submit()} className="text-link">
-          去投稿
-        </Link>
+        <div className="submit-card__actions">
+          <Link to={routeLinks.compare()} className="route-button">
+            去对比
+          </Link>
+          <Link to={routeLinks.stats()} className="route-button">
+            看统计
+          </Link>
+          <Link to={routeLinks.submit()} className="route-button route-button--primary">
+            去投稿
+          </Link>
+        </div>
       </section>
     </main>
   )

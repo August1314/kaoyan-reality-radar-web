@@ -33,6 +33,32 @@ export interface Program {
   sourceNote: string
 }
 
+export interface ProgramIndexEntry {
+  id: string
+  school: string
+  major: string
+  year: number
+  summary: string
+}
+
+export interface TrustMetric {
+  value: string
+  label: string
+}
+
+export interface InsightCard {
+  title: string
+  description: string
+  actionLabel: string
+  actionTo: string
+}
+
+export interface PageHeroConfig {
+  eyebrow: string
+  title: string
+  summary: string
+}
+
 export interface FailureExperience {
   id: string
   programId: string

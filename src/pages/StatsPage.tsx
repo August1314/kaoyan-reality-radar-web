@@ -74,8 +74,7 @@ export function StatsPage() {
     <main id="main-content" className="page narrow-page">
       <PageRouteBar
         actions={[
-          { label: '首页', to: routeLinks.home() },
-          { label: '数据统计', to: '#', tone: 'primary' },
+          { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
         ]}
       />
 

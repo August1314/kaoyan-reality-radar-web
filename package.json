@@ -8,6 +8,8 @@
     "build": "npm run generate:sitemap && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "sync:data": "node scripts/sync-data.ts",
     "generate:sitemap": "node scripts/generate-sitemap.ts"
   },
@@ -28,6 +30,7 @@
     "globals": "^17.4.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.57.0",
-    "vite": "^8.0.1"
+    "vite": "^8.0.1",
+    "vitest": "^3.2.4"
   }
 }

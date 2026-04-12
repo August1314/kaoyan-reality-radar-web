@@ -34,32 +34,27 @@ export function FailureCard({ failure }: FailureCardProps) {
         ))}
       </ul>
 
-      {/* 主要内容区 */}
       <div className="failure-card__body">
-        {/* 一句话提醒：默认截断，展开后完整显示 */}
+        <p className="failure-card__headline">{failure.reminder}</p>
         <p className={!expanded && reminderLong ? 'line-clamp-2' : ''}>
-          {failure.reminder}
+          {truncate(failure.review, 120)}
         </p>
 
-        {/* 展开后显示复习回顾和给后来者的建议摘要 */}
         {expanded && (
           <div className="failure-extended">
-            <p className="failure-extended__label">复习回顾</p>
-            <p>{truncate(failure.review)}</p>
-            <p className="failure-extended__label">给后来者</p>
+            <p className="failure-extended__label">建议</p>
             <p>{truncate(failure.advice)}</p>
           </div>
         )}
       </div>
 
-      {/* 展开/收起按钮（内容较长时出现） */}
       {reminderLong && (
         <button
           className="failure-expand-btn"
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
         >
-          {expanded ? '收起' : '展开更多'}
+          {expanded ? '收起' : '展开'}
         </button>
       )}
 

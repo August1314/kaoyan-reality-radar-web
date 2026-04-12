@@ -22,32 +22,32 @@ export function ResultContextCard({ program }: ResultContextCardProps) {
     <section className="card result-context-card">
       <div className="section-head left-align">
         <h2>数据口径</h2>
-        <p>先看来源和缺口，再看分数和排名，避免把未公开字段当成真实空缺。</p>
+        <p>{program.year} 招生季</p>
       </div>
 
       <div className="context-grid">
         <div className="context-item">
-          <span>年份 / 招生季</span>
+          <span>年份</span>
           <strong>{program.year} 年</strong>
         </div>
         <div className="context-item">
-          <span>来源范围</span>
-          <strong>官方公开材料整理</strong>
+          <span>来源</span>
+          <strong>官方材料</strong>
         </div>
         <div className="context-item">
-          <span>发布态</span>
-          <strong>verified 静态数据</strong>
+          <span>状态</span>
+          <strong>已整理</strong>
         </div>
         <div className="context-item">
           <span>时间口径</span>
-          <strong>{program.year} 年招生季</strong>
+          <strong>{program.year} 招生季</strong>
         </div>
       </div>
 
       <p className="context-note">{program.sourceNote}</p>
 
       <div className="context-missing">
-        <p className="context-missing__label">暂未公开 / 待补充字段</p>
+        <p className="context-missing__label">待补字段</p>
         {missingFields.length > 0 ? (
           <ul className="tag-list muted-tags context-tags">
             {missingFields.map((field) => (
@@ -55,7 +55,7 @@ export function ResultContextCard({ program }: ResultContextCardProps) {
             ))}
           </ul>
         ) : (
-          <p className="context-missing__empty">当前项目的核心字段已整理完毕。</p>
+          <p className="context-missing__empty">核心字段完整</p>
         )}
       </div>
     </section>
