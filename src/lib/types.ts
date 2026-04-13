@@ -46,11 +46,27 @@ export interface TrustMetric {
   label: string
 }
 
+export interface PromoBandItem {
+  label: string
+  value: string
+}
+
 export interface InsightCard {
   title: string
   description: string
   actionLabel: string
   actionTo: string
+}
+
+export interface FeaturePanel {
+  eyebrow: string
+  title: string
+  summary: string
+  theme: 'dark' | 'light' | 'tint'
+  actionLabel: string
+  actionTo: string
+  secondaryLabel?: string
+  secondaryTo?: string
 }
 
 export interface PageHeroConfig {
