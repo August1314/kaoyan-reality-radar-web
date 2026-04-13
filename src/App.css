@@ -731,13 +731,11 @@ mark {
 }
 
 .result-anchor-nav {
-  position: sticky;
-  top: 104px;
-  z-index: 20;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   padding: 10px 12px;
+  margin-bottom: 8px;
   border: 1px solid var(--color-border);
   border-radius: 22px;
   background: color-mix(in srgb, var(--color-bg-strong) 90%, transparent);
@@ -761,6 +759,14 @@ mark {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+#overview,
+#signals,
+#failures,
+#alternatives,
+#next-step {
+  scroll-margin-top: 128px;
 }
 
 .result-stack > * + *,
@@ -1293,10 +1299,6 @@ mark {
   .school-browse-summary {
     align-items: start;
     flex-direction: column;
-  }
-
-  .result-anchor-nav {
-    top: 162px;
   }
 
   .stats-bar-row {

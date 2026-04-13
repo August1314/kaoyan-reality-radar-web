@@ -69,6 +69,12 @@ const R = 110
 const AXIS_COUNT = 5
 const LABEL_R = R + 28
 const HEX = 360 / AXIS_COUNT
+const VIEWBOX = {
+  minX: -48,
+  minY: -24,
+  width: 416,
+  height: 332,
+} as const
 
 function axisPoint(i: number, r: number): [number, number] {
   const angle = ((i * HEX - 90) * Math.PI) / 180
@@ -113,7 +119,7 @@ export function RadarChart({ program }: RadarChartProps) {
   return (
     <div className="radar-chart-wrapper">
       <svg
-        viewBox="0 0 320 260"
+        viewBox={`${VIEWBOX.minX} ${VIEWBOX.minY} ${VIEWBOX.width} ${VIEWBOX.height}`}
         className="radar-chart"
         aria-label={`${program.school} ${program.major} 难度雷达图`}
       >
@@ -207,13 +213,15 @@ export function RadarChart({ program }: RadarChartProps) {
           const [lx, ly] = labelPoint(i)
           const textAnchor =
             lx < CX - 10 ? 'end' : lx > CX + 10 ? 'start' : 'middle'
+          const dominantBaseline =
+            ly < CY - 80 ? 'text-before-edge' : ly > CY + 80 ? 'hanging' : 'middle'
           return (
             <text
               key={axis.key}
               x={lx}
               y={ly}
               textAnchor={textAnchor}
-            dominantBaseline="auto"
+              dominantBaseline={dominantBaseline}
               fontSize="12"
               fill={mutedColor}
               fontWeight="600"
