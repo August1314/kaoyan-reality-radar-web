@@ -27,6 +27,16 @@ dist-ssr
 
 # 本地开发文档（不上传）
 docs/
+!docs/
+docs/*
+!docs/research/
+docs/research/*
+!docs/research/apple.com/
+!docs/research/apple.com/*.md
+!docs/design-references/
+docs/design-references/*
+!docs/design-references/apple.com/
+!docs/design-references/apple.com/*.md
 *.dev.md
 
 # 搜索计划（本地工作文件）
