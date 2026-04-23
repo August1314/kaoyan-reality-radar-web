@@ -8,11 +8,21 @@ import { failuresCount, failureSummaries } from '../data/failures-metadata'
 import { programIndex } from '../data/programIndex'
 import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
-import type { FeaturePanel, PromoBandItem, TrustMetric } from '../lib/types'
+import type { FeaturePanel, PromoBandItem, ProgramIndexEntry, TrustMetric } from '../lib/types'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
 
+function pickDistinctSchoolExamples(limit: number): ProgramIndexEntry[] {
+  const seenSchools = new Set<string>()
+
+  return programIndex.filter((item) => {
+    if (seenSchools.has(item.school)) return false
+    seenSchools.add(item.school)
+    return true
+  }).slice(0, limit)
+}
+
 export function HomePage() {
-  const examples = useMemo(() => programIndex.slice(0, 4), [])
+  const examples = useMemo(() => pickDistinctSchoolExamples(4), [])
   const featuredExample = examples[0]
   const promoItems = useMemo<PromoBandItem[]>(
     () => [
@@ -66,14 +76,7 @@ export function HomePage() {
     }),
     [featuredExample],
   )
-  const featuredSchools = useMemo(() => {
-    const seen = new Set<string>()
-    return programIndex.filter((item) => {
-      if (seen.has(item.school)) return false
-      seen.add(item.school)
-      return true
-    }).slice(0, 8)
-  }, [])
+  const featuredSchools = useMemo(() => pickDistinctSchoolExamples(8), [])
   const failureSamples = useMemo(() => failureSummaries, [])
 
   useScrollRestoration()
