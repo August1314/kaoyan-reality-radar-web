@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getAllowedOrigins, isOriginAllowed } from './http'
+import { getAllowedOrigins, isOriginAllowed } from './http.js'
 
 describe('api cors allowlist', () => {
   it('allows configured origins', () => {

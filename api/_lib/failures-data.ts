@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import type { EntitlementLevel } from './entitlements'
+import type { EntitlementLevel } from './entitlements.js'
 
 interface FailureExperience {
   id: string

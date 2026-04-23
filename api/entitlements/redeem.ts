@@ -1,6 +1,6 @@
-import { redeemCode } from '../_lib/entitlements'
-import { applyCors, type ApiRequest, type ApiResponse } from '../_lib/http'
-import { kvStore } from '../_lib/store'
+import { redeemCode } from '../_lib/entitlements.js'
+import { applyCors, type ApiRequest, type ApiResponse } from '../_lib/http.js'
+import { kvStore } from '../_lib/store.js'
 
 interface RedeemBody {
   code?: string

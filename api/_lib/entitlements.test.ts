@@ -5,7 +5,7 @@ import {
   redeemCode,
   type CodeRecord,
   type EntitlementStore,
-} from './entitlements'
+} from './entitlements.js'
 
 function createMemoryStore(initial: Record<string, unknown> = {}): EntitlementStore & { data: Map<string, unknown> } {
   const data = new Map<string, unknown>(Object.entries(initial))

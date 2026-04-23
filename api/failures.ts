@@ -1,12 +1,12 @@
-import { getDeviceLevel } from './_lib/entitlements'
+import { getDeviceLevel } from './_lib/entitlements.js'
 import {
   findFailureById,
   findFailuresByProgramId,
   findVisibleFailureById,
   findVisibleFailuresByProgramId,
-} from './_lib/failures-data'
-import { applyCors, getSingleQueryValue, type ApiRequest, type ApiResponse } from './_lib/http'
-import { kvStore } from './_lib/store'
+} from './_lib/failures-data.js'
+import { applyCors, getSingleQueryValue, type ApiRequest, type ApiResponse } from './_lib/http.js'
+import { kvStore } from './_lib/store.js'
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (applyCors(req, res)) return
