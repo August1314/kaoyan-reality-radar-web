@@ -72,6 +72,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify controlled content
+        run: |
+          npm run prepare:mirror
+          npm run verify:controlled-content
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:

@@ -4,6 +4,10 @@ function getKvEnv() {
   return url && token ? { url: url.replace(/\/+$/, ''), token } : null
 }
 
+export function isKvConfigured(): boolean {
+  return getKvEnv() !== null
+}
+
 function kvUrl(baseUrl: string, command: string, key: string, value?: string): string {
   const parts = [baseUrl, command, encodeURIComponent(key)]
   if (value !== undefined) parts.push(encodeURIComponent(value))

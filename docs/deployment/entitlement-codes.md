@@ -15,6 +15,18 @@ KV_REST_API_TOKEN=<vercel-kv-rest-token>
 ALLOWED_ORIGINS=https://kaoyan-reality-radar-web.vercel.app,https://august1314.github.io
 ```
 
+部署后可用以下接口确认配置状态，不会返回任何密钥：
+
+```bash
+curl https://kaoyan-reality-radar-web.vercel.app/api/entitlements/health
+```
+
+期望：
+
+```json
+{"ok":true,"kvConfigured":true,"allowedOriginsConfigured":true}
+```
+
 GitHub Pages 镜像构建时需要：
 
 ```bash
