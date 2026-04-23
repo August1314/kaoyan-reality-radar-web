@@ -1,6 +1,9 @@
 name: China Mirror - GitHub Pages
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       site_url:
@@ -34,9 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      VITE_SITE_URL: ${{ inputs.site_url }}
-      VITE_BASE_PATH: ${{ inputs.base_path }}
-      VITE_ENTITLEMENT_API_BASE: ${{ inputs.entitlement_api_base }}
+      VITE_SITE_URL: ${{ inputs.site_url || 'https://august1314.github.io/kaoyan-reality-radar-web' }}
+      VITE_BASE_PATH: ${{ inputs.base_path || '/kaoyan-reality-radar-web/' }}
+      VITE_ENTITLEMENT_API_BASE: ${{ inputs.entitlement_api_base || 'https://kaoyan-reality-radar-web.vercel.app' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
