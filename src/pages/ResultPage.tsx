@@ -8,6 +8,8 @@ import { ResultContextCard } from '../components/ResultContextCard'
 import { RiskTagList } from '../components/RiskTagList'
 import { ShareButton } from '../components/ShareButton'
 import { CompareToggle } from '../components/CompareButton'
+import { downloadResultCSV } from '../lib/csv-export'
+import { downloadShareCard } from '../lib/share-card'
 import { formatMetricValue, formatRatio, formatRetestRate } from '../lib/format'
 import { findProgramBySlug } from '../lib/programs'
 import { resultSectionLinks, routeLinks } from '../lib/routes'
@@ -98,6 +100,20 @@ export function ResultPage() {
             title={`${program.school} · ${program.major} - 考研现实雷达`}
             text={`看看${program.school}${program.major}的真实难度和失败经验`}
           />
+          <button
+            type="button"
+            className="text-link export-btn"
+            onClick={() => downloadResultCSV(program)}
+          >
+            导出 CSV
+          </button>
+          <button
+            type="button"
+            className="text-link share-btn"
+            onClick={() => downloadShareCard([program])}
+          >
+            分享卡片
+          </button>
           <CompareToggle programId={program.id} />
         </div>
       </section>

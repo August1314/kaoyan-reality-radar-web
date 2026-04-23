@@ -43,3 +43,35 @@ export function downloadCompareCSV(programs: Program[]): void {
   document.body.removeChild(link)
   URL.revokeObjectURL(url)
 }
+
+/** 将单个 Program 生成为结果页专用 CSV 字符串 */
+export function generateResultCSV(program: Program): string {
+  const headers = ['院校', '专业', '年份', '竞争比例', '复录比', '复试线', '最低录取分', '风险标签', '风险摘要']
+  const row = [
+    program.school,
+    program.major,
+    String(program.year),
+    formatRatioDisplay(program),
+    program.retestCount && program.admitted ? `${program.retestCount}:${program.admitted}` : '—',
+    program.retestLine !== null ? String(program.retestLine) : '—',
+    program.lowestAdmittedScore !== null ? String(program.lowestAdmittedScore) : '—',
+    program.riskTags.join(' / '),
+    program.summary,
+  ]
+  return [headers, row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(',')].join('\n')
+}
+
+/** 触发浏览器下载结果页 CSV 文件 */
+export function downloadResultCSV(program: Program): void {
+  const csvContent = generateResultCSV(program)
+  const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  const slug = program.school.replace(/\s+/g, '')
+  link.download = `考研目标_${slug}_${program.year}.csv`
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  URL.revokeObjectURL(url)
+}
