@@ -18,10 +18,10 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   const body = (req.body ?? {}) as RedeemBody
   const result = await redeemCode(kvStore, body.code ?? '', body.deviceId ?? '')
 
-  if (result.ok) {
-    res.status(200).json({ level: result.level })
+  if (result.ok === false) {
+    res.status(result.status).json({ error: result.error, message: result.message })
     return
   }
 
-  res.status(result.status).json({ error: result.error, message: result.message })
+  res.status(200).json({ level: result.level })
 }
