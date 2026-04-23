@@ -167,6 +167,11 @@ h3 {
   opacity: 0.72;
 }
 
+.export-btn {
+  display: inline-flex;
+  align-items: center;
+}
+
 .route-button,
 .share-button,
 .compare-toggle,
