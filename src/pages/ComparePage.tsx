@@ -7,6 +7,7 @@ import { useCompare } from '../hooks/useCompare'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
 import { useComparePageSEO } from '../hooks/useSEO'
 import { downloadCompareCSV, formatRatioDisplay } from '../lib/csv-export'
+import { downloadShareCard } from '../lib/share-card'
 
 export function ComparePage() {
   useScrollRestoration()
@@ -47,6 +48,13 @@ export function ComparePage() {
               onClick={() => downloadCompareCSV(comparePrograms)}
             >
               导出 CSV
+            </button>
+            <button
+              type="button"
+              className="text-link share-btn"
+              onClick={() => downloadShareCard(comparePrograms)}
+            >
+              分享卡片
             </button>
           </div>
         )}
