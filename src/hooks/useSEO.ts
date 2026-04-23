@@ -127,3 +127,37 @@ export function useResultPageSEO(program: {
     canonicalUrl,
   })
 }
+
+/**
+ * 对比页 SEO Hook — 动态标题基于选中专业
+ */
+export function useComparePageSEO(compareIds: string[], programList: { id: string; school: string }[]) {
+  const schools = compareIds
+    .map(id => programList.find(p => p.id === id)?.school)
+    .filter((s): s is string => !!s)
+
+  // 空对比时使用静态 SEO；有专业时生成动态标题
+  const titlePart = schools.slice(0, 3).join(' · ')
+  const title = schools.length === 0
+    ? '专业对比'
+    : schools.length > 1
+      ? `${titlePart} 对比`
+      : `${titlePart} 详情`
+  const description = schools.length === 0
+    ? '考研专业横向对比工具。比较多个专业的报录比、录取分数线、复录比和风险标签，辅助选校决策。'
+    : schools.length > 1
+      ? `考研专业横向对比：${titlePart}。比较报录比、分数线、复录比和风险标签，辅助选校决策。`
+      : `${titlePart}考研难度分析。查看报录比、分数线和真实失败经验。`
+  const keywords = schools.length === 0
+    ? '考研,专业对比,择校,报录比,分数线,复录比'
+    : schools.length > 1
+      ? `${schools.join(',')},考研,专业对比,报录比,分数线,复录比`
+      : `${schools[0]},考研,难度,报录比,分数线,失败经验`
+
+  useSEO({
+    title,
+    description,
+    keywords,
+    canonicalUrl: `${SITE_URL}/compare`,
+  })
+}

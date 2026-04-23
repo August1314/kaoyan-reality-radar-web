@@ -5,9 +5,7 @@ import { RadarChart } from '../components/RadarChart'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { useCompare } from '../hooks/useCompare'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
-import { useSEO } from '../hooks/useSEO'
-
-const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
+import { useComparePageSEO } from '../hooks/useSEO'
 
 function formatRatioDisplay(p: (typeof programs)[0]) {
   const ratio = p.applicants && p.admitted ? `${p.applicants}:${p.admitted}` : '—'
@@ -16,14 +14,11 @@ function formatRatioDisplay(p: (typeof programs)[0]) {
 
 export function ComparePage() {
   useScrollRestoration()
-  useSEO({
-    title: '专业对比',
-    description: '考研专业横向对比工具。比较多个专业的报录比、录取分数线、复录比和风险标签，辅助选校决策。',
-    keywords: '考研,专业对比,择校,报录比,分数线,复录比',
-    canonicalUrl: `${SITE_URL}/compare`,
-  })
 
   const { compareIds, clear } = useCompare()
+
+  // 动态 SEO：基于选中专业生成动态 title/description/keywords
+  useComparePageSEO(compareIds, programs)
 
   const comparePrograms = compareIds
     .map(id => programs.find(p => p.id === id))
