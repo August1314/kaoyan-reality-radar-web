@@ -1,7 +1,15 @@
 import { PageRouteBar } from '../components/PageRouteBar'
 import { routeLinks } from '../lib/routes'
+import { useSEO } from '../hooks/useSEO'
 
 export function SubmitPage() {
+  useSEO({
+    title: '匿名投稿失败经验',
+    description: '匿名补充考研失败经验。分享你的真实经历，帮助后来的考生避开同样的坑。所有内容先人工审核再展示。',
+    keywords: '考研,失败经验,匿名投稿,投稿,分享经历',
+    canonicalUrl: 'https://kaoyan-reality-radar-web.vercel.app/submit',
+  })
+
   return (
     <main id="main-content" className="page narrow-page">
       <PageRouteBar
