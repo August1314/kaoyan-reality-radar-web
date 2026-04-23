@@ -4,7 +4,7 @@ import { PageRouteBar } from '../components/PageRouteBar'
 import { CompareButton } from '../components/CompareButton'
 import { SearchHistory } from '../components/SearchHistory'
 import { SearchInput } from '../components/SearchInput'
-import { failures } from '../data/failures'
+import { failuresCount, failureSummaries } from '../data/failures-metadata'
 import { programIndex } from '../data/programIndex'
 import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
@@ -17,7 +17,7 @@ export function HomePage() {
   const promoItems = useMemo<PromoBandItem[]>(
     () => [
       { label: '公开目标', value: `${programIndex.length} 条` },
-      { label: '失败经验', value: `${failures.length} 条` },
+      { label: '失败经验', value: `${failuresCount} 条` },
       { label: '资料边界', value: '公开资料 + 匿名投稿' },
     ],
     [],
@@ -27,7 +27,7 @@ export function HomePage() {
       { value: `${programIndex.length}`, label: '已收录目标' },
       { value: `${new Set(programIndex.map((item) => item.school)).size}`, label: '覆盖院校' },
       { value: `${new Set(programIndex.map((item) => item.major)).size}`, label: '覆盖专业' },
-      { value: `${failures.length}`, label: '失败经验' },
+      { value: `${failuresCount}`, label: '失败经验' },
     ],
     [],
   )
@@ -74,7 +74,7 @@ export function HomePage() {
       return true
     }).slice(0, 8)
   }, [])
-  const failureSamples = useMemo(() => failures.slice(0, 3), [])
+  const failureSamples = useMemo(() => failureSummaries, [])
 
   useScrollRestoration()
 

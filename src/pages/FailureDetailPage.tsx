@@ -1,17 +1,33 @@
 import { Link, useParams } from 'react-router-dom'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { formatFailureSourceNote } from '../lib/format'
-import { findFailureById, findRelatedFailures } from '../lib/failures'
 import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
+import { useFailureById, useRelatedFailures } from '../hooks/useAsyncFailures'
 
 export function FailureDetailPage() {
   const { id = '' } = useParams()
-  const failure = findFailureById(id)
+  const { failure, loading, error } = useFailureById(id)
+  const { related, loading: relatedLoading } = useRelatedFailures(
+    failure?.programId ?? '',
+    failure?.id,
+  )
 
-  if (!failure) {
+  if (loading) {
     return (
       <main id="main-content" className="page narrow-page">
+        <PageRouteBar />
+        <section className="card empty-state">
+          <p>加载中...</p>
+        </section>
+      </main>
+    )
+  }
+
+  if (error || !failure) {
+    return (
+      <main id="main-content" className="page narrow-page">
+        <PageRouteBar />
         <section className="card empty-state">
           <h1>这条失败经验不存在</h1>
           <Link to={routeLinks.home()} className="text-link">
@@ -22,7 +38,6 @@ export function FailureDetailPage() {
     )
   }
 
-  const related = findRelatedFailures(failure.programId, failure.id)
   const actions = [
     { label: '回到结果页', to: routeLinks.result(buildProgramSlug(failure)) },
     { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' as const },
@@ -57,14 +72,20 @@ export function FailureDetailPage() {
           <p>同校 / 同专业的其它失败经验。</p>
         </div>
         <div className="related-list">
-          {related.map((item) => (
-            <Link key={item.id} to={routeLinks.failure(item.id)} className="related-item">
-              <strong>{item.reminder}</strong>
-              <span>
-                {item.failureStage} · {item.finalResult}
-              </span>
-            </Link>
-          ))}
+          {relatedLoading ? (
+            <p>加载中...</p>
+          ) : related.length === 0 ? (
+            <p className="empty-note">暂无相关样本</p>
+          ) : (
+            related.map((item) => (
+              <Link key={item.id} to={routeLinks.failure(item.id)} className="related-item">
+                <strong>{item.reminder}</strong>
+                <span>
+                  {item.failureStage} · {item.finalResult}
+                </span>
+              </Link>
+            ))
+          )}
         </div>
       </section>
     </main>

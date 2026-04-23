@@ -8,11 +8,11 @@ import { ResultContextCard } from '../components/ResultContextCard'
 import { RiskTagList } from '../components/RiskTagList'
 import { ShareButton } from '../components/ShareButton'
 import { CompareToggle } from '../components/CompareButton'
-import { findFailuresByProgramId } from '../lib/failures'
 import { formatMetricValue, formatRatio, formatRetestRate } from '../lib/format'
 import { findProgramBySlug } from '../lib/programs'
 import { resultSectionLinks, routeLinks } from '../lib/routes'
 import { useResultPageSEO } from '../hooks/useSEO'
+import { useFailuresByProgramId } from '../hooks/useAsyncFailures'
 
 export function ResultPage() {
   const { slug = '' } = useParams()
@@ -45,7 +45,9 @@ export function ResultPage() {
     )
   }
 
-  const resultFailures = findFailuresByProgramId(program.id)
+  // Phase 6: Load failures asynchronously instead of bundling all 237KB in initial chunk
+  const { failures: resultFailures, loading: failuresLoading, error: failuresError } = useFailuresByProgramId(program.id)
+
   const metrics = [
     { label: '报录比', value: formatRatio(program.applicants, program.admitted) ? `${formatRatio(program.applicants, program.admitted)} : 1` : '未公开' },
     { label: '复录比', value: formatRetestRate(program.retestCount, program.admitted) ? `${formatRetestRate(program.retestCount, program.admitted)} : 1` : '未公开' },
@@ -122,12 +124,26 @@ export function ResultPage() {
       <section id="failures" className="card">
         <div className="section-head">
           <h2>失败经验</h2>
-          <p>{resultFailures.length} 条样本</p>
+          {failuresLoading ? (
+            <p>加载中...</p>
+          ) : failuresError ? (
+            <p className="error-text">加载失败</p>
+          ) : (
+            <p>{resultFailures.length} 条样本</p>
+          )}
         </div>
         <div className="failure-list">
-          {resultFailures.map((item) => (
-            <FailureCard key={item.id} failure={item} />
-          ))}
+          {failuresLoading ? (
+            <div className="loading-placeholder">正在加载失败经验...</div>
+          ) : failuresError ? (
+            <div className="error-placeholder">加载失败，请刷新重试</div>
+          ) : resultFailures.length === 0 ? (
+            <div className="empty-placeholder">暂无失败经验样本</div>
+          ) : (
+            resultFailures.map((item) => (
+              <FailureCard key={item.id} failure={item} />
+            ))
+          )}
         </div>
       </section>
 
