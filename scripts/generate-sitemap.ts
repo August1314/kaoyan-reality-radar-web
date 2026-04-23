@@ -77,6 +77,15 @@ export function generateSitemap(programs: Program[], now = new Date().toISOStrin
     <priority>0.6</priority>
   </url>`)
 
+  for (const legalPath of ['/privacy', '/terms', '/disclaimer', '/contact']) {
+    urls.push(`  <url>
+    <loc>${SITE_URL}${legalPath}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>`)
+  }
+
   // 统计页
   urls.push(`  <url>
     <loc>${SITE_URL}/stats</loc>

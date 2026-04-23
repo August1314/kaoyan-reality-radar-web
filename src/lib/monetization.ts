@@ -7,8 +7,8 @@ export interface EntitlementConfig {
   freeFailureLimit: number
   surveyFailureLimit: number
   surveyFormUrl: string
-  paidRequestUrl: string
-  priceLabel: string
+  contactEmail: string
+  campaignLabel: string
 }
 
 export const monetizationConfig: EntitlementConfig = {
@@ -16,8 +16,8 @@ export const monetizationConfig: EntitlementConfig = {
   freeFailureLimit: 2,
   surveyFailureLimit: 8,
   surveyFormUrl: 'https://dcnq3h3ty7w5.feishu.cn/share/base/form/shrcnmJtPBlKTL2Ooj84m7JbMOf',
-  paidRequestUrl: 'https://dcnq3h3ty7w5.feishu.cn/share/base/form/shrcnmJtPBlKTL2Ooj84m7JbMOf',
-  priceLabel: '9.9 元',
+  contactEmail: 'august20050716@gmail.com',
+  campaignLabel: '限时内测免费领取',
 }
 
 export function getFailureLimit(level: EntitlementLevel): number {
@@ -27,7 +27,7 @@ export function getFailureLimit(level: EntitlementLevel): number {
 }
 
 export function getEntitlementLabel(level: EntitlementLevel): string {
-  if (level === 'paid') return '完整解锁'
+  if (level === 'paid') return '完整权益'
   if (level === 'survey') return '问卷解锁'
   return '免费体验'
 }

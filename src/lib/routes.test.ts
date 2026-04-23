@@ -9,6 +9,10 @@ describe('routes', () => {
     expect(routePaths.submit).toBe('/submit')
     expect(routePaths.unlock).toBe('/unlock')
     expect(routePaths.pay).toBe('/pay')
+    expect(routePaths.privacy).toBe('/privacy')
+    expect(routePaths.terms).toBe('/terms')
+    expect(routePaths.disclaimer).toBe('/disclaimer')
+    expect(routePaths.contact).toBe('/contact')
   })
 
   it('encodes dynamic route params', () => {

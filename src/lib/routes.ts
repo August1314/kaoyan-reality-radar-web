@@ -7,6 +7,10 @@ export const routePaths = {
   pay: '/pay',
   stats: '/stats',
   compare: '/compare',
+  privacy: '/privacy',
+  terms: '/terms',
+  disclaimer: '/disclaimer',
+  contact: '/contact',
 } as const
 
 export const routeLinks = {
@@ -18,6 +22,10 @@ export const routeLinks = {
   pay: () => routePaths.pay,
   stats: () => routePaths.stats,
   compare: () => routePaths.compare,
+  privacy: () => routePaths.privacy,
+  terms: () => routePaths.terms,
+  disclaimer: () => routePaths.disclaimer,
+  contact: () => routePaths.contact,
 } as const
 
 export interface AppNavItem {

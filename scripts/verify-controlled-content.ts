@@ -14,7 +14,7 @@ const forbiddenFiles = [
 ]
 const forbiddenTextPatterns = [
   { label: '旧问卷固定码 YAN2026', pattern: /YAN2026/ },
-  { label: '旧付费固定码 RADAR99', pattern: /RADAR99/ },
+  { label: '旧完整权益固定码 RADAR99', pattern: /RADAR99/ },
   { label: '旧公开失败经验入口 /data/failures.json', pattern: /\/data\/failures\.json/ },
   { label: '完整失败经验 JSON review 字段', pattern: /"review"\s*:/ },
 ]

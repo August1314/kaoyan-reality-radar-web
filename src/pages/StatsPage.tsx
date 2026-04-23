@@ -32,10 +32,10 @@ function StatsLockedState() {
       <section className="card stats-hero">
         <div className="page-head-content">
           <h1>数据统计</h1>
-          <p className="hero-copy">完整解锁后查看全站分布、分数区间和高频风险标签。</p>
+          <p className="hero-copy">领取完整权益码后查看全站分布、分数区间和高频风险标签。</p>
         </div>
-        <Link to={routeLinks.pay()} className="route-button route-button--primary">
-          查看完整权益
+        <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+          领取完整权益码
         </Link>
       </section>
 
@@ -43,11 +43,11 @@ function StatsLockedState() {
         <p className="eyebrow">完整权益</p>
         <h2>用全站统计辅助择校判断</h2>
         <p>
-          完整解锁包含学校分布、专业方向、录取分数区间和风险标签热度，并支持导出 CSV，方便你集中比较多个目标。
+          限时内测期提交择校问卷后，可人工领取完整权益码，查看学校分布、专业方向、录取分数区间和风险标签热度，并导出 CSV。
         </p>
         <div className="unlock-inline-card__actions">
-          <Link to={routeLinks.pay()} className="route-button route-button--primary">
-            去付款页
+          <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+            领取完整权益码
           </Link>
           <Link to={routeLinks.unlock()} className="route-button">
             输入解锁码
@@ -62,7 +62,7 @@ export function StatsPage() {
   useScrollRestoration()
   useSEO({
     title: '数据统计',
-    description: '考研现实雷达站数据统计概览。完整权益包含收录专业分布、学校分布、录取分数区间、高频风险标签等聚合数据。',
+    description: '考研现实雷达站数据统计概览。完整权益码包含收录专业分布、学校分布、录取分数区间、高频风险标签等聚合数据。',
     keywords: '考研,数据统计,专业分布,学校分布,录取分数,风险标签',
     canonicalUrl: `${SITE_URL}/stats`,
   })
@@ -116,8 +116,8 @@ export function StatsPage() {
             <Link to={routeLinks.home()} className="route-button">
               返回首页
             </Link>
-            <Link to={routeLinks.pay()} className="route-button route-button--primary">
-              去付款页
+            <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+              领取完整权益码
             </Link>
           </div>
         </section>

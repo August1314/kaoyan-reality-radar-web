@@ -1322,6 +1322,76 @@ mark {
     linear-gradient(180deg, color-mix(in srgb, var(--color-bg-strong) 94%, transparent), var(--color-bg-elevated));
 }
 
+.unlock-campaign-hero {
+  position: relative;
+  overflow: hidden;
+  border-color: color-mix(in srgb, #ef2d1a 42%, var(--color-border));
+  background:
+    radial-gradient(circle at 88% 10%, rgba(255, 220, 118, 0.64), transparent 28%),
+    radial-gradient(circle at 12% 0%, rgba(255, 67, 43, 0.18), transparent 34%),
+    linear-gradient(135deg, #fff7e8 0%, #fff 48%, #fff3ef 100%);
+}
+
+.unlock-campaign-hero__badge {
+  justify-self: start;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: #ef2d1a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  box-shadow: 0 14px 28px rgba(239, 45, 26, 0.18);
+}
+
+.unlock-campaign-hero h1 {
+  max-width: 760px;
+  color: #221512;
+}
+
+.unlock-campaign-hero__actions,
+.unlock-step-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.unlock-step-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.unlock-step-strip article {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, #ef2d1a 22%, var(--color-border));
+  border-radius: 24px;
+  background: var(--color-bg-elevated);
+}
+
+.unlock-step-strip span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ef2d1a;
+  color: #fff;
+  font-weight: 900;
+}
+
+.unlock-step-strip strong {
+  color: var(--color-text);
+  font-size: 1.05rem;
+}
+
+.unlock-step-strip p,
+.unlock-compliance-card li {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
 .unlock-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1379,6 +1449,18 @@ mark {
   font: inherit;
 }
 
+.unlock-compliance-card {
+  display: grid;
+  gap: 14px;
+}
+
+.unlock-compliance-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+}
+
 .info-block {
   display: grid;
   gap: 12px;
@@ -1389,7 +1471,7 @@ mark {
 }
 
 .info-block ul,
-.payment-step-list {
+.info-block ol {
   display: grid;
   gap: 10px;
   padding-left: 20px;
@@ -1397,67 +1479,77 @@ mark {
   line-height: 1.6;
 }
 
-.payment-layout {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 0.85fr)) minmax(0, 1.15fr);
-  gap: 16px;
+.legal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto 32px;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 13px;
 }
 
-.payment-qr-card,
-.payment-guide-card {
-  display: grid;
-  align-content: start;
+.legal-footer div,
+.legal-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+}
+
+.legal-footer strong,
+.legal-footer a {
+  color: var(--color-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.legal-footer a:hover {
+  color: var(--color-accent);
+}
+
+.legal-page {
   gap: 18px;
 }
 
-.payment-qr-card__head {
+.legal-hero,
+.legal-content {
   display: grid;
-  gap: 8px;
+  gap: 18px;
 }
 
-.payment-qr-card__head span {
+.legal-section {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal-section:last-of-type {
+  border-bottom: 0;
+}
+
+.legal-section p {
   color: var(--color-text-secondary);
-  font-size: 13px;
-  font-weight: 700;
+  line-height: 1.7;
 }
 
-.payment-qr-card__head strong {
-  color: var(--color-text);
-  font-size: 1.8rem;
-  letter-spacing: -0.04em;
-}
-
-.payment-qr-frame {
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: 28px;
-  background: var(--color-bg-strong);
-}
-
-.payment-qr-image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.payment-qr-card__tip,
-.payment-notes p {
-  color: var(--color-text-secondary);
-  line-height: 1.55;
-}
-
-.payment-qr-card .route-button {
-  justify-self: start;
-}
-
-.payment-step-list {
-  margin: 0;
-}
-
-.payment-action-row {
+.legal-contact-card {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--color-bg-muted);
+}
+
+.legal-contact-card a:not(.route-button) {
+  color: var(--color-accent);
+  font-weight: 900;
+  text-decoration: none;
 }
 
 .submit-card,
@@ -1830,7 +1922,7 @@ mark {
   .result-hero,
   .result-layout,
   .unlock-grid,
-  .payment-layout,
+  .unlock-step-strip,
   .compare-grid--3,
   .insight-grid,
   .example-grid,
@@ -1919,7 +2011,8 @@ mark {
   .unlock-form,
   .unlock-inline-card__actions,
   .result-paywall__actions,
-  .payment-action-row,
+  .legal-footer,
+  .legal-contact-card,
   .feature-panel__actions,
   .submit-card__actions,
   .compare-actions,

@@ -32,7 +32,7 @@ function ResultLockShell({ school, major }: { school: string; major: string }) {
           <h1>
             {school} · {major}
           </h1>
-          <p className="hero-copy">这个目标已收录在目录中，完整分析可通过升级查看权益继续打开。</p>
+          <p className="hero-copy">这个目标已收录在目录中，提交择校问卷后可领取完整权益码继续查看。</p>
           <div className="result-kpis result-kpis--placeholder">
             {Array.from({ length: 4 }, (_, index) => (
               <div key={index} className="result-kpi result-kpi--placeholder">
@@ -43,8 +43,8 @@ function ResultLockShell({ school, major }: { school: string; major: string }) {
           </div>
         </div>
         <div className="result-hero__actions">
-          <Link to={routeLinks.pay()} className="route-button route-button--primary">
-            去付款解锁
+          <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+            领取完整权益码
           </Link>
           <Link to={routeLinks.unlock()} className="route-button">
             输入解锁码
@@ -111,11 +111,11 @@ function ResultLockShell({ school, major }: { school: string; major: string }) {
             <p className="eyebrow">查看权益</p>
             <h2>继续查看更多目标</h2>
             <p>
-              基础体验可查看 2 个目标；完成择校问卷后可扩展到 8 个；完整权益支持不限目标浏览，适合系统筛选学校和专业。
+              基础体验可查看 2 个目标；限时内测期提交择校问卷后，可人工领取完整权益码，继续系统筛选学校和专业。
             </p>
             <div className="result-paywall__actions">
-              <Link to={routeLinks.pay()} className="route-button route-button--primary">
-                查看完整权益
+              <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+                领取完整权益码
               </Link>
               <Link to={routeLinks.unlock()} className="route-button">
                 输入解锁码
@@ -299,8 +299,8 @@ export function ResultPage() {
               分享卡片
             </button>
           ) : (
-            <Link to={routeLinks.pay()} className="text-link share-btn">
-              完整解锁分享卡片
+            <Link to={routeLinks.unlock()} className="text-link share-btn">
+              完整权益分享卡片
             </Link>
           )}
           <CompareToggle programId={program.id} />
@@ -367,7 +367,7 @@ export function ResultPage() {
               <p className="eyebrow">内容解锁</p>
               <h3>还可以继续查看 {hiddenFailureCount} 条失败经验。</h3>
               <p>
-                基础体验先看 2 条；填写择校问卷后人工发放唯一解锁码；{monetizationConfig.priceLabel} 解锁完整失败经验库、
+                基础体验先看 2 条；限时内测期填写择校问卷后，人工发送唯一完整权益码，可查看完整失败经验库、
                 完整 CSV 和分享卡片能力。
               </p>
             </div>
@@ -383,8 +383,8 @@ export function ResultPage() {
               <Link to={routeLinks.unlock()} className="route-button">
                 输入解锁码
               </Link>
-              <Link to={routeLinks.pay()} className="route-button route-button--primary">
-                去付款页
+              <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+                领取完整权益码
               </Link>
             </div>
           </div>

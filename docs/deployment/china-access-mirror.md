@@ -96,4 +96,4 @@ mirror-dist/
 - 免费用户只能通过 `/api/failures` 看到当前权限允许的失败经验。
 - GitHub Pages 镜像可以跨域调用 Vercel API。
 - `/api/entitlements/health` 显示 `kvConfigured=true`、`allowedOriginsConfigured=true` 后再生成真实兑换码。
-- 移动端能打开问卷和付费登记入口。
+- 移动端能打开问卷、完整权益码兑换入口和合规页面。

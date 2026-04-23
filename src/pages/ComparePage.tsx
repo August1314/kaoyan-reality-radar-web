@@ -16,13 +16,13 @@ function CompareLockedState() {
     <section className="card empty-state">
       <p className="eyebrow">对比能力</p>
       <h1>解锁后开启目标对比</h1>
-      <p>填写问卷后可对比已查看过的目标；完整解锁后还包含 CSV 导出和分享卡片，适合正式做择校取舍。</p>
+      <p>限时内测期填写问卷后可领取完整权益码，开启目标对比、CSV 导出和分享卡片。</p>
       <div className="empty-state-actions">
         <Link to={routeLinks.unlock()} className="route-button">
           输入解锁码
         </Link>
-        <Link to={routeLinks.pay()} className="route-button route-button--primary">
-          去付款页
+        <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+          领取完整权益码
         </Link>
       </div>
     </section>
@@ -86,7 +86,7 @@ export function ComparePage() {
                 导出 CSV
               </button>
             ) : (
-              <Link to={routeLinks.pay()} className="text-link export-btn">
+              <Link to={routeLinks.unlock()} className="text-link export-btn">
                 完整权益导出
               </Link>
             )}
@@ -99,7 +99,7 @@ export function ComparePage() {
                 分享卡片
               </button>
             ) : (
-              <Link to={routeLinks.pay()} className="text-link share-btn">
+              <Link to={routeLinks.unlock()} className="text-link share-btn">
                 完整权益分享
               </Link>
             )}

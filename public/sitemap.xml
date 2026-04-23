@@ -19,6 +19,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://kaoyan-reality-radar-web.vercel.app/privacy</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://kaoyan-reality-radar-web.vercel.app/terms</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://kaoyan-reality-radar-web.vercel.app/disclaimer</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://kaoyan-reality-radar-web.vercel.app/contact</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://kaoyan-reality-radar-web.vercel.app/stats</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>

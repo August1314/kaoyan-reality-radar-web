@@ -3,6 +3,7 @@ import { PageRouteBar } from '../components/PageRouteBar'
 import { routeLinks } from '../lib/routes'
 import { useSEO } from '../hooks/useSEO'
 import { SITE_URL } from '../lib/site-url'
+import { monetizationConfig } from '../lib/monetization'
 
 export function SubmitPage() {
   useSEO({
@@ -16,7 +17,7 @@ export function SubmitPage() {
     <main id="main-content" className="page narrow-page">
       <PageRouteBar
         actions={[
-          { label: '解锁失败经验', to: routeLinks.unlock() },
+          { label: '限时内测', to: routeLinks.unlock() },
           { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
         ]}
       />
@@ -32,11 +33,12 @@ export function SubmitPage() {
             <li>默认匿名，不展示可识别个人身份信息。</li>
             <li>优先收集结构化字段，再补充详细复盘。</li>
             <li>所有内容先人工审核，再进入站点展示数据。</li>
-            <li>填写择校需求问卷后，可回到站内输入人工发放的唯一解锁码，解锁更多失败经验。</li>
+            <li>填写择校需求问卷后，可通过邮箱或手机号接收人工发送的完整权益码。</li>
+            <li>如需撤回投稿或处理个人信息请求，可联系 {monetizationConfig.contactEmail}。</li>
           </ul>
         </div>
         <Link to={routeLinks.unlock()} className="route-button">
-          了解解锁规则
+          了解限时内测
         </Link>
         <a
           href="https://dcnq3h3ty7w5.feishu.cn/share/base/form/shrcnmJtPBlKTL2Ooj84m7JbMOf"
