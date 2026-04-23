@@ -23,6 +23,7 @@ npm run prepare:mirror
 ```bash
 VITE_SITE_URL=https://august1314.github.io/kaoyan-reality-radar-web \
 VITE_BASE_PATH=/kaoyan-reality-radar-web/ \
+VITE_ENTITLEMENT_API_BASE=https://kaoyan-reality-radar-web.vercel.app \
 npm run build
 npm run prepare:mirror
 ```
@@ -32,6 +33,7 @@ npm run prepare:mirror
 ```bash
 VITE_SITE_URL=https://your-domain.example
 VITE_BASE_PATH=/
+VITE_ENTITLEMENT_API_BASE=
 ```
 
 然后执行：
@@ -59,6 +61,7 @@ npm run prepare:mirror
 
 - `site_url`: `https://august1314.github.io/kaoyan-reality-radar-web`
 - `base_path`: `/kaoyan-reality-radar-web/`
+- `entitlement_api_base`: `https://kaoyan-reality-radar-web.vercel.app`
 
 第一次使用前，需要在 GitHub 仓库 Settings -> Pages 中把发布来源设为 GitHub Actions，或者用 GitHub API 启用 Pages workflow 发布。启用后，手动运行 `China Mirror - GitHub Pages` workflow 即可生成临时公开镜像。
 
@@ -75,7 +78,9 @@ mirror-dist/
 - `/`
 - `/result/<slug>`
 - `/unlock`
-- `/data/failures.json`
+- `/api/entitlements/status`
+- `/api/entitlements/redeem`
+- `/api/failures`
 - `/sitemap.xml`
 - `/robots.txt`
 
@@ -87,5 +92,6 @@ mirror-dist/
 - 搜索后结果页可打开。
 - 刷新结果页不 404。
 - `/unlock` 可打开。
-- `/data/failures.json` 返回 200。
+- 免费用户只能通过 `/api/failures` 看到当前权限允许的失败经验。
+- GitHub Pages 镜像可以跨域调用 Vercel API。
 - 移动端能打开问卷和付费登记入口。

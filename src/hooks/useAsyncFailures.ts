@@ -13,6 +13,7 @@ import {
   fetchFailureById,
   fetchRelatedFailures,
 } from '../lib/async-failures'
+import type { EntitlementLevel } from '../lib/monetization'
 
 // ---------------------------------------------------------------------------
 // Shared reducer for async fetch state
@@ -39,6 +40,12 @@ function fetchReducer<T>(state: FetchState<T>, action: FetchAction<T>): FetchSta
   }
 }
 
+interface FailuresByProgramData {
+  failures: FailureExperience[]
+  totalCount: number
+  level: EntitlementLevel
+}
+
 // ---------------------------------------------------------------------------
 // Hook implementations
 // ---------------------------------------------------------------------------
@@ -47,9 +54,9 @@ function fetchReducer<T>(state: FetchState<T>, action: FetchAction<T>): FetchSta
  * Hook to load failures for a given programId.
  * Returns { failures, loading, error }.
  */
-export function useFailuresByProgramId(programId: string) {
-  const [state, dispatch] = useReducer(fetchReducer<FailureExperience[]>, {
-    data: [],
+export function useFailuresByProgramId(programId: string, deviceId: string, level: EntitlementLevel) {
+  const [state, dispatch] = useReducer(fetchReducer<FailuresByProgramData>, {
+    data: { failures: [], totalCount: 0, level },
     loading: true,
     error: null,
   })
@@ -58,7 +65,7 @@ export function useFailuresByProgramId(programId: string) {
     let cancelled = false
     dispatch({ type: 'fetch_start' })
 
-    fetchFailuresByProgramId(programId)
+    fetchFailuresByProgramId(programId, deviceId, level)
       .then((data) => {
         if (!cancelled) dispatch({ type: 'fetch_success', payload: data })
       })
@@ -70,16 +77,21 @@ export function useFailuresByProgramId(programId: string) {
     return () => {
       cancelled = true
     }
-  }, [programId])
+  }, [programId, deviceId, level])
 
-  return { failures: state.data, loading: state.loading, error: state.error }
+  return {
+    failures: state.data.failures,
+    totalCount: state.data.totalCount,
+    loading: state.loading,
+    error: state.error,
+  }
 }
 
 /**
  * Hook to load a single failure by id.
  * Returns { failure, loading, error }.
  */
-export function useFailureById(id: string) {
+export function useFailureById(id: string, deviceId: string) {
   const [state, dispatch] = useReducer(fetchReducer<FailureExperience | null>, {
     data: null,
     loading: true,
@@ -90,7 +102,7 @@ export function useFailureById(id: string) {
     let cancelled = false
     dispatch({ type: 'fetch_start' })
 
-    fetchFailureById(id)
+    fetchFailureById(id, deviceId)
       .then((data) => {
         if (!cancelled) dispatch({ type: 'fetch_success', payload: data })
       })
@@ -102,7 +114,7 @@ export function useFailureById(id: string) {
     return () => {
       cancelled = true
     }
-  }, [id])
+  }, [id, deviceId])
 
   return { failure: state.data, loading: state.loading, error: state.error }
 }
@@ -111,7 +123,12 @@ export function useFailureById(id: string) {
  * Hook to load related failures for a given programId (excluding currentId).
  * Returns { related, loading, error }.
  */
-export function useRelatedFailures(programId: string, currentId?: string) {
+export function useRelatedFailures(
+  programId: string,
+  deviceId: string,
+  level: EntitlementLevel,
+  currentId?: string,
+) {
   const [state, dispatch] = useReducer(fetchReducer<FailureExperience[]>, {
     data: [],
     loading: true,
@@ -122,7 +139,7 @@ export function useRelatedFailures(programId: string, currentId?: string) {
     let cancelled = false
     dispatch({ type: 'fetch_start' })
 
-    fetchRelatedFailures(programId, currentId)
+    fetchRelatedFailures(programId, deviceId, level, currentId)
       .then((data) => {
         if (!cancelled) dispatch({ type: 'fetch_success', payload: data })
       })
@@ -134,7 +151,7 @@ export function useRelatedFailures(programId: string, currentId?: string) {
     return () => {
       cancelled = true
     }
-  }, [programId, currentId])
+  }, [programId, deviceId, level, currentId])
 
   return { related: state.data, loading: state.loading, error: state.error }
 }

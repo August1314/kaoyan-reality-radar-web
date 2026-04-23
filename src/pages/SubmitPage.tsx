@@ -32,7 +32,7 @@ export function SubmitPage() {
             <li>默认匿名，不展示可识别个人身份信息。</li>
             <li>优先收集结构化字段，再补充详细复盘。</li>
             <li>所有内容先人工审核，再进入站点展示数据。</li>
-            <li>填写择校需求问卷后，可回到站内输入体验码解锁更多失败经验。</li>
+            <li>填写择校需求问卷后，可回到站内输入人工发放的唯一解锁码，解锁更多失败经验。</li>
           </ul>
         </div>
         <Link to={routeLinks.unlock()} className="route-button">

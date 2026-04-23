@@ -12,7 +12,7 @@ import { downloadResultCSV } from '../lib/csv-export'
 import { downloadShareCard } from '../lib/share-card'
 import { formatMetricValue, formatRatio, formatRetestRate } from '../lib/format'
 import { findProgramBySlug } from '../lib/programs'
-import { getEntitlementLabel, getFailureLimit, getVisibleFailures, monetizationConfig } from '../lib/monetization'
+import { getEntitlementLabel, getFailureLimit, monetizationConfig } from '../lib/monetization'
 import { resultSectionLinks, routeLinks } from '../lib/routes'
 import { useResultPageSEO } from '../hooks/useSEO'
 import { useFailuresByProgramId } from '../hooks/useAsyncFailures'
@@ -26,10 +26,13 @@ export function ResultPage() {
   // Phase 6: Load failures asynchronously instead of bundling all 237KB in initial chunk
   // Hook is called unconditionally (before any conditional return) to satisfy rules-of-hooks.
   // When program is null we pass empty string so fetch returns [] and section stays hidden.
-  const { failures: resultFailures, loading: failuresLoading, error: failuresError } = useFailuresByProgramId(
-    program?.id ?? '',
-  )
-  const { level: entitlementLevel, isPaid } = useEntitlement()
+  const { level: entitlementLevel, isPaid, deviceId } = useEntitlement()
+  const {
+    failures: visibleFailures,
+    totalCount: failureTotalCount,
+    loading: failuresLoading,
+    error: failuresError,
+  } = useFailuresByProgramId(program?.id ?? '', deviceId, entitlementLevel)
 
   // SEO - 必须在条件判断之前调用
   useResultPageSEO(program ?? { school: '', major: '', year: 0, summary: '' })
@@ -67,8 +70,7 @@ export function ResultPage() {
     { label: '复试线', value: formatMetricValue(program.retestLine) },
     { label: '最低录取', value: formatMetricValue(program.lowestAdmittedScore) },
   ]
-  const visibleFailures = getVisibleFailures(resultFailures, entitlementLevel)
-  const hiddenFailureCount = Math.max(resultFailures.length - visibleFailures.length, 0)
+  const hiddenFailureCount = Math.max(failureTotalCount - visibleFailures.length, 0)
   const failureLimit = getFailureLimit(entitlementLevel)
   const failureLimitLabel = Number.isFinite(failureLimit) ? `${failureLimit} 条` : '全部'
 
@@ -177,7 +179,7 @@ export function ResultPage() {
             <div className="loading-placeholder">正在加载失败经验...</div>
           ) : failuresError ? (
             <div className="error-placeholder">加载失败，请刷新重试</div>
-          ) : resultFailures.length === 0 ? (
+          ) : failureTotalCount === 0 ? (
             <div className="empty-placeholder">暂无失败经验样本</div>
           ) : (
             visibleFailures.map((item) => (
@@ -191,7 +193,7 @@ export function ResultPage() {
               <p className="eyebrow">内容解锁</p>
               <h3>还有 {hiddenFailureCount} 条失败经验没有展开。</h3>
               <p>
-                免费先看 2 条；填写择校问卷后输入体验码可看更多；{monetizationConfig.priceLabel} 解锁完整失败经验库、
+                免费先看 2 条；填写择校问卷后人工发放唯一解锁码；{monetizationConfig.priceLabel} 解锁完整失败经验库、
                 完整 CSV 和分享卡片能力。
               </p>
             </div>

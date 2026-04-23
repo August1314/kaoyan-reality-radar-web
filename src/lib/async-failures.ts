@@ -9,47 +9,49 @@
  */
 
 import type { FailureExperience } from './types'
+import {
+  fetchFailureDetail,
+  fetchFailuresForProgram,
+  type FailureListResponse,
+} from './entitlement-api'
+import type { EntitlementLevel } from './monetization'
 
-type FailuresCache = Map<string, Promise<FailureExperience[]>>
+type FailuresCache = Map<string, Promise<FailureListResponse>>
 
-// In-memory cache: keyed by programId to deduplicate concurrent fetches
+// In-memory cache: keyed by programId + deviceId + level to deduplicate concurrent fetches.
 const failuresCache: FailuresCache = new Map()
 
 /**
  * Fetch failures for a specific programId from the static JSON file.
  * Returns a cached promise to avoid duplicate requests.
  */
-export function fetchFailuresByProgramId(programId: string): Promise<FailureExperience[]> {
-  // Check cache first
-  if (failuresCache.has(programId)) {
-    return failuresCache.get(programId)!
+export function fetchFailuresByProgramId(
+  programId: string,
+  deviceId: string,
+  level: EntitlementLevel,
+): Promise<FailureListResponse> {
+  if (!programId) {
+    return Promise.resolve({ failures: [], totalCount: 0, level })
   }
 
-  const promise = (async () => {
-    const url = '/data/failures.json'
-    const response = await fetch(url)
-    if (!response.ok) {
-      throw new Error(`Failed to fetch failures: ${response.status}`)
-    }
-    const all: FailureExperience[] = await response.json()
-    return all.filter((item) => item.programId === programId)
-  })()
+  const cacheKey = `${programId}:${deviceId}:${level}`
 
-  failuresCache.set(programId, promise)
+  // Check cache first
+  if (failuresCache.has(cacheKey)) {
+    return failuresCache.get(cacheKey)!
+  }
+
+  const promise = fetchFailuresForProgram(programId, deviceId)
+
+  failuresCache.set(cacheKey, promise)
   return promise
 }
 
 /**
  * Fetch a single failure by id from the static JSON file.
  */
-export function fetchFailureById(id: string): Promise<FailureExperience | null> {
-  const url = '/data/failures.json'
-  return fetch(url)
-    .then((response) => {
-      if (!response.ok) throw new Error(`Failed to fetch failures: ${response.status}`)
-      return response.json() as Promise<FailureExperience[]>
-    })
-    .then((all) => all.find((item) => item.id === id) ?? null)
+export function fetchFailureById(id: string, deviceId: string): Promise<FailureExperience | null> {
+  return fetchFailureDetail(id, deviceId)
 }
 
 /**
@@ -57,9 +59,11 @@ export function fetchFailureById(id: string): Promise<FailureExperience | null> 
  */
 export function fetchRelatedFailures(
   programId: string,
+  deviceId: string,
+  level: EntitlementLevel,
   currentId?: string,
 ): Promise<FailureExperience[]> {
-  return fetchFailuresByProgramId(programId).then((items) =>
-    items.filter((item) => item.id !== currentId),
+  return fetchFailuresByProgramId(programId, deviceId, level).then(({ failures }) =>
+    failures.filter((item) => item.id !== currentId),
   )
 }

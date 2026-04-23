@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -18,6 +18,7 @@ async function assertBuiltDist() {
 
 export async function prepareStaticMirror() {
   await assertBuiltDist()
+  await rm(mirrorDir, { recursive: true, force: true })
   await mkdir(mirrorDir, { recursive: true })
   await cp(distDir, mirrorDir, { recursive: true, force: true })
   const indexHtml = await readFile(path.join(distDir, 'index.html'), 'utf-8')

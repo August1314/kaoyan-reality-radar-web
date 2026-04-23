@@ -6,12 +6,17 @@ import { routeLinks } from '../lib/routes'
 import { useFailureById, useRelatedFailures } from '../hooks/useAsyncFailures'
 import { useSEO } from '../hooks/useSEO'
 import { SITE_URL } from '../lib/site-url'
+import { useEntitlement } from '../hooks/useEntitlement'
+import { LockedFailureError } from '../lib/entitlement-api'
 
 export function FailureDetailPage() {
   const { id = '' } = useParams()
-  const { failure, loading, error } = useFailureById(id)
+  const { level, deviceId } = useEntitlement()
+  const { failure, loading, error } = useFailureById(id, deviceId)
   const { related, loading: relatedLoading } = useRelatedFailures(
     failure?.programId ?? '',
+    deviceId,
+    level,
     failure?.id,
   )
 
@@ -40,13 +45,14 @@ export function FailureDetailPage() {
   }
 
   if (error || !failure) {
+    const locked = error instanceof LockedFailureError
     return (
       <main id="main-content" className="page narrow-page">
         <PageRouteBar />
         <section className="card empty-state">
-          <h1>这条失败经验不存在</h1>
-          <Link to={routeLinks.home()} className="text-link">
-            返回首页
+          <h1>{locked ? '这条失败经验需要解锁' : '这条失败经验不存在'}</h1>
+          <Link to={locked ? routeLinks.unlock() : routeLinks.home()} className="text-link">
+            {locked ? '去输入解锁码' : '返回首页'}
           </Link>
         </section>
       </main>

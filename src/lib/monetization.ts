@@ -6,8 +6,6 @@ export interface EntitlementConfig {
   storageKey: string
   freeFailureLimit: number
   surveyFailureLimit: number
-  surveyUnlockCode: string
-  paidUnlockCode: string
   surveyFormUrl: string
   paidRequestUrl: string
   priceLabel: string
@@ -17,8 +15,6 @@ export const monetizationConfig: EntitlementConfig = {
   storageKey: 'kaoyan-radar-entitlement',
   freeFailureLimit: 2,
   surveyFailureLimit: 8,
-  surveyUnlockCode: 'YAN2026',
-  paidUnlockCode: 'RADAR99',
   surveyFormUrl: 'https://dcnq3h3ty7w5.feishu.cn/share/base/form/shrcnmJtPBlKTL2Ooj84m7JbMOf',
   paidRequestUrl: 'https://dcnq3h3ty7w5.feishu.cn/share/base/form/shrcnmJtPBlKTL2Ooj84m7JbMOf',
   priceLabel: '9.9 元',
@@ -38,17 +34,6 @@ export function getEntitlementLabel(level: EntitlementLevel): string {
 
 export function getVisibleFailures<T extends FailureExperience>(failures: T[], level: EntitlementLevel): T[] {
   return failures.slice(0, getFailureLimit(level))
-}
-
-export function normalizeUnlockCode(code: string): string {
-  return code.trim().toUpperCase()
-}
-
-export function resolveUnlockCode(code: string): EntitlementLevel | null {
-  const normalized = normalizeUnlockCode(code)
-  if (normalized === monetizationConfig.paidUnlockCode) return 'paid'
-  if (normalized === monetizationConfig.surveyUnlockCode) return 'survey'
-  return null
 }
 
 export function chooseHigherEntitlement(current: EntitlementLevel, next: EntitlementLevel): EntitlementLevel {

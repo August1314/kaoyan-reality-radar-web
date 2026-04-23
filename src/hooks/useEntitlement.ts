@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useReducer } from 'react'
 import {
-  chooseHigherEntitlement,
   monetizationConfig,
-  resolveUnlockCode,
   type EntitlementLevel,
 } from '../lib/monetization'
+import { getOrCreateDeviceId } from '../lib/device-id'
+import { fetchEntitlementStatus, redeemUnlockCode } from '../lib/entitlement-api'
 
 function readStoredEntitlement(): EntitlementLevel {
   if (typeof window === 'undefined') return 'free'
@@ -14,24 +14,71 @@ function readStoredEntitlement(): EntitlementLevel {
 }
 
 export function useEntitlement() {
-  const [level, setLevel] = useState<EntitlementLevel>(readStoredEntitlement)
+  const [state, dispatch] = useReducer(
+    (
+      current: { level: EntitlementLevel; deviceId: string; loading: boolean; error: string | null },
+      action:
+        | { type: 'status_start' }
+        | { type: 'status_success'; level: EntitlementLevel }
+        | { type: 'status_error'; error: string }
+        | { type: 'redeem_success'; level: EntitlementLevel },
+    ) => {
+      switch (action.type) {
+        case 'status_start':
+          return { ...current, loading: true, error: null }
+        case 'status_success':
+        case 'redeem_success':
+          return { ...current, level: action.level, loading: false, error: null }
+        case 'status_error':
+          return { ...current, loading: false, error: action.error }
+      }
+    },
+    {
+      level: readStoredEntitlement(),
+      deviceId: getOrCreateDeviceId(),
+      loading: true,
+      error: null,
+    },
+  )
 
   useEffect(() => {
-    window.localStorage.setItem(monetizationConfig.storageKey, level)
-  }, [level])
+    window.localStorage.setItem(monetizationConfig.storageKey, state.level)
+  }, [state.level])
 
-  function applyUnlockCode(code: string): EntitlementLevel | null {
-    const resolved = resolveUnlockCode(code)
-    if (!resolved) return null
+  useEffect(() => {
+    let cancelled = false
+    dispatch({ type: 'status_start' })
 
-    const nextLevel = chooseHigherEntitlement(level, resolved)
-    setLevel(nextLevel)
-    return nextLevel
+    fetchEntitlementStatus(state.deviceId)
+      .then((level) => {
+        if (!cancelled) dispatch({ type: 'status_success', level })
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          dispatch({
+            type: 'status_error',
+            error: error instanceof Error ? error.message : String(error),
+          })
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [state.deviceId])
+
+  async function applyUnlockCode(code: string): Promise<EntitlementLevel> {
+    const level = await redeemUnlockCode(code, state.deviceId)
+    dispatch({ type: 'redeem_success', level })
+    return level
   }
 
   return {
-    level,
+    level: state.level,
+    deviceId: state.deviceId,
+    loading: state.loading,
+    error: state.error,
     applyUnlockCode,
-    isPaid: level === 'paid',
+    isPaid: state.level === 'paid',
   }
 }

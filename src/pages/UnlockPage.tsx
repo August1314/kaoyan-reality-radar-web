@@ -5,11 +5,13 @@ import { getEntitlementLabel, monetizationConfig } from '../lib/monetization'
 import { routeLinks } from '../lib/routes'
 import { useSEO } from '../hooks/useSEO'
 import { SITE_URL } from '../lib/site-url'
+import { EntitlementApiError } from '../lib/entitlement-api'
 
 export function UnlockPage() {
-  const { level, applyUnlockCode } = useEntitlement()
+  const { level, applyUnlockCode, loading } = useEntitlement()
   const [code, setCode] = useState('')
   const [message, setMessage] = useState('')
+  const [submitting, setSubmitting] = useState(false)
 
   useSEO({
     title: '解锁失败经验库',
@@ -18,17 +20,23 @@ export function UnlockPage() {
     canonicalUrl: `${SITE_URL}/unlock`,
   })
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const nextLevel = applyUnlockCode(code)
-    if (!nextLevel) {
-      setMessage('解锁码不正确。请先填写问卷，或完成付费登记后使用人工发放的解锁码。')
-      return
+    setSubmitting(true)
+    try {
+      const nextLevel = await applyUnlockCode(code)
+      setCode('')
+      setMessage(`已切换到「${getEntitlementLabel(nextLevel)}」。回到结果页即可查看对应内容。`)
+    } catch (error) {
+      if (error instanceof EntitlementApiError) {
+        setMessage(error.message)
+      } else {
+        setMessage('解锁失败，请稍后重试。')
+      }
+    } finally {
+      setSubmitting(false)
     }
-
-    setCode('')
-    setMessage(`已切换到「${getEntitlementLabel(nextLevel)}」。回到结果页即可查看对应内容。`)
   }
 
   return (
@@ -52,7 +60,7 @@ export function UnlockPage() {
         <article className="card unlock-plan">
           <span>当前状态</span>
           <strong>{getEntitlementLabel(level)}</strong>
-          <p>你的解锁状态保存在当前浏览器。更换设备或清理浏览器数据后，需要重新输入解锁码。</p>
+          <p>{loading ? '正在校准服务端状态...' : '你的解锁状态会绑定到当前浏览器设备。更换设备后，需要使用新的人工发放解锁码。'}</p>
         </article>
 
         <article className="card unlock-plan">
@@ -64,7 +72,7 @@ export function UnlockPage() {
         <article className="card unlock-plan unlock-plan--highlight">
           <span>问卷解锁</span>
           <strong>最多 8 条</strong>
-          <p>填写择校需求问卷后，输入体验码 <code>{monetizationConfig.surveyUnlockCode}</code> 解锁更多样本。</p>
+          <p>填写择校需求问卷后，人工发放唯一问卷解锁码。每个解锁码只能绑定一个浏览器设备。</p>
           <a
             href={monetizationConfig.surveyFormUrl}
             className="route-button route-button--primary"
@@ -78,7 +86,7 @@ export function UnlockPage() {
         <article className="card unlock-plan">
           <span>完整解锁</span>
           <strong>{monetizationConfig.priceLabel}</strong>
-          <p>人工确认后发放完整解锁码，适合已经进入择校对比阶段的考生。</p>
+          <p>人工确认后发放唯一完整解锁码，适合已经进入择校对比阶段的考生。</p>
           <a
             href={monetizationConfig.paidRequestUrl}
             className="route-button"
@@ -93,7 +101,7 @@ export function UnlockPage() {
       <section className="card unlock-form-card">
         <div className="section-head left-align">
           <h2>输入解锁码</h2>
-          <p>问卷体验码或人工发放的付费解锁码。</p>
+          <p>问卷解锁码或人工发放的完整解锁码。每个码只能绑定一个设备。</p>
         </div>
         <form className="unlock-form" onSubmit={handleSubmit}>
           <input
@@ -102,8 +110,8 @@ export function UnlockPage() {
             placeholder="输入解锁码"
             aria-label="解锁码"
           />
-          <button type="submit" className="route-button route-button--primary">
-            解锁
+          <button type="submit" className="route-button route-button--primary" disabled={submitting}>
+            {submitting ? '解锁中...' : '解锁'}
           </button>
         </form>
         {message ? <p className="unlock-message">{message}</p> : null}

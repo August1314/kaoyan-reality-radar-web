@@ -3,7 +3,7 @@ import {
   chooseHigherEntitlement,
   getFailureLimit,
   getVisibleFailures,
-  resolveUnlockCode,
+  monetizationConfig,
 } from './monetization'
 import type { FailureExperience } from './types'
 
@@ -45,10 +45,9 @@ describe('monetization entitlement', () => {
     expect(getVisibleFailures(failures, 'paid')).toHaveLength(12)
   })
 
-  it('resolves unlock codes case-insensitively', () => {
-    expect(resolveUnlockCode(' yan2026 ')).toBe('survey')
-    expect(resolveUnlockCode('radar99')).toBe('paid')
-    expect(resolveUnlockCode('bad-code')).toBeNull()
+  it('does not expose static unlock codes in client config', () => {
+    expect(Object.keys(monetizationConfig)).not.toContain('surveyUnlockCode')
+    expect(Object.keys(monetizationConfig)).not.toContain('paidUnlockCode')
   })
 
   it('never downgrades an existing paid entitlement', () => {

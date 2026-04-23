@@ -11,6 +11,10 @@ on:
         description: Vite base path. Use / for custom root domains.
         required: true
         default: /kaoyan-reality-radar-web/
+      entitlement_api_base:
+        description: Vercel API base for entitlement and gated content calls.
+        required: true
+        default: https://kaoyan-reality-radar-web.vercel.app
 
 concurrency:
   group: china-mirror-pages
@@ -32,6 +36,7 @@ jobs:
     env:
       VITE_SITE_URL: ${{ inputs.site_url }}
       VITE_BASE_PATH: ${{ inputs.base_path }}
+      VITE_ENTITLEMENT_API_BASE: ${{ inputs.entitlement_api_base }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5

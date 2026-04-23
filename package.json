@@ -12,7 +12,9 @@
     "test:watch": "vitest",
     "sync:data": "node scripts/sync-data.ts",
     "generate:sitemap": "node scripts/generate-sitemap.ts",
-    "prepare:mirror": "node scripts/prepare-static-mirror.ts"
+    "prepare:mirror": "node scripts/prepare-static-mirror.ts",
+    "verify:controlled-content": "node scripts/verify-controlled-content.ts",
+    "codes:create": "node scripts/create-codes.ts"
   },
   "dependencies": {
     "react": "^19.2.4",
