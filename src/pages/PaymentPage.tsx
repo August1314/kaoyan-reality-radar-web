@@ -4,12 +4,13 @@ import { useSEO } from '../hooks/useSEO'
 import { SITE_URL } from '../lib/site-url'
 import { monetizationConfig } from '../lib/monetization'
 import wechatPayQr from '../assets/payments/wechat-pay-qr.jpg'
+import alipayPayQr from '../assets/payments/alipay-pay-qr.jpg'
 
 export function PaymentPage() {
   useSEO({
     title: '付费解锁',
-    description: '扫码支付 9.9 元后提交付款凭证，人工确认后发放唯一完整解锁码。',
-    keywords: '考研,付费解锁,微信支付,收款码,解锁码',
+    description: '微信或支付宝扫码支付 9.9 元后提交付款凭证，人工确认后发放唯一完整解锁码。',
+    keywords: '考研,付费解锁,微信支付,支付宝,收款码,解锁码',
     canonicalUrl: `${SITE_URL}/pay`,
   })
 
@@ -26,20 +27,37 @@ export function PaymentPage() {
         <p className="eyebrow">付款页</p>
         <h1>先付款，再领取唯一完整解锁码。</h1>
         <p className="hero-copy">
-          当前采用人工发码模式。你先扫码支付 {monetizationConfig.priceLabel}，再提交付款凭证，人工确认后会发放仅限一个浏览器设备使用的完整解锁码。
+          当前采用人工发码模式。任选微信或支付宝扫码支付 {monetizationConfig.priceLabel}，再提交付款凭证，人工确认后会发放仅限一个浏览器设备使用的完整解锁码。
         </p>
       </section>
 
       <section className="payment-layout">
         <article className="card payment-qr-card">
           <div className="payment-qr-card__head">
-            <span>当前可用方式</span>
+            <span>方式一</span>
             <strong>微信支付</strong>
           </div>
           <div className="payment-qr-frame">
             <img src={wechatPayQr} alt="微信支付收款码" className="payment-qr-image" />
           </div>
-          <p className="payment-qr-card__tip">建议直接用微信扫一扫完成付款。支付宝入口后续补。</p>
+          <p className="payment-qr-card__tip">推荐使用微信扫一扫。付款后保留成功截图，用于人工核对。</p>
+          <a href={wechatPayQr} className="route-button" target="_blank" rel="noreferrer">
+            打开微信收款码
+          </a>
+        </article>
+
+        <article className="card payment-qr-card">
+          <div className="payment-qr-card__head">
+            <span>方式二</span>
+            <strong>支付宝</strong>
+          </div>
+          <div className="payment-qr-frame">
+            <img src={alipayPayQr} alt="支付宝收款码" className="payment-qr-image" />
+          </div>
+          <p className="payment-qr-card__tip">打开支付宝扫一扫完成付款。付款后同样需要提交凭证。</p>
+          <a href={alipayPayQr} className="route-button" target="_blank" rel="noreferrer">
+            打开支付宝收款码
+          </a>
         </article>
 
         <article className="card payment-guide-card">
@@ -48,7 +66,7 @@ export function PaymentPage() {
             <p>先付款，再提交凭证。当前不做自动到账校验，先走低成本人工确认。</p>
           </div>
           <ol className="payment-step-list">
-            <li>用微信扫描左侧收款码，支付 {monetizationConfig.priceLabel}。</li>
+            <li>任选微信或支付宝扫描收款码，支付 {monetizationConfig.priceLabel}。</li>
             <li>保留付款成功截图，避免人工核对时信息不足。</li>
             <li>点击下方按钮打开凭证表单，填写付款时间、截图和你的联系方式。</li>
             <li>人工确认后，你会收到一枚唯一完整解锁码，回到站内输入即可解锁完整内容。</li>
@@ -62,9 +80,6 @@ export function PaymentPage() {
               rel="noreferrer"
             >
               提交付款凭证
-            </a>
-            <a href={wechatPayQr} className="route-button" target="_blank" rel="noreferrer">
-              单独打开收款码
             </a>
           </div>
 
@@ -82,4 +97,3 @@ export function PaymentPage() {
     </main>
   )
 }
-

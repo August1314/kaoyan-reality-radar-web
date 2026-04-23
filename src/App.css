@@ -1357,7 +1357,7 @@ mark {
 
 .payment-layout {
   display: grid;
-  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  grid-template-columns: repeat(2, minmax(260px, 0.85fr)) minmax(0, 1.15fr);
   gap: 16px;
 }
 
@@ -1402,6 +1402,10 @@ mark {
 .payment-notes p {
   color: var(--color-text-secondary);
   line-height: 1.55;
+}
+
+.payment-qr-card .route-button {
+  justify-self: start;
 }
 
 .payment-step-list {
