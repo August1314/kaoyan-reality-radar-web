@@ -6,40 +6,7 @@ import { PageRouteBar } from '../components/PageRouteBar'
 import { useCompare } from '../hooks/useCompare'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
 import { useComparePageSEO } from '../hooks/useSEO'
-import type { Program } from '../lib/types'
-
-function formatRatioDisplay(p: Program) {
-  const ratio = p.applicants && p.admitted ? `${p.applicants}:${p.admitted}` : '—'
-  return ratio
-}
-
-function exportCompareCSV(comparePrograms: Program[]) {
-  const headers = ['院校', '专业', '年份', '竞争比例', '最低录取分', '复录比', '复试线', '风险标签']
-  const rows = comparePrograms.map(p => [
-    p.school,
-    p.major,
-    String(p.year),
-    formatRatioDisplay(p),
-    p.lowestAdmittedScore !== null ? String(p.lowestAdmittedScore) : '—',
-    p.retestCount && p.admitted ? `${p.retestCount}:${p.admitted}` : '—',
-    p.retestLine !== null ? String(p.retestLine) : '—',
-    p.riskTags.join(' / '),
-  ])
-
-  const csvContent = [headers, ...rows]
-    .map(row => row.map(cell => `"${cell}"`).join(','))
-    .join('\n')
-
-  const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' })
-  const url = URL.createObjectURL(blob)
-  const link = document.createElement('a')
-  link.href = url
-  link.download = `考研对比_${new Date().toISOString().split('T')[0]}.csv`
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-  URL.revokeObjectURL(url)
-}
+import { downloadCompareCSV, formatRatioDisplay } from '../lib/csv-export'
 
 export function ComparePage() {
   useScrollRestoration()
@@ -77,7 +44,7 @@ export function ComparePage() {
             <button
               type="button"
               className="text-link export-btn"
-              onClick={() => exportCompareCSV(comparePrograms)}
+              onClick={() => downloadCompareCSV(comparePrograms)}
             >
               导出 CSV
             </button>
