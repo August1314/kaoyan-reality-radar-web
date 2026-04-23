@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { buildProgramSlug } from '../lib/programSlug'
 
 interface SEOProps {
   title?: string
@@ -114,7 +115,7 @@ export function useResultPageSEO(program: {
     ? `${program.school},${program.major},考研,难度,报录比,分数线,失败经验`
     : undefined
   const canonicalUrl = isValid
-    ? `${SITE_URL}/result/${program.year}-${program.school}-${program.major}`
+    ? `${SITE_URL}/result/${encodeURIComponent(buildProgramSlug(program))}`
     : undefined
 
   useSEO({

@@ -13,6 +13,7 @@ import { findProgramBySlug } from '../lib/programs'
 import { resultSectionLinks, routeLinks } from '../lib/routes'
 import { useResultPageSEO } from '../hooks/useSEO'
 import { useFailuresByProgramId } from '../hooks/useAsyncFailures'
+import { useJsonLd } from '../hooks/useJsonLd'
 
 export function ResultPage() {
   const { slug = '' } = useParams()
@@ -27,6 +28,9 @@ export function ResultPage() {
 
   // SEO - 必须在条件判断之前调用
   useResultPageSEO(program ?? { school: '', major: '', year: 0, summary: '' })
+
+  // JSON-LD 结构化数据
+  useJsonLd(program ?? null)
 
   if (!program) {
     return (
