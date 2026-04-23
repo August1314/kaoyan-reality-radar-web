@@ -1149,6 +1149,127 @@ mark {
   gap: 10px;
 }
 
+.result-kpis--placeholder {
+  opacity: 0.88;
+}
+
+.result-kpi--placeholder strong {
+  letter-spacing: 0.08em;
+}
+
+.result-paywall {
+  position: relative;
+}
+
+.result-paywall__content {
+  display: grid;
+  gap: 16px;
+  filter: blur(16px);
+  opacity: 0.82;
+  pointer-events: none;
+  user-select: none;
+}
+
+.result-paywall__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+}
+
+.result-paywall__panel,
+.stats-locked-card,
+.compare-warning {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background: color-mix(in srgb, var(--color-bg-elevated) 92%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+
+.result-paywall__panel {
+  max-width: 520px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+}
+
+.result-paywall__panel p,
+.stats-locked-card p,
+.compare-warning p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.result-paywall__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.result-placeholder-section {
+  display: grid;
+  gap: 16px;
+}
+
+.result-placeholder-card {
+  min-height: 148px;
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-bg-elevated) 94%, transparent),
+    color-mix(in srgb, var(--color-bg-muted) 82%, transparent)
+  );
+}
+
+.result-placeholder-card--tall {
+  min-height: 320px;
+}
+
+.result-placeholder-line {
+  width: 68%;
+  height: 18px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-bg-muted) 86%, transparent);
+}
+
+.result-placeholder-line--short {
+  width: 28%;
+}
+
+.result-placeholder-line--wide {
+  width: 92%;
+}
+
+.result-placeholder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.result-placeholder-pill,
+.result-placeholder-button {
+  height: 38px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-bg-muted) 88%, transparent);
+}
+
+.result-placeholder-pill {
+  width: 112px;
+}
+
+.result-placeholder-button {
+  width: 144px;
+}
+
+.stats-locked-card h2 {
+  margin-bottom: 0;
+}
+
 .unlock-hero {
   display: grid;
   gap: 16px;
@@ -1751,6 +1872,7 @@ mark {
   .empty-state-actions,
   .unlock-form,
   .unlock-inline-card__actions,
+  .result-paywall__actions,
   .payment-action-row,
   .feature-panel__actions,
   .submit-card__actions,

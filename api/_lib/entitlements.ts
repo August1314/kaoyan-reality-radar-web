@@ -13,6 +13,7 @@ export interface CodeRecord {
 export interface DeviceRecord {
   level: EntitlementLevel
   redeemedCodes: string[]
+  viewedProgramIds: string[]
   updatedAt: string
 }
 
@@ -24,6 +25,15 @@ export interface EntitlementStore {
 export type RedeemResult =
   | { ok: true; level: EntitlementLevel }
   | { ok: false; status: number; error: string; message: string }
+
+export interface EntitlementStatusPayload {
+  level: EntitlementLevel
+  viewedTargetCount: number
+  targetLimit: number | null
+  statsUnlocked: boolean
+  compareUnlocked: boolean
+  shareCompareUnlocked: boolean
+}
 
 export function normalizeCode(code: string): string {
   return code.trim().toUpperCase()
@@ -51,11 +61,94 @@ export function deviceKey(deviceId: string): string {
   return `device:${deviceId}`
 }
 
-export async function getDeviceLevel(store: EntitlementStore, deviceId: string): Promise<EntitlementLevel> {
-  if (!deviceId) return 'free'
+export function getTargetLimit(level: EntitlementLevel): number {
+  if (level === 'paid') return Number.POSITIVE_INFINITY
+  if (level === 'survey') return 8
+  return 2
+}
+
+export function canAccessStats(level: EntitlementLevel): boolean {
+  return level === 'paid'
+}
+
+export function canAccessCompare(level: EntitlementLevel): boolean {
+  return level === 'survey' || level === 'paid'
+}
+
+export function canShareCompare(level: EntitlementLevel): boolean {
+  return level === 'paid'
+}
+
+export function normalizeDeviceRecord(device: DeviceRecord | null | undefined): DeviceRecord {
+  return {
+    level: device?.level ?? 'free',
+    redeemedCodes: device?.redeemedCodes ?? [],
+    viewedProgramIds: device?.viewedProgramIds ?? [],
+    updatedAt: device?.updatedAt ?? '',
+  }
+}
+
+export function canAccessProgram(device: DeviceRecord, programId: string): boolean {
+  if (device.level === 'paid') return true
+  if (device.viewedProgramIds.includes(programId)) return true
+  return device.viewedProgramIds.length < getTargetLimit(device.level)
+}
+
+export function recordViewedProgram(
+  device: DeviceRecord,
+  programId: string,
+  now = new Date().toISOString(),
+): DeviceRecord {
+  if (device.viewedProgramIds.includes(programId)) {
+    return {
+      ...device,
+      updatedAt: now,
+    }
+  }
+
+  return {
+    ...device,
+    viewedProgramIds: [...device.viewedProgramIds, programId],
+    updatedAt: now,
+  }
+}
+
+function serializeTargetLimit(level: EntitlementLevel): number | null {
+  const limit = getTargetLimit(level)
+  return Number.isFinite(limit) ? limit : null
+}
+
+export function toEntitlementStatusPayload(device: DeviceRecord): EntitlementStatusPayload {
+  return {
+    level: device.level,
+    viewedTargetCount: device.viewedProgramIds.length,
+    targetLimit: serializeTargetLimit(device.level),
+    statsUnlocked: canAccessStats(device.level),
+    compareUnlocked: canAccessCompare(device.level),
+    shareCompareUnlocked: canShareCompare(device.level),
+  }
+}
+
+export async function getDeviceRecord(store: EntitlementStore, deviceId: string): Promise<DeviceRecord> {
+  if (!deviceId) {
+    return normalizeDeviceRecord(null)
+  }
 
   const device = await store.get<DeviceRecord>(deviceKey(deviceId))
-  return device?.level ?? 'free'
+  return normalizeDeviceRecord(device)
+}
+
+export async function getEntitlementStatus(
+  store: EntitlementStore,
+  deviceId: string,
+): Promise<EntitlementStatusPayload> {
+  const device = await getDeviceRecord(store, deviceId)
+  return toEntitlementStatusPayload(device)
+}
+
+export async function getDeviceLevel(store: EntitlementStore, deviceId: string): Promise<EntitlementLevel> {
+  const device = await getDeviceRecord(store, deviceId)
+  return device.level
 }
 
 export async function redeemCode(
@@ -79,9 +172,9 @@ export async function redeemCode(
     return { ok: false, status: 409, error: 'code_already_used', message: '这个解锁码已绑定到其它设备。' }
   }
 
-  const currentDevice = await store.get<DeviceRecord>(deviceKey(deviceId))
-  const nextLevel = chooseHigherEntitlement(currentDevice?.level ?? 'free', codeRecord.level)
-  const redeemedCodes = Array.from(new Set([...(currentDevice?.redeemedCodes ?? []), code]))
+  const currentDevice = normalizeDeviceRecord(await store.get<DeviceRecord>(deviceKey(deviceId)))
+  const nextLevel = chooseHigherEntitlement(currentDevice.level, codeRecord.level)
+  const redeemedCodes = Array.from(new Set([...currentDevice.redeemedCodes, code]))
 
   if (codeRecord.status === 'unused') {
     await store.set<CodeRecord>(key, {
@@ -95,6 +188,7 @@ export async function redeemCode(
   await store.set<DeviceRecord>(deviceKey(deviceId), {
     level: nextLevel,
     redeemedCodes,
+    viewedProgramIds: currentDevice.viewedProgramIds,
     updatedAt: now,
   })
 

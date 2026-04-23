@@ -1,26 +1,18 @@
 import { Link } from 'react-router-dom'
-import { programs } from '../data/programs'
-import { routeLinks } from '../lib/routes'
 import { PageRouteBar } from '../components/PageRouteBar'
+import { useEntitlement } from '../hooks/useEntitlement'
+import { useProtectedStats } from '../hooks/useProtectedData'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
 import { useSEO } from '../hooks/useSEO'
 import { downloadStatsCSV } from '../lib/csv-export'
+import { routeLinks } from '../lib/routes'
 import { SITE_URL } from '../lib/site-url'
 
-// ── 数据统计工具 ────────────────────────────────────────────────
-
-interface Bucket { label: string; count: number }
-
-function topN<T>(arr: T[], key: (t: T) => string, n = 10): Bucket[] {
-  const counts: Record<string, number> = {}
-  arr.forEach(t => { counts[key(t)] = (counts[key(t)] || 0) + 1 })
-  return Object.entries(counts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, n)
-    .map(([label, count]) => ({ label, count }))
+interface Bucket {
+  label: string
+  count: number
 }
 
-// 横向进度条
 function Bar({ label, count, max }: { label: string; count: number; max: number }) {
   const pct = Math.min((count / max) * 100, 100)
   return (
@@ -34,61 +26,107 @@ function Bar({ label, count, max }: { label: string; count: number; max: number 
   )
 }
 
-// ── 组件 ─────────────────────────────────────────────────────────
+function StatsLockedState() {
+  return (
+    <>
+      <section className="card stats-hero">
+        <div className="page-head-content">
+          <h1>数据统计</h1>
+          <p className="hero-copy">统计页已经收口到付费层，免费和问卷用户不再展示真实聚合值。</p>
+        </div>
+        <Link to={routeLinks.pay()} className="route-button route-button--primary">
+          去付款解锁
+        </Link>
+      </section>
+
+      <section className="card stats-locked-card">
+        <p className="eyebrow">付费解锁</p>
+        <h2>统计页仅对付费用户开放</h2>
+        <p>
+          统计页会暴露全站聚合分布、分数区间和风险标签热度，因此已从公开层移除。充值后可查看真实统计并导出 CSV。
+        </p>
+        <div className="unlock-inline-card__actions">
+          <Link to={routeLinks.pay()} className="route-button route-button--primary">
+            去付款页
+          </Link>
+          <Link to={routeLinks.unlock()} className="route-button">
+            输入解锁码
+          </Link>
+        </div>
+      </section>
+    </>
+  )
+}
 
 export function StatsPage() {
   useScrollRestoration()
   useSEO({
     title: '数据统计',
-    description: '考研现实雷达站数据统计概览。查看收录专业分布、学校分布、录取分数区间、高频风险标签等聚合数据。',
+    description: '考研现实雷达站数据统计概览。付费后可查看收录专业分布、学校分布、录取分数区间、高频风险标签等聚合数据。',
     keywords: '考研,数据统计,专业分布,学校分布,录取分数,风险标签',
     canonicalUrl: `${SITE_URL}/stats`,
   })
 
-  const totalPrograms = programs.length
+  const { deviceId, status } = useEntitlement()
+  const { stats, loading, error } = useProtectedStats(deviceId, status.statsUnlocked)
 
-  // 学校分布
-  const schoolTop = topN(programs, p => p.school, 10)
-  const schoolMax = schoolTop[0]?.count ?? 1
-
-  // 专业方向分布（取 major 第一个词或大类）
-  const majorTop = topN(programs, p => p.major, 10)
-
-  // 风险标签分布
-  const allTags = programs.flatMap(p => p.riskTags)
-  const tagTop = topN(allTags, t => t, 8)
-
-  // 分数区间（从 lowestAdmittedScore 分布）
-  const scores = programs
-    .map(p => p.lowestAdmittedScore)
-    .filter((s): s is number => s !== null)
-
-  const scoreBuckets: Bucket[] = [
-    { label: '< 300', count: scores.filter(s => s < 300).length },
-    { label: '300-340', count: scores.filter(s => s >= 300 && s < 340).length },
-    { label: '340-370', count: scores.filter(s => s >= 340 && s < 370).length },
-    { label: '370-400', count: scores.filter(s => s >= 370 && s < 400).length },
-    { label: '≥ 400', count: scores.filter(s => s >= 400).length },
-  ]
-  const scoreMax = Math.max(...scoreBuckets.map(b => b.count), 1)
-
-  const avgScore = scores.length
-    ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)
-    : null
-
-  const uniqueSchools = new Set(programs.map(p => p.school)).size
-  const uniqueMajors = new Set(programs.map(p => p.major)).size
-
-  const statsData = {
-    totalPrograms,
-    uniqueSchools,
-    uniqueMajors,
-    avgScore,
-    schoolTop,
-    majorTop,
-    scoreBuckets,
-    tagTop,
+  if (!status.statsUnlocked) {
+    return (
+      <main id="main-content" className="page narrow-page">
+        <PageRouteBar
+          actions={[
+            { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
+          ]}
+        />
+        <StatsLockedState />
+      </main>
+    )
   }
+
+  if (loading || !stats) {
+    return (
+      <main id="main-content" className="page narrow-page">
+        <PageRouteBar
+          actions={[
+            { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
+          ]}
+        />
+        <section className="card stats-hero">
+          <div className="page-head-content">
+            <h1>数据统计</h1>
+            <p className="hero-copy">正在加载付费统计数据...</p>
+          </div>
+        </section>
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main id="main-content" className="page narrow-page">
+        <PageRouteBar
+          actions={[
+            { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
+          ]}
+        />
+        <section className="card empty-state">
+          <h1>统计页加载失败</h1>
+          <p>{error.message}</p>
+          <div className="empty-state-actions">
+            <Link to={routeLinks.home()} className="route-button">
+              返回首页
+            </Link>
+            <Link to={routeLinks.pay()} className="route-button route-button--primary">
+              去付款页
+            </Link>
+          </div>
+        </section>
+      </main>
+    )
+  }
+
+  const schoolMax = stats.schoolTop[0]?.count ?? 1
+  const scoreMax = Math.max(...stats.scoreBuckets.map((bucket) => bucket.count), 1)
 
   return (
     <main id="main-content" className="page narrow-page">
@@ -106,41 +144,39 @@ export function StatsPage() {
         <button
           type="button"
           className="text-link"
-          onClick={() => downloadStatsCSV(statsData)}
+          onClick={() => downloadStatsCSV(stats)}
         >
           导出数据
         </button>
       </section>
 
-      {/* 核心数字 */}
       <section className="stats-kpi-grid">
         <div className="stats-kpi">
-          <span className="stats-kpi-num">{totalPrograms}</span>
+          <span className="stats-kpi-num">{stats.totalPrograms}</span>
           <span className="stats-kpi-label">收录专业</span>
         </div>
         <div className="stats-kpi">
-          <span className="stats-kpi-num">{uniqueSchools}</span>
+          <span className="stats-kpi-num">{stats.uniqueSchools}</span>
           <span className="stats-kpi-label">覆盖院校</span>
         </div>
         <div className="stats-kpi">
-          <span className="stats-kpi-num">{uniqueMajors}</span>
+          <span className="stats-kpi-num">{stats.uniqueMajors}</span>
           <span className="stats-kpi-label">涵盖专业</span>
         </div>
-        {avgScore !== null && (
+        {stats.avgScore !== null && (
           <div className="stats-kpi">
-            <span className="stats-kpi-num">{avgScore}</span>
+            <span className="stats-kpi-num">{stats.avgScore}</span>
             <span className="stats-kpi-label">平均录取分</span>
           </div>
         )}
       </section>
 
-      {/* 学校分布 */}
-      {schoolTop.length > 0 && (
+      {stats.schoolTop.length > 0 && (
         <section className="card">
           <h2>学校分布 Top 10</h2>
           <div className="stats-bar-list">
-            {schoolTop.map(b => (
-              <Bar key={b.label} label={b.label} count={b.count} max={schoolMax} />
+            {stats.schoolTop.map((bucket: Bucket) => (
+              <Bar key={bucket.label} label={bucket.label} count={bucket.count} max={schoolMax} />
             ))}
           </div>
           <Link to={routeLinks.home()} className="text-link stats-more">
@@ -149,39 +185,36 @@ export function StatsPage() {
         </section>
       )}
 
-      {/* 专业分布 */}
-      {majorTop.length > 0 && (
+      {stats.majorTop.length > 0 && (
         <section className="card">
           <h2>专业方向分布 Top 10</h2>
           <div className="stats-bar-list">
-            {majorTop.map(b => (
-              <Bar key={b.label} label={b.label} count={b.count} max={majorTop[0].count} />
+            {stats.majorTop.map((bucket: Bucket) => (
+              <Bar key={bucket.label} label={bucket.label} count={bucket.count} max={stats.majorTop[0].count} />
             ))}
           </div>
         </section>
       )}
 
-      {/* 分数区间 */}
-      {scoreBuckets.some(b => b.count > 0) && (
+      {stats.scoreBuckets.some((bucket) => bucket.count > 0) && (
         <section className="card">
           <h2>录取分数分布</h2>
           <div className="stats-bar-list">
-            {scoreBuckets.map(b => (
-              <Bar key={b.label} label={b.label} count={b.count} max={scoreMax} />
+            {stats.scoreBuckets.map((bucket: Bucket) => (
+              <Bar key={bucket.label} label={bucket.label} count={bucket.count} max={scoreMax} />
             ))}
           </div>
         </section>
       )}
 
-      {/* 风险标签 */}
-      {tagTop.length > 0 && (
+      {stats.tagTop.length > 0 && (
         <section className="card">
           <h2>高频风险标签</h2>
           <div className="stats-tags">
-            {tagTop.map(b => (
-              <span key={b.label} className="stats-tag">
-                {b.label}
-                <span className="stats-tag-count">{b.count}</span>
+            {stats.tagTop.map((bucket: Bucket) => (
+              <span key={bucket.label} className="stats-tag">
+                {bucket.label}
+                <span className="stats-tag-count">{bucket.count}</span>
               </span>
             ))}
           </div>

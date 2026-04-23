@@ -1,4 +1,4 @@
-import { getDeviceLevel } from '../_lib/entitlements.js'
+import { getEntitlementStatus } from '../_lib/entitlements.js'
 import { applyCors, getSingleQueryValue, type ApiRequest, type ApiResponse } from '../_lib/http.js'
 import { kvStore } from '../_lib/store.js'
 
@@ -11,6 +11,6 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   }
 
   const deviceId = getSingleQueryValue(req.query.deviceId)
-  const level = await getDeviceLevel(kvStore, deviceId)
-  res.status(200).json({ level })
+  const status = await getEntitlementStatus(kvStore, deviceId)
+  res.status(200).json(status)
 }

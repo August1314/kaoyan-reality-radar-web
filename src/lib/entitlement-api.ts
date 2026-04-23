@@ -1,9 +1,12 @@
 import type { EntitlementLevel } from './monetization'
-import type { FailureExperience } from './types'
+import type {
+  EntitlementStatus,
+  FailureExperience,
+  Program,
+  StatsSummary,
+} from './types'
 
-interface EntitlementStatusResponse {
-  level: EntitlementLevel
-}
+type EntitlementStatusResponse = EntitlementStatus
 
 interface RedeemResponse {
   level: EntitlementLevel
@@ -20,14 +23,33 @@ interface FailureDetailResponse {
   level: EntitlementLevel
 }
 
+interface ProgramResponse {
+  program: Program
+  entitlement: EntitlementStatus
+}
+
+interface CompareResponse {
+  programs: Program[]
+  level: EntitlementLevel
+  canExport: boolean
+  canShare: boolean
+}
+
+interface StatsResponse {
+  level: EntitlementLevel
+  stats: StatsSummary
+}
+
 export class EntitlementApiError extends Error {
   readonly code: string
   readonly status: number
+  readonly details: unknown
 
-  constructor(message: string, code: string, status: number) {
+  constructor(message: string, code: string, status: number, details?: unknown) {
     super(message)
     this.code = code
     this.status = status
+    this.details = details
   }
 }
 
@@ -54,15 +76,16 @@ async function readJson<T>(response: Response): Promise<T> {
       errorBody.message ?? errorBody.error ?? `请求失败：${response.status}`,
       errorBody.error ?? 'request_failed',
       response.status,
+      body,
     )
   }
 
   return body as T
 }
 
-export async function fetchEntitlementStatus(deviceId: string): Promise<EntitlementLevel> {
+export async function fetchEntitlementStatus(deviceId: string): Promise<EntitlementStatus> {
   const response = await fetch(apiUrl(`/api/entitlements/status?deviceId=${encodeURIComponent(deviceId)}`))
-  return readJson<EntitlementStatusResponse>(response).then((body) => body.level)
+  return readJson<EntitlementStatusResponse>(response)
 }
 
 export async function redeemUnlockCode(code: string, deviceId: string): Promise<EntitlementLevel> {
@@ -97,4 +120,31 @@ export async function fetchFailureDetail(id: string, deviceId: string): Promise<
   if (response.status === 404) return null
 
   return readJson<FailureDetailResponse>(response).then((body) => body.failure)
+}
+
+export async function fetchProgramBySlug(
+  slug: string,
+  deviceId: string,
+): Promise<ProgramResponse> {
+  const response = await fetch(
+    apiUrl(`/api/programs?slug=${encodeURIComponent(slug)}&deviceId=${encodeURIComponent(deviceId)}`),
+  )
+  return readJson<ProgramResponse>(response)
+}
+
+export async function fetchComparePrograms(
+  ids: string[],
+  deviceId: string,
+): Promise<CompareResponse> {
+  const response = await fetch(apiUrl('/api/compare'), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ids, deviceId }),
+  })
+  return readJson<CompareResponse>(response)
+}
+
+export async function fetchStatsSummary(deviceId: string): Promise<StatsResponse> {
+  const response = await fetch(apiUrl(`/api/stats?deviceId=${encodeURIComponent(deviceId)}`))
+  return readJson<StatsResponse>(response)
 }

@@ -41,6 +41,31 @@ export interface ProgramIndexEntry {
   summary: string
 }
 
+export interface EntitlementStatus {
+  level: 'free' | 'survey' | 'paid'
+  viewedTargetCount: number
+  targetLimit: number | null
+  statsUnlocked: boolean
+  compareUnlocked: boolean
+  shareCompareUnlocked: boolean
+}
+
+export interface StatsBucket {
+  label: string
+  count: number
+}
+
+export interface StatsSummary {
+  totalPrograms: number
+  uniqueSchools: number
+  uniqueMajors: number
+  avgScore: number | null
+  schoolTop: StatsBucket[]
+  majorTop: StatsBucket[]
+  scoreBuckets: StatsBucket[]
+  tagTop: StatsBucket[]
+}
+
 export interface TrustMetric {
   value: string
   label: string
