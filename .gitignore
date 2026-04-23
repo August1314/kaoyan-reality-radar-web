@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+mirror-dist
 dist-ssr
 *.local
 
@@ -37,6 +38,9 @@ docs/research/*
 docs/design-references/*
 !docs/design-references/apple.com/
 !docs/design-references/apple.com/*.md
+!docs/deployment/
+docs/deployment/*
+!docs/deployment/*.md
 *.dev.md
 
 # 搜索计划（本地工作文件）
