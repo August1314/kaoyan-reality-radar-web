@@ -1,4 +1,4 @@
-import type { Program } from './types'
+import type { FailureExperience, Program } from './types'
 
 /** 格式化竞争比例显示 */
 export function formatRatioDisplay(p: Program): string {
@@ -44,10 +44,27 @@ export function downloadCompareCSV(programs: Program[]): void {
   URL.revokeObjectURL(url)
 }
 
+function quoteCSVRow(row: string[]): string {
+  return row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(',')
+}
+
+function failureToCSVRow(failure: FailureExperience): string[] {
+  return [
+    failure.id,
+    failure.failureStage,
+    failure.finalResult,
+    failure.scoreRange,
+    failure.failureTags.join(' / '),
+    failure.reminder,
+    failure.review,
+    failure.advice,
+  ]
+}
+
 /** 将单个 Program 生成为结果页专用 CSV 字符串 */
-export function generateResultCSV(program: Program): string {
-  const headers = ['院校', '专业', '年份', '竞争比例', '复录比', '复试线', '最低录取分', '风险标签', '风险摘要']
-  const row = [
+export function generateResultCSV(program: Program, visibleFailures: FailureExperience[] = []): string {
+  const programHeaders = ['院校', '专业', '年份', '竞争比例', '复录比', '复试线', '最低录取分', '风险标签', '风险摘要']
+  const programRow = [
     program.school,
     program.major,
     String(program.year),
@@ -58,12 +75,24 @@ export function generateResultCSV(program: Program): string {
     program.riskTags.join(' / '),
     program.summary,
   ]
-  return [headers, row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(',')].join('\n')
+
+  const lines = [
+    quoteCSVRow(programHeaders),
+    quoteCSVRow(programRow),
+  ]
+
+  if (visibleFailures.length > 0) {
+    lines.push('')
+    lines.push(quoteCSVRow(['失败经验 ID', '失败阶段', '最终结果', '分数段', '失败标签', '提醒', '复盘', '建议']))
+    visibleFailures.forEach(failure => lines.push(quoteCSVRow(failureToCSVRow(failure))))
+  }
+
+  return lines.join('\n')
 }
 
 /** 触发浏览器下载结果页 CSV 文件 */
-export function downloadResultCSV(program: Program): void {
-  const csvContent = generateResultCSV(program)
+export function downloadResultCSV(program: Program, visibleFailures: FailureExperience[] = []): void {
+  const csvContent = generateResultCSV(program, visibleFailures)
   const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' })
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')

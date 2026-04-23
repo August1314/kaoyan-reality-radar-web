@@ -12,10 +12,12 @@ import { downloadResultCSV } from '../lib/csv-export'
 import { downloadShareCard } from '../lib/share-card'
 import { formatMetricValue, formatRatio, formatRetestRate } from '../lib/format'
 import { findProgramBySlug } from '../lib/programs'
+import { getEntitlementLabel, getFailureLimit, getVisibleFailures, monetizationConfig } from '../lib/monetization'
 import { resultSectionLinks, routeLinks } from '../lib/routes'
 import { useResultPageSEO } from '../hooks/useSEO'
 import { useFailuresByProgramId } from '../hooks/useAsyncFailures'
 import { useJsonLd } from '../hooks/useJsonLd'
+import { useEntitlement } from '../hooks/useEntitlement'
 
 export function ResultPage() {
   const { slug = '' } = useParams()
@@ -27,6 +29,7 @@ export function ResultPage() {
   const { failures: resultFailures, loading: failuresLoading, error: failuresError } = useFailuresByProgramId(
     program?.id ?? '',
   )
+  const { level: entitlementLevel, isPaid } = useEntitlement()
 
   // SEO - 必须在条件判断之前调用
   useResultPageSEO(program ?? { school: '', major: '', year: 0, summary: '' })
@@ -64,6 +67,10 @@ export function ResultPage() {
     { label: '复试线', value: formatMetricValue(program.retestLine) },
     { label: '最低录取', value: formatMetricValue(program.lowestAdmittedScore) },
   ]
+  const visibleFailures = getVisibleFailures(resultFailures, entitlementLevel)
+  const hiddenFailureCount = Math.max(resultFailures.length - visibleFailures.length, 0)
+  const failureLimit = getFailureLimit(entitlementLevel)
+  const failureLimitLabel = Number.isFinite(failureLimit) ? `${failureLimit} 条` : '全部'
 
   return (
     <main id="main-content" className="page result-page">
@@ -103,17 +110,23 @@ export function ResultPage() {
           <button
             type="button"
             className="text-link export-btn"
-            onClick={() => downloadResultCSV(program)}
+            onClick={() => downloadResultCSV(program, visibleFailures)}
           >
-            导出 CSV
+            导出当前 CSV
           </button>
-          <button
-            type="button"
-            className="text-link share-btn"
-            onClick={() => downloadShareCard([program])}
-          >
-            分享卡片
-          </button>
+          {isPaid ? (
+            <button
+              type="button"
+              className="text-link share-btn"
+              onClick={() => downloadShareCard([program])}
+            >
+              分享卡片
+            </button>
+          ) : (
+            <Link to={routeLinks.unlock()} className="text-link share-btn">
+              解锁分享卡片
+            </Link>
+          )}
           <CompareToggle programId={program.id} />
         </div>
       </section>
@@ -153,7 +166,10 @@ export function ResultPage() {
           ) : failuresError ? (
             <p className="error-text">加载失败</p>
           ) : (
-            <p>{resultFailures.length} 条样本</p>
+            <p>
+              {getEntitlementLabel(entitlementLevel)} · 当前可看 {failureLimitLabel}
+              {hiddenFailureCount > 0 ? ` · 还有 ${hiddenFailureCount} 条待解锁` : ''}
+            </p>
           )}
         </div>
         <div className="failure-list">
@@ -164,11 +180,36 @@ export function ResultPage() {
           ) : resultFailures.length === 0 ? (
             <div className="empty-placeholder">暂无失败经验样本</div>
           ) : (
-            resultFailures.map((item) => (
+            visibleFailures.map((item) => (
               <FailureCard key={item.id} failure={item} />
             ))
           )}
         </div>
+        {!failuresLoading && !failuresError && hiddenFailureCount > 0 ? (
+          <div className="unlock-inline-card">
+            <div>
+              <p className="eyebrow">内容解锁</p>
+              <h3>还有 {hiddenFailureCount} 条失败经验没有展开。</h3>
+              <p>
+                免费先看 2 条；填写择校问卷后输入体验码可看更多；{monetizationConfig.priceLabel} 解锁完整失败经验库、
+                完整 CSV 和分享卡片能力。
+              </p>
+            </div>
+            <div className="unlock-inline-card__actions">
+              <a
+                href={monetizationConfig.surveyFormUrl}
+                className="route-button"
+                target="_blank"
+                rel="noreferrer"
+              >
+                填写问卷
+              </a>
+              <Link to={routeLinks.unlock()} className="route-button route-button--primary">
+                输入解锁码
+              </Link>
+            </div>
+          </div>
+        ) : null}
       </section>
 
       <section id="alternatives">
@@ -186,6 +227,9 @@ export function ResultPage() {
           </Link>
           <Link to={routeLinks.stats()} className="route-button">
             看统计
+          </Link>
+          <Link to={routeLinks.unlock()} className="route-button">
+            解锁失败经验
           </Link>
           <Link to={routeLinks.submit()} className="route-button route-button--primary">
             去投稿

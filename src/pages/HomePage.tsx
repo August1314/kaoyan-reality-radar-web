@@ -82,6 +82,7 @@ export function HomePage() {
     <main id="main-content" className="page home-page apple-home-page">
       <PageRouteBar
         actions={[
+          { label: '解锁失败经验', to: routeLinks.unlock() },
           { label: '匿名投稿', to: routeLinks.submit(), tone: 'primary' },
         ]}
       />
@@ -265,6 +266,9 @@ export function HomePage() {
           <p className="feature-panel__summary">公开站点，只做现实判断，不做保过承诺。</p>
         </div>
         <div className="submit-card__actions">
+          <Link to={routeLinks.unlock()} className="route-button">
+            解锁失败经验
+          </Link>
           <Link to={routeLinks.submit()} className="route-button route-button--primary">
             去投稿
           </Link>

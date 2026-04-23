@@ -3,6 +3,7 @@ export const routePaths = {
   result: '/result/:slug',
   failure: '/failure/:id',
   submit: '/submit',
+  unlock: '/unlock',
   stats: '/stats',
   compare: '/compare',
 } as const
@@ -12,6 +13,7 @@ export const routeLinks = {
   result: (slug: string) => `/result/${encodeURIComponent(slug)}`,
   failure: (id: string) => `/failure/${encodeURIComponent(id)}`,
   submit: () => routePaths.submit,
+  unlock: () => routePaths.unlock,
   stats: () => routePaths.stats,
   compare: () => routePaths.compare,
 } as const
@@ -33,6 +35,7 @@ export const appNavItems: AppNavItem[] = [
   { label: '首页', to: routeLinks.home(), end: true },
   { label: '统计', to: routeLinks.stats() },
   { label: '对比', to: routeLinks.compare() },
+  { label: '解锁', to: routeLinks.unlock() },
 ]
 
 export const resultSectionLinks: ResultSectionLink[] = [

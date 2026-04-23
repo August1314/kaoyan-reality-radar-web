@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { formatRatioDisplay, programToCSVRow, generateCompareCSV, generateStatsCSV } from './csv-export'
-import type { Program } from './types'
+import { formatRatioDisplay, programToCSVRow, generateCompareCSV, generateResultCSV, generateStatsCSV } from './csv-export'
+import type { FailureExperience, Program } from './types'
 
 function makeProgram(overrides: Partial<Program> = {}): Program {
   return {
@@ -16,6 +16,28 @@ function makeProgram(overrides: Partial<Program> = {}): Program {
     riskTags: ['报录比高压', '复试刷人明显'],
     summary: '测试摘要',
     sourceNote: '测试来源',
+    ...overrides,
+  }
+}
+
+function makeFailure(overrides: Partial<FailureExperience> = {}): FailureExperience {
+  return {
+    id: 'failure-1',
+    programId: 'test-1',
+    school: '测试大学',
+    major: '计算机科学',
+    year: 2025,
+    attempt: '一战',
+    scoreRange: '350-359',
+    enteredRetest: true,
+    finalResult: '进入复试但未录取',
+    failureStage: '复试中',
+    failureTags: ['复试状态差', '联系导师晚'],
+    reminder: '复试准备不能只看初试分',
+    review: '复试问答明显短板',
+    retryChoice: '二战',
+    advice: '提前补项目复盘',
+    sourceType: '匿名投稿',
     ...overrides,
   }
 }
@@ -110,6 +132,28 @@ describe('generateCompareCSV', () => {
   it('properly quotes all fields', () => {
     const csv = generateCompareCSV([makeProgram({ school: '含"引号"大学' })])
     expect(csv).toContain('"含""引号""大学"')
+  })
+})
+
+describe('generateResultCSV', () => {
+  it('generates program summary when no visible failures are provided', () => {
+    const csv = generateResultCSV(makeProgram())
+
+    expect(csv).toContain('"院校","专业","年份","竞争比例","复录比","复试线","最低录取分","风险标签","风险摘要"')
+    expect(csv).toContain('"测试大学","计算机科学","2025","100:10","15:10","320","350","报录比高压 / 复试刷人明显","测试摘要"')
+    expect(csv).not.toContain('失败经验 ID')
+  })
+
+  it('includes only caller-provided visible failures', () => {
+    const csv = generateResultCSV(makeProgram(), [
+      makeFailure({ id: 'failure-1', reminder: '第一条' }),
+      makeFailure({ id: 'failure-2', reminder: '第二条' }),
+    ])
+
+    expect(csv).toContain('"失败经验 ID","失败阶段","最终结果","分数段","失败标签","提醒","复盘","建议"')
+    expect(csv).toContain('"failure-1"')
+    expect(csv).toContain('"failure-2"')
+    expect(csv).not.toContain('"failure-3"')
   })
 })
 

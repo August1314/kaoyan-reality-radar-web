@@ -39,6 +39,14 @@ export function generateSitemap(programs: Program[], now = new Date().toISOStrin
     <priority>0.5</priority>
   </url>`)
 
+  // 解锁页
+  urls.push(`  <url>
+    <loc>${SITE_URL}/unlock</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`)
+
   // 统计页
   urls.push(`  <url>
     <loc>${SITE_URL}/stats</loc>

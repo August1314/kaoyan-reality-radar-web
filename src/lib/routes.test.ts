@@ -7,6 +7,7 @@ describe('routes', () => {
     expect(routePaths.stats).toBe('/stats')
     expect(routePaths.compare).toBe('/compare')
     expect(routePaths.submit).toBe('/submit')
+    expect(routePaths.unlock).toBe('/unlock')
   })
 
   it('encodes dynamic route params', () => {
@@ -17,7 +18,7 @@ describe('routes', () => {
   })
 
   it('provides stable app navigation and result anchors', () => {
-    expect(appNavItems.map((item) => item.label)).toEqual(['首页', '统计', '对比'])
+    expect(appNavItems.map((item) => item.label)).toEqual(['首页', '统计', '对比', '解锁'])
     expect(resultSectionLinks.map((item) => item.id)).toEqual([
       'overview',
       'signals',
