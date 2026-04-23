@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatRatioDisplay, programToCSVRow, generateCompareCSV } from './csv-export'
+import { formatRatioDisplay, programToCSVRow, generateCompareCSV, generateStatsCSV } from './csv-export'
 import type { Program } from './types'
 
 function makeProgram(overrides: Partial<Program> = {}): Program {
@@ -110,5 +110,119 @@ describe('generateCompareCSV', () => {
   it('properly quotes all fields', () => {
     const csv = generateCompareCSV([makeProgram({ school: '含"引号"大学' })])
     expect(csv).toContain('"含""引号""大学"')
+  })
+})
+
+describe('generateStatsCSV', () => {
+  it('generates CSV with KPI section', () => {
+    const csv = generateStatsCSV({
+      totalPrograms: 158,
+      uniqueSchools: 50,
+      uniqueMajors: 30,
+      avgScore: 365,
+      schoolTop: [],
+      majorTop: [],
+      scoreBuckets: [],
+      tagTop: [],
+    })
+    expect(csv).toContain('"收录专业","158"')
+    expect(csv).toContain('"覆盖院校","50"')
+    expect(csv).toContain('"涵盖专业","30"')
+    expect(csv).toContain('"平均录取分","365"')
+  })
+
+  it('omits avgScore when null', () => {
+    const csv = generateStatsCSV({
+      totalPrograms: 100,
+      uniqueSchools: 20,
+      uniqueMajors: 10,
+      avgScore: null,
+      schoolTop: [],
+      majorTop: [],
+      scoreBuckets: [],
+      tagTop: [],
+    })
+    expect(csv).not.toContain('平均录取分')
+  })
+
+  it('includes school distribution section', () => {
+    const csv = generateStatsCSV({
+      totalPrograms: 10,
+      uniqueSchools: 5,
+      uniqueMajors: 3,
+      avgScore: null,
+      schoolTop: [{ label: '清华大学', count: 5 }, { label: '北京大学', count: 3 }],
+      majorTop: [],
+      scoreBuckets: [],
+      tagTop: [],
+    })
+    expect(csv).toContain('学校分布 Top 10')
+    expect(csv).toContain('清华大学')
+    expect(csv).toContain('北京大学')
+  })
+
+  it('includes score bucket section only when some buckets have counts', () => {
+    const withData = generateStatsCSV({
+      totalPrograms: 10,
+      uniqueSchools: 5,
+      uniqueMajors: 3,
+      avgScore: null,
+      schoolTop: [],
+      majorTop: [],
+      scoreBuckets: [
+        { label: '< 300', count: 2 },
+        { label: '300-340', count: 5 },
+      ],
+      tagTop: [],
+    })
+    expect(withData).toContain('录取分数分布')
+
+    const empty = generateStatsCSV({
+      totalPrograms: 10,
+      uniqueSchools: 5,
+      uniqueMajors: 3,
+      avgScore: null,
+      schoolTop: [],
+      majorTop: [],
+      scoreBuckets: [
+        { label: '< 300', count: 0 },
+        { label: '300-340', count: 0 },
+      ],
+      tagTop: [],
+    })
+    expect(empty).not.toContain('录取分数分布')
+  })
+
+  it('includes tag distribution section', () => {
+    const csv = generateStatsCSV({
+      totalPrograms: 10,
+      uniqueSchools: 5,
+      uniqueMajors: 3,
+      avgScore: null,
+      schoolTop: [],
+      majorTop: [],
+      scoreBuckets: [],
+      tagTop: [{ label: '报录比高压', count: 20 }, { label: '复试刷人', count: 15 }],
+    })
+    expect(csv).toContain('高频风险标签 Top 8')
+    expect(csv).toContain('报录比高压')
+    expect(csv).toContain('报录比高压","20"')
+  })
+
+  it('handles all sections empty gracefully', () => {
+    const csv = generateStatsCSV({
+      totalPrograms: 0,
+      uniqueSchools: 0,
+      uniqueMajors: 0,
+      avgScore: null,
+      schoolTop: [],
+      majorTop: [],
+      scoreBuckets: [],
+      tagTop: [],
+    })
+    // 只含 KPI header + 3 rows
+    expect(csv).toContain('"指标","数值"')
+    const lines = csv.split('\n').filter(l => l.length > 0)
+    expect(lines.length).toBe(4)
   })
 })

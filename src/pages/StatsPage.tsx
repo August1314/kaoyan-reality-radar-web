@@ -4,6 +4,7 @@ import { routeLinks } from '../lib/routes'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
 import { useSEO } from '../hooks/useSEO'
+import { downloadStatsCSV } from '../lib/csv-export'
 
 const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
 
@@ -79,6 +80,17 @@ export function StatsPage() {
   const uniqueSchools = new Set(programs.map(p => p.school)).size
   const uniqueMajors = new Set(programs.map(p => p.major)).size
 
+  const statsData = {
+    totalPrograms,
+    uniqueSchools,
+    uniqueMajors,
+    avgScore,
+    schoolTop,
+    majorTop,
+    scoreBuckets,
+    tagTop,
+  }
+
   return (
     <main id="main-content" className="page narrow-page">
       <PageRouteBar
@@ -88,8 +100,17 @@ export function StatsPage() {
       />
 
       <section className="card stats-hero">
-        <h1>数据统计</h1>
-        <p className="hero-copy">收录样本全景一览</p>
+        <div className="page-head-content">
+          <h1>数据统计</h1>
+          <p className="hero-copy">收录样本全景一览</p>
+        </div>
+        <button
+          type="button"
+          className="text-link"
+          onClick={() => downloadStatsCSV(statsData)}
+        >
+          导出数据
+        </button>
       </section>
 
       {/* 核心数字 */}
