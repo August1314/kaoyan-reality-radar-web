@@ -16,7 +16,7 @@ export function UnlockPage() {
 
   useSEO({
     title: '解锁失败经验库',
-    description: '免费查看 2 条考研失败经验，填写择校问卷后解锁更多样本，付费后解锁完整失败经验库和导出能力。',
+    description: '基础体验可查看 2 条考研失败经验，填写择校问卷后解锁更多样本，完整权益包含失败经验库和导出能力。',
     keywords: '考研,失败经验,解锁,择校问卷,考研付费报告',
     canonicalUrl: `${SITE_URL}/unlock`,
   })
@@ -53,7 +53,7 @@ export function UnlockPage() {
         <p className="eyebrow">失败经验库</p>
         <h1>先免费试用，再决定是否解锁完整样本。</h1>
         <p className="hero-copy">
-          免费用户可看 2 条失败经验；填写择校问卷后可看更多样本；付费后解锁完整失败经验库、完整 CSV 和分享卡片能力。
+          基础体验可查看 2 条失败经验；填写择校问卷后可看更多样本；完整权益包含完整失败经验库、完整 CSV 和分享卡片能力。
         </p>
       </section>
 
@@ -61,13 +61,13 @@ export function UnlockPage() {
         <article className="card unlock-plan">
           <span>当前状态</span>
           <strong>{getEntitlementLabel(level)}</strong>
-          <p>{loading ? '正在校准服务端状态...' : '你的解锁状态会绑定到当前浏览器设备。更换设备后，需要使用新的人工发放解锁码。'}</p>
+          <p>{loading ? '正在同步当前权益...' : '你的解锁状态会绑定到当前浏览器设备。更换设备时，可联系人工协助处理。'}</p>
         </article>
 
         <article className="card unlock-plan">
           <span>免费体验</span>
           <strong>2 条失败经验</strong>
-          <p>先判断这个目标是否值得继续研究，不要求登录，不阻断基础搜索。</p>
+          <p>先判断这个目标是否值得继续研究，无需登录，也能完成基础搜索。</p>
         </article>
 
         <article className="card unlock-plan unlock-plan--highlight">
@@ -87,7 +87,7 @@ export function UnlockPage() {
         <article className="card unlock-plan">
           <span>完整解锁</span>
           <strong>{monetizationConfig.priceLabel}</strong>
-          <p>人工确认后发放唯一完整解锁码，适合已经进入择校对比阶段的考生。</p>
+          <p>人工确认后发放唯一完整解锁码，适合已经进入系统择校对比阶段的考生。</p>
           <Link to={routeLinks.pay()} className="route-button">
             前往付款页
           </Link>

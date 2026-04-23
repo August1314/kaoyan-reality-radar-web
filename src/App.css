@@ -158,8 +158,15 @@ h3 {
 }
 
 .text-link {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--color-accent);
+  font: inherit;
   font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
@@ -170,6 +177,41 @@ h3 {
 .export-btn {
   display: inline-flex;
   align-items: center;
+}
+
+.result-hero__actions .text-link,
+.compare-actions .text-link,
+.compare-bar .text-link,
+.stats-hero .text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 48%, var(--color-border));
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-strong);
+  color: var(--color-accent);
+  font-size: 13px;
+  line-height: 1;
+  box-shadow: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.result-hero__actions .text-link:hover,
+.compare-actions .text-link:hover,
+.compare-bar .text-link:hover,
+.stats-hero .text-link:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg-strong));
+  box-shadow: 0 10px 24px rgba(20, 26, 31, 0.08);
 }
 
 .route-button,

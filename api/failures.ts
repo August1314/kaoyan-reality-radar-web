@@ -32,7 +32,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       return
     }
 
-    res.status(403).json({ error: 'locked_failure', message: '这条失败经验需要先解锁。', level })
+    res.status(403).json({ error: 'locked_failure', message: '解锁后可查看这条失败经验。', level })
     return
   }
 

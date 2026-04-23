@@ -30,7 +30,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
   const device = await getDeviceRecord(kvStore, deviceId)
   if (!canAccessCompare(device.level)) {
-    res.status(403).json({ error: 'compare_locked', message: '对比功能仅对问卷和付费用户开放。' })
+    res.status(403).json({ error: 'compare_locked', message: '填写问卷后即可开启目标对比，完整权益包含导出和分享。' })
     return
   }
 

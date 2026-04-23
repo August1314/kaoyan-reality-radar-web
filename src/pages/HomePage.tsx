@@ -263,7 +263,7 @@ export function HomePage() {
         <div className="home-footer-panel__copy">
           <p className="eyebrow">继续补样本</p>
           <h2>匿名补一条失败经验。</h2>
-          <p className="feature-panel__summary">公开站点，只做现实判断，不做保过承诺。</p>
+          <p className="feature-panel__summary">公开站点，专注现实判断和风险提示。</p>
         </div>
         <div className="submit-card__actions">
           <Link to={routeLinks.unlock()} className="route-button">
@@ -279,7 +279,7 @@ export function HomePage() {
         <div className="home-footer-panel__meta">
           <span>公开资料整理</span>
           <span>匿名经验人工审核</span>
-          <span>不做个性化咨询</span>
+          <span>自助择校判断</span>
         </div>
       </section>
     </main>

@@ -32,7 +32,7 @@ function ResultLockShell({ school, major }: { school: string; major: string }) {
           <h1>
             {school} · {major}
           </h1>
-          <p className="hero-copy">当前目标仍在公开目录里，但完整结果页已进入浏览配额控制。</p>
+          <p className="hero-copy">这个目标已收录在目录中，完整分析可通过升级查看权益继续打开。</p>
           <div className="result-kpis result-kpis--placeholder">
             {Array.from({ length: 4 }, (_, index) => (
               <div key={index} className="result-kpi result-kpi--placeholder">
@@ -108,14 +108,14 @@ function ResultLockShell({ school, major }: { school: string; major: string }) {
 
         <div className="result-paywall__overlay">
           <div className="result-paywall__panel">
-            <p className="eyebrow">浏览配额</p>
-            <h2>已达到当前浏览上限</h2>
+            <p className="eyebrow">查看权益</p>
+            <h2>继续查看更多目标</h2>
             <p>
-              免费用户最多查看 2 个目标；填写问卷后可扩展到 8 个；充值后解锁不限目标浏览。
+              基础体验可查看 2 个目标；完成择校问卷后可扩展到 8 个；完整权益支持不限目标浏览，适合系统筛选学校和专业。
             </p>
             <div className="result-paywall__actions">
               <Link to={routeLinks.pay()} className="route-button route-button--primary">
-                去付款解锁
+                查看完整权益
               </Link>
               <Link to={routeLinks.unlock()} className="route-button">
                 输入解锁码
@@ -300,7 +300,7 @@ export function ResultPage() {
             </button>
           ) : (
             <Link to={routeLinks.pay()} className="text-link share-btn">
-              充值解锁分享卡片
+              完整解锁分享卡片
             </Link>
           )}
           <CompareToggle programId={program.id} />
@@ -344,7 +344,7 @@ export function ResultPage() {
           ) : (
             <p>
               {getEntitlementLabel(entitlementLevel)} · 当前可看 {failureLimitLabel}
-              {hiddenFailureCount > 0 ? ` · 还有 ${hiddenFailureCount} 条待解锁` : ''}
+              {hiddenFailureCount > 0 ? ` · 可继续解锁 ${hiddenFailureCount} 条` : ''}
             </p>
           )}
         </div>
@@ -365,9 +365,9 @@ export function ResultPage() {
           <div className="unlock-inline-card">
             <div>
               <p className="eyebrow">内容解锁</p>
-              <h3>还有 {hiddenFailureCount} 条失败经验没有展开。</h3>
+              <h3>还可以继续查看 {hiddenFailureCount} 条失败经验。</h3>
               <p>
-                免费先看 2 条；填写择校问卷后人工发放唯一解锁码；{monetizationConfig.priceLabel} 解锁完整失败经验库、
+                基础体验先看 2 条；填写择校问卷后人工发放唯一解锁码；{monetizationConfig.priceLabel} 解锁完整失败经验库、
                 完整 CSV 和分享卡片能力。
               </p>
             </div>

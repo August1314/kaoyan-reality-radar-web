@@ -15,8 +15,8 @@ function CompareLockedState() {
   return (
     <section className="card empty-state">
       <p className="eyebrow">对比能力</p>
-      <h1>对比页已从免费层收口</h1>
-      <p>问卷和付费用户可以看已浏览目标的对比；导出 CSV 和分享卡片只对付费用户开放。</p>
+      <h1>解锁后开启目标对比</h1>
+      <p>填写问卷后可对比已查看过的目标；完整解锁后还包含 CSV 导出和分享卡片，适合正式做择校取舍。</p>
       <div className="empty-state-actions">
         <Link to={routeLinks.unlock()} className="route-button">
           输入解锁码
@@ -68,7 +68,7 @@ export function ComparePage() {
 
       <section className="card compare-hero">
         <h1>专业对比</h1>
-        <p className="hero-copy">只比较当前设备已经进入浏览记录的目标，避免绕过结果页配额。</p>
+        <p className="hero-copy">围绕你已经查看过的目标做横向比较，信息口径更一致。</p>
         {!empty && (
           <div className="compare-actions">
             <Link to={routeLinks.home()} className="route-button">
@@ -87,7 +87,7 @@ export function ComparePage() {
               </button>
             ) : (
               <Link to={routeLinks.pay()} className="text-link export-btn">
-                充值解锁导出
+                完整权益导出
               </Link>
             )}
             {canShare ? (
@@ -100,7 +100,7 @@ export function ComparePage() {
               </button>
             ) : (
               <Link to={routeLinks.pay()} className="text-link share-btn">
-                充值解锁分享
+                完整权益分享
               </Link>
             )}
           </div>
@@ -126,8 +126,8 @@ export function ComparePage() {
         </section>
       ) : comparePrograms.length === 0 ? (
         <section className="card empty-state">
-          <p>当前选中的目标还没有进入本设备的浏览记录。</p>
-          <p>先打开对应结果页，再回到这里对比。</p>
+          <p>先查看这些目标的结果页，就可以把它们加入同一组对比。</p>
+          <p>这样对比内容会和你的实际浏览记录保持一致。</p>
           <Link to={routeLinks.home()} className="route-button route-button--primary" style={{ marginTop: 16 }}>
             去查看结果页
           </Link>
@@ -137,7 +137,7 @@ export function ComparePage() {
           {droppedCount > 0 ? (
             <section className="card compare-warning">
               <p>
-                已自动过滤 {droppedCount} 个未进入浏览记录的目标。问卷用户可查看已浏览目标的对比，导出与分享仍需付费解锁。
+                当前先展示 {comparePrograms.length} 个已查看目标；另外 {droppedCount} 个目标打开结果页后，也可以加入同一组对比。
               </p>
             </section>
           ) : null}

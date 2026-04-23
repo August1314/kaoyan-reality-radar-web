@@ -48,7 +48,7 @@ export function applyCors(req: ApiRequest, res: ApiResponse): boolean {
   }
 
   if (!isOriginAllowed(origin)) {
-    res.status(403).json({ error: 'origin_not_allowed', message: '当前来源不允许调用接口。' })
+    res.status(403).json({ error: 'origin_not_allowed', message: '当前访问来源暂未接入站点接口。' })
     return true
   }
 

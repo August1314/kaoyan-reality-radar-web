@@ -25,9 +25,9 @@ export function PaymentPage() {
 
       <section className="card unlock-hero">
         <p className="eyebrow">付款页</p>
-        <h1>先付款，再领取唯一完整解锁码。</h1>
+        <h1>完成支付后，领取唯一完整解锁码。</h1>
         <p className="hero-copy">
-          当前采用人工发码模式。任选微信或支付宝扫码支付 {monetizationConfig.priceLabel}，再提交付款凭证，人工确认后会发放仅限一个浏览器设备使用的完整解锁码。
+          当前采用人工发码模式。任选微信或支付宝扫码支付 {monetizationConfig.priceLabel}，再提交付款凭证，人工确认后会发放绑定一个浏览器设备的完整解锁码。
         </p>
       </section>
 
@@ -63,7 +63,7 @@ export function PaymentPage() {
         <article className="card payment-guide-card">
           <div className="section-head left-align">
             <h2>付款步骤</h2>
-            <p>先付款，再提交凭证。当前不做自动到账校验，先走低成本人工确认。</p>
+            <p>先付款，再提交凭证。当前采用人工确认到账，适合小规模早期验证。</p>
           </div>
           <ol className="payment-step-list">
             <li>任选微信或支付宝扫描收款码，支付 {monetizationConfig.priceLabel}。</li>
@@ -84,12 +84,12 @@ export function PaymentPage() {
           </div>
 
           <div className="info-block payment-notes">
-            <h3>当前边界</h3>
+            <h3>使用说明</h3>
             <ul>
               <li>完整解锁价为 {monetizationConfig.priceLabel}。</li>
-              <li>每枚完整解锁码默认只绑定一个浏览器设备。</li>
-              <li>如果换设备或清理浏览器数据，需要重新联系人工处理。</li>
-              <li>如果你只想先多看样本，不必付款，也可以先走问卷解锁。</li>
+              <li>每枚完整解锁码默认绑定到一个浏览器设备。</li>
+              <li>如果换设备或清理浏览器数据，可以重新联系人工处理。</li>
+              <li>如果你想先多看样本，也可以先走问卷解锁。</li>
             </ul>
           </div>
         </article>

@@ -32,18 +32,18 @@ function StatsLockedState() {
       <section className="card stats-hero">
         <div className="page-head-content">
           <h1>数据统计</h1>
-          <p className="hero-copy">统计页已经收口到付费层，免费和问卷用户不再展示真实聚合值。</p>
+          <p className="hero-copy">完整解锁后查看全站分布、分数区间和高频风险标签。</p>
         </div>
         <Link to={routeLinks.pay()} className="route-button route-button--primary">
-          去付款解锁
+          查看完整权益
         </Link>
       </section>
 
       <section className="card stats-locked-card">
-        <p className="eyebrow">付费解锁</p>
-        <h2>统计页仅对付费用户开放</h2>
+        <p className="eyebrow">完整权益</p>
+        <h2>用全站统计辅助择校判断</h2>
         <p>
-          统计页会暴露全站聚合分布、分数区间和风险标签热度，因此已从公开层移除。充值后可查看真实统计并导出 CSV。
+          完整解锁包含学校分布、专业方向、录取分数区间和风险标签热度，并支持导出 CSV，方便你集中比较多个目标。
         </p>
         <div className="unlock-inline-card__actions">
           <Link to={routeLinks.pay()} className="route-button route-button--primary">
@@ -62,7 +62,7 @@ export function StatsPage() {
   useScrollRestoration()
   useSEO({
     title: '数据统计',
-    description: '考研现实雷达站数据统计概览。付费后可查看收录专业分布、学校分布、录取分数区间、高频风险标签等聚合数据。',
+    description: '考研现实雷达站数据统计概览。完整权益包含收录专业分布、学校分布、录取分数区间、高频风险标签等聚合数据。',
     keywords: '考研,数据统计,专业分布,学校分布,录取分数,风险标签',
     canonicalUrl: `${SITE_URL}/stats`,
   })
@@ -94,7 +94,7 @@ export function StatsPage() {
         <section className="card stats-hero">
           <div className="page-head-content">
             <h1>数据统计</h1>
-            <p className="hero-copy">正在加载付费统计数据...</p>
+            <p className="hero-copy">正在加载完整统计数据...</p>
           </div>
         </section>
       </main>

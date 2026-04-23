@@ -22,7 +22,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
   const device = await getDeviceRecord(kvStore, deviceId)
   if (!canAccessStats(device.level)) {
-    res.status(403).json({ error: 'stats_locked', message: '统计页仅对付费用户开放。' })
+    res.status(403).json({ error: 'stats_locked', message: '完整权益包含全站统计和 CSV 导出。' })
     return
   }
 

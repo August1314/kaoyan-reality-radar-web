@@ -50,9 +50,9 @@ export function FailureDetailPage() {
       <main id="main-content" className="page narrow-page">
         <PageRouteBar />
         <section className="card empty-state">
-          <h1>{locked ? '这条失败经验需要解锁' : '这条失败经验不存在'}</h1>
+          <h1>{locked ? '解锁后查看这条失败经验' : '这条失败经验不存在'}</h1>
           <Link to={locked ? routeLinks.unlock() : routeLinks.home()} className="text-link">
-            {locked ? '去输入解锁码' : '返回首页'}
+            {locked ? '输入解锁码' : '返回首页'}
           </Link>
         </section>
       </main>

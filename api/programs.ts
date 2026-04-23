@@ -33,7 +33,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (!canAccessProgram(device, program.id)) {
     res.status(403).json({
       error: 'quota_exceeded',
-      message: '已达到当前浏览上限，充值后可解锁更多学校和专业结果页。',
+      message: '基础体验的目标查看次数已用完，升级权益后可继续查看更多学校和专业结果页。',
       entitlement: toEntitlementStatusPayload(device),
     })
     return
