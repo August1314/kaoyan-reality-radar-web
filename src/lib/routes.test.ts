@@ -8,6 +8,7 @@ describe('routes', () => {
     expect(routePaths.compare).toBe('/compare')
     expect(routePaths.submit).toBe('/submit')
     expect(routePaths.unlock).toBe('/unlock')
+    expect(routePaths.pay).toBe('/pay')
   })
 
   it('encodes dynamic route params', () => {

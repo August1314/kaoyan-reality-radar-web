@@ -1216,6 +1216,83 @@ mark {
   font: inherit;
 }
 
+.info-block {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background: var(--color-bg-elevated);
+}
+
+.info-block ul,
+.payment-step-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 20px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.payment-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  gap: 16px;
+}
+
+.payment-qr-card,
+.payment-guide-card {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.payment-qr-card__head {
+  display: grid;
+  gap: 8px;
+}
+
+.payment-qr-card__head span {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.payment-qr-card__head strong {
+  color: var(--color-text);
+  font-size: 1.8rem;
+  letter-spacing: -0.04em;
+}
+
+.payment-qr-frame {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  background: var(--color-bg-strong);
+}
+
+.payment-qr-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.payment-qr-card__tip,
+.payment-notes p {
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+.payment-step-list {
+  margin: 0;
+}
+
+.payment-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .submit-card,
 .detail-header {
   display: flex;
@@ -1586,6 +1663,7 @@ mark {
   .result-hero,
   .result-layout,
   .unlock-grid,
+  .payment-layout,
   .compare-grid--3,
   .insight-grid,
   .example-grid,
@@ -1673,6 +1751,7 @@ mark {
   .empty-state-actions,
   .unlock-form,
   .unlock-inline-card__actions,
+  .payment-action-row,
   .feature-panel__actions,
   .submit-card__actions,
   .compare-actions,

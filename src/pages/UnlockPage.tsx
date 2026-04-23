@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { Link } from 'react-router-dom'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { useEntitlement } from '../hooks/useEntitlement'
 import { getEntitlementLabel, monetizationConfig } from '../lib/monetization'
@@ -87,14 +88,9 @@ export function UnlockPage() {
           <span>完整解锁</span>
           <strong>{monetizationConfig.priceLabel}</strong>
           <p>人工确认后发放唯一完整解锁码，适合已经进入择校对比阶段的考生。</p>
-          <a
-            href={monetizationConfig.paidRequestUrl}
-            className="route-button"
-            target="_blank"
-            rel="noreferrer"
-          >
-            申请付费解锁
-          </a>
+          <Link to={routeLinks.pay()} className="route-button">
+            前往付款页
+          </Link>
         </article>
       </section>
 
