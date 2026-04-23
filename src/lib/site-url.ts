@@ -1,9 +1,6 @@
-export const DEFAULT_SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
+import { DEFAULT_SITE_URL, normalizeSiteUrl } from './site-url-shared'
 
-export function normalizeSiteUrl(value?: string): string {
-  const siteUrl = value?.trim() || DEFAULT_SITE_URL
-  return siteUrl.replace(/\/+$/, '')
-}
+export { DEFAULT_SITE_URL, normalizeSiteUrl }
 
 export function getSiteHostname(siteUrl = SITE_URL): string {
   try {

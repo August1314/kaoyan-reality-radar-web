@@ -2,17 +2,13 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath, pathToFileURL } from 'url'
 import { buildProgramSlug } from '../src/lib/programSlug.ts'
+import { DEFAULT_SITE_URL, normalizeSiteUrl } from '../src/lib/site-url-shared.ts'
+
+export { DEFAULT_SITE_URL, normalizeSiteUrl }
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
-
-export const DEFAULT_SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
-
-export function normalizeSiteUrl(value?: string): string {
-  const siteUrl = value?.trim() || DEFAULT_SITE_URL
-  return siteUrl.replace(/\/+$/, '')
-}
 
 function parseEnvValue(content: string, key: string): string | undefined {
   const line = content
