@@ -3,6 +3,9 @@ import { programs } from '../data/programs'
 import { routeLinks } from '../lib/routes'
 import { PageRouteBar } from '../components/PageRouteBar'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
+import { useSEO } from '../hooks/useSEO'
+
+const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
 
 // ── 数据统计工具 ────────────────────────────────────────────────
 
@@ -35,6 +38,12 @@ function Bar({ label, count, max }: { label: string; count: number; max: number 
 
 export function StatsPage() {
   useScrollRestoration()
+  useSEO({
+    title: '数据统计',
+    description: '考研现实雷达站数据统计概览。查看收录专业分布、学校分布、录取分数区间、高频风险标签等聚合数据。',
+    keywords: '考研,数据统计,专业分布,学校分布,录取分数,风险标签',
+    canonicalUrl: `${SITE_URL}/stats`,
+  })
 
   const totalPrograms = programs.length
 

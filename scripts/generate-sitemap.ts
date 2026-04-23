@@ -39,6 +39,22 @@ export function generateSitemap(programs: Program[], now = new Date().toISOStrin
     <priority>0.5</priority>
   </url>`)
 
+  // 统计页
+  urls.push(`  <url>
+    <loc>${SITE_URL}/stats</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`)
+
+  // 对比页
+  urls.push(`  <url>
+    <loc>${SITE_URL}/compare</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`)
+
   // 结果页
   for (const program of programs) {
     const slug = buildProgramSlug(program)
