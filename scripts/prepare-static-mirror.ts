@@ -20,12 +20,15 @@ export async function prepareStaticMirror() {
   await assertBuiltDist()
   await mkdir(mirrorDir, { recursive: true })
   await cp(distDir, mirrorDir, { recursive: true, force: true })
+  const indexHtml = await readFile(path.join(distDir, 'index.html'), 'utf-8')
+  await writeFile(path.join(mirrorDir, '404.html'), indexHtml, 'utf-8')
+  await writeFile(path.join(mirrorDir, '.nojekyll'), '', 'utf-8')
 
   const manifest = {
     generatedAt: new Date().toISOString(),
     source: distDir,
     target: mirrorDir,
-    note: '上传 mirror-dist/ 到香港或海外静态托管/Object Storage，用于改善中国大陆访问。',
+    note: '上传 mirror-dist/ 到香港或海外静态托管/Object Storage，用于改善中国大陆访问。404.html 用于 SPA history fallback。',
   }
 
   await writeFile(path.join(mirrorDir, 'mirror-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8')

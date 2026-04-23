@@ -5,6 +5,7 @@ import { buildProgramSlug } from '../lib/programSlug'
 import { routeLinks } from '../lib/routes'
 import { useFailureById, useRelatedFailures } from '../hooks/useAsyncFailures'
 import { useSEO } from '../hooks/useSEO'
+import { SITE_URL } from '../lib/site-url'
 
 export function FailureDetailPage() {
   const { id = '' } = useParams()
@@ -22,7 +23,7 @@ export function FailureDetailPage() {
     ? `${failure.school},${failure.major},考研,失败经验,${failure.failureStage},${failure.finalResult}`
     : undefined
   const canonicalUrl = failure
-    ? `https://kaoyan-reality-radar-web.vercel.app/failure/${failure.id}`
+    ? `${SITE_URL}/failure/${failure.id}`
     : undefined
 
   useSEO({ title, description, keywords, canonicalUrl })

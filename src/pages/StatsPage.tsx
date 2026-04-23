@@ -5,8 +5,7 @@ import { PageRouteBar } from '../components/PageRouteBar'
 import { useScrollRestoration } from '../hooks/useScrollRestoration'
 import { useSEO } from '../hooks/useSEO'
 import { downloadStatsCSV } from '../lib/csv-export'
-
-const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
+import { SITE_URL } from '../lib/site-url'
 
 // ── 数据统计工具 ────────────────────────────────────────────────
 

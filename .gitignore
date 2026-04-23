@@ -26,6 +26,9 @@ dist-ssr
 .vercel
 .tmp/
 
+# 环境变量（不上传，保持 .env.example 作为模板）
+.env
+
 # 本地开发文档（不上传）
 docs/
 !docs/

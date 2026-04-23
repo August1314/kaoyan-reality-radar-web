@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { buildProgramSlug } from '../lib/programSlug'
+import { SITE_URL, DEFAULT_OG_IMAGE } from '../lib/site-url'
 
 interface SEOProps {
   title?: string
@@ -14,8 +15,6 @@ interface SEOProps {
 const DEFAULT_TITLE = '考研现实雷达 - 查难度，看失败路径'
 const DEFAULT_DESCRIPTION = '考研择校现实判断工具。查看目标院校专业的真实难度、报录比、分数线和失败经验，避免只看上岸叙事。'
 const DEFAULT_KEYWORDS = '考研,择校,难度,报录比,分数线,失败经验,考研现实雷达'
-const DEFAULT_OG_IMAGE = 'https://kaoyan-reality-radar-web.vercel.app/og-image.png'
-const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
 
 function updateMeta(name: string, content: string) {
   let meta = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement

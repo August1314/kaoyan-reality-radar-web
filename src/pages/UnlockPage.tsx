@@ -4,6 +4,7 @@ import { useEntitlement } from '../hooks/useEntitlement'
 import { getEntitlementLabel, monetizationConfig } from '../lib/monetization'
 import { routeLinks } from '../lib/routes'
 import { useSEO } from '../hooks/useSEO'
+import { SITE_URL } from '../lib/site-url'
 
 export function UnlockPage() {
   const { level, applyUnlockCode } = useEntitlement()
@@ -14,7 +15,7 @@ export function UnlockPage() {
     title: '解锁失败经验库',
     description: '免费查看 2 条考研失败经验，填写择校问卷后解锁更多样本，付费后解锁完整失败经验库和导出能力。',
     keywords: '考研,失败经验,解锁,择校问卷,考研付费报告',
-    canonicalUrl: 'https://kaoyan-reality-radar-web.vercel.app/unlock',
+    canonicalUrl: `${SITE_URL}/unlock`,
   })
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {

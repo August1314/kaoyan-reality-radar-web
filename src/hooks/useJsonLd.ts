@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import type { Program } from '../lib/types'
 import { buildProgramSlug } from '../lib/programSlug'
-
-const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
+import { SITE_URL } from '../lib/site-url'
 
 /**
  * 注入 JSON-LD 结构化数据到页面 head

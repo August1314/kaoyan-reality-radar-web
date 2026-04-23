@@ -11,10 +11,58 @@
 
 ## 本地准备命令
 
+默认构建会使用 Vercel 生产域名。准备自有域名或镜像站时，先通过环境变量指定公开访问地址：
+
+```bash
+VITE_SITE_URL=https://your-domain.example npm run build
+npm run prepare:mirror
+```
+
+如果镜像站部署在子路径下，同时设置 `VITE_BASE_PATH`：
+
+```bash
+VITE_SITE_URL=https://august1314.github.io/kaoyan-reality-radar-web \
+VITE_BASE_PATH=/kaoyan-reality-radar-web/ \
+npm run build
+npm run prepare:mirror
+```
+
+也可以在本地创建不提交的 `.env`：
+
+```bash
+VITE_SITE_URL=https://your-domain.example
+VITE_BASE_PATH=/
+```
+
+然后执行：
+
 ```bash
 npm run build
 npm run prepare:mirror
 ```
+
+`prepare:mirror` 会在 `mirror-dist/` 内额外写入：
+
+- `404.html`：复制自 `index.html`，用于静态托管平台的 SPA history fallback。
+- `.nojekyll`：避免 GitHub Pages 以 Jekyll 规则处理静态产物。
+- `mirror-manifest.json`：记录产物来源和生成时间。
+
+## GitHub Pages 临时镜像
+
+仓库已提供手动触发的 workflow：
+
+```text
+.github/workflows/china-mirror-pages.yml
+```
+
+默认参数：
+
+- `site_url`: `https://august1314.github.io/kaoyan-reality-radar-web`
+- `base_path`: `/kaoyan-reality-radar-web/`
+
+第一次使用前，需要在 GitHub 仓库 Settings -> Pages 中把发布来源设为 GitHub Actions，或者用 GitHub API 启用 Pages workflow 发布。启用后，手动运行 `China Mirror - GitHub Pages` workflow 即可生成临时公开镜像。
+
+注意：GitHub Pages 不是面向中国大陆访问的最终方案，只适合作为零成本临时镜像和部署链路验证。正式面向中国考研党传播时，仍建议使用自有域名 + 香港/海外静态托管；若后续要走中国大陆 CDN，需先完成备案。
 
 产物目录：
 

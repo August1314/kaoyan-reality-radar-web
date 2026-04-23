@@ -1,5 +1,6 @@
 import type { Program } from './types'
 import { formatRatio } from './format'
+import { getSiteHostname } from './site-url'
 
 // ─── 分享卡片尺寸 ───
 const W = 750
@@ -196,7 +197,7 @@ export function downloadShareCard(programs: Program[]): void {
   ctx.font = `12px "PingFang SC", "Helvetica Neue", Arial, sans-serif`
   ctx.fillStyle = C.muted
   ctx.fillText('数据来源：考研现实雷达站', 36, brandY)
-  ctx.fillText('kaoyan-reality-radar-web.vercel.app', 36, brandY + 18)
+  ctx.fillText(getSiteHostname(), 36, brandY + 18)
 
   // Logo 点缀（用 accent 色方块代替图标）
   ctx.fillStyle = C.accent

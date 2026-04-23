@@ -1,0 +1,75 @@
+name: China Mirror - GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: Public mirror URL, without trailing slash.
+        required: true
+        default: https://august1314.github.io/kaoyan-reality-radar-web
+      base_path:
+        description: Vite base path. Use / for custom root domains.
+        required: true
+        default: /kaoyan-reality-radar-web/
+
+concurrency:
+  group: china-mirror-pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build mirror
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      VITE_SITE_URL: ${{ inputs.site_url }}
+      VITE_BASE_PATH: ${{ inputs.base_path }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build static mirror
+        run: |
+          npm run build
+          npm run prepare:mirror
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload mirror artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: mirror-dist
+
+  deploy:
+    name: Deploy mirror
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

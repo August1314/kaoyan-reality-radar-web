@@ -5,8 +5,42 @@ import { buildProgramSlug } from '../src/lib/programSlug.ts'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+const rootDir = path.resolve(__dirname, '..')
 
-const SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
+export const DEFAULT_SITE_URL = 'https://kaoyan-reality-radar-web.vercel.app'
+
+export function normalizeSiteUrl(value?: string): string {
+  const siteUrl = value?.trim() || DEFAULT_SITE_URL
+  return siteUrl.replace(/\/+$/, '')
+}
+
+function parseEnvValue(content: string, key: string): string | undefined {
+  const line = content
+    .split(/\r?\n/)
+    .map((item) => item.trim())
+    .find((item) => item.startsWith(`${key}=`))
+
+  if (!line) return undefined
+
+  return line
+    .slice(key.length + 1)
+    .trim()
+    .replace(/^['"]|['"]$/g, '')
+}
+
+function readSiteUrlFromEnvFiles(): string | undefined {
+  for (const fileName of ['.env.local', '.env.production', '.env']) {
+    const envPath = path.resolve(rootDir, fileName)
+    if (!fs.existsSync(envPath)) continue
+
+    const value = parseEnvValue(fs.readFileSync(envPath, 'utf-8'), 'VITE_SITE_URL')
+    if (value) return value
+  }
+
+  return undefined
+}
+
+const SITE_URL = normalizeSiteUrl(process.env.VITE_SITE_URL ?? readSiteUrlFromEnvFiles())
 
 export interface Program {
   id: string
@@ -15,7 +49,7 @@ export interface Program {
   year: number
 }
 function readPrograms(): Program[] {
-  const programsPath = path.resolve(__dirname, '../data/processed/programs.json')
+  const programsPath = path.resolve(rootDir, 'data/processed/programs.json')
   return JSON.parse(fs.readFileSync(programsPath, 'utf-8')) as Program[]
 }
 
@@ -91,11 +125,11 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 export function main() {
   const sitemap = generateSitemap(readPrograms())
-  fs.writeFileSync(path.resolve(__dirname, '../public/sitemap.xml'), sitemap)
+  fs.writeFileSync(path.resolve(rootDir, 'public/sitemap.xml'), sitemap)
   console.log('✅ Generated sitemap.xml')
 
   const robots = generateRobotsTxt()
-  fs.writeFileSync(path.resolve(__dirname, '../public/robots.txt'), robots)
+  fs.writeFileSync(path.resolve(rootDir, 'public/robots.txt'), robots)
   console.log('✅ Generated robots.txt')
 }
 
