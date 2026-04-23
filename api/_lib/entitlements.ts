@@ -1,4 +1,4 @@
-import { chooseHigherEntitlement, type EntitlementLevel } from '../../src/lib/monetization.ts'
+export type EntitlementLevel = 'free' | 'survey' | 'paid'
 
 export type CodeStatus = 'unused' | 'redeemed'
 
@@ -31,6 +31,16 @@ export function normalizeCode(code: string): string {
 
 export function isEntitlementLevel(value: string): value is EntitlementLevel {
   return value === 'survey' || value === 'paid'
+}
+
+function chooseHigherEntitlement(current: EntitlementLevel, next: EntitlementLevel): EntitlementLevel {
+  const rank: Record<EntitlementLevel, number> = {
+    free: 0,
+    survey: 1,
+    paid: 2,
+  }
+
+  return rank[next] > rank[current] ? next : current
 }
 
 export function codeKey(code: string): string {

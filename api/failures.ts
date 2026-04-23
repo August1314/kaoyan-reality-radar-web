@@ -1,12 +1,12 @@
-import { applyCors, getSingleQueryValue, type ApiRequest, type ApiResponse } from './_lib/http.ts'
-import { getDeviceLevel } from './_lib/entitlements.ts'
+import { getDeviceLevel } from './_lib/entitlements'
 import {
   findFailureById,
   findFailuresByProgramId,
   findVisibleFailureById,
   findVisibleFailuresByProgramId,
-} from './_lib/failures-data.ts'
-import { kvStore } from './_lib/store.ts'
+} from './_lib/failures-data'
+import { applyCors, getSingleQueryValue, type ApiRequest, type ApiResponse } from './_lib/http'
+import { kvStore } from './_lib/store'
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (applyCors(req, res)) return

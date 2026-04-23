@@ -1,6 +1,6 @@
-import { applyCors, type ApiRequest, type ApiResponse } from '../_lib/http.ts'
-import { redeemCode } from '../_lib/entitlements.ts'
-import { kvStore } from '../_lib/store.ts'
+import { redeemCode } from '../_lib/entitlements'
+import { applyCors, type ApiRequest, type ApiResponse } from '../_lib/http'
+import { kvStore } from '../_lib/store'
 
 interface RedeemBody {
   code?: string
@@ -18,10 +18,10 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   const body = (req.body ?? {}) as RedeemBody
   const result = await redeemCode(kvStore, body.code ?? '', body.deviceId ?? '')
 
-  if (!result.ok) {
-    res.status(result.status).json({ error: result.error, message: result.message })
+  if (result.ok) {
+    res.status(200).json({ level: result.level })
     return
   }
 
-  res.status(200).json({ level: result.level })
+  res.status(result.status).json({ error: result.error, message: result.message })
 }

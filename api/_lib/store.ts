@@ -1,5 +1,5 @@
-import { kvGet, kvSet } from './kv.ts'
-import type { EntitlementStore } from './entitlements.ts'
+import { kvGet, kvSet } from './kv'
+import type { EntitlementStore } from './entitlements'
 
 export const kvStore: EntitlementStore = {
   get: kvGet,

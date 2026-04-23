@@ -1,7 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { getVisibleFailures, type EntitlementLevel } from '../../src/lib/monetization.ts'
-import type { FailureExperience } from '../../src/lib/types.ts'
+import type { EntitlementLevel } from './entitlements'
+
+interface FailureExperience {
+  id: string
+  programId: string
+  [key: string]: unknown
+}
 
 let failuresCache: FailureExperience[] | null = null
 
@@ -25,7 +30,7 @@ export function findVisibleFailuresByProgramId(
   programId: string,
   level: EntitlementLevel,
 ): FailureExperience[] {
-  return getVisibleFailures(findFailuresByProgramId(programId), level)
+  return findFailuresByProgramId(programId).slice(0, getFailureLimit(level))
 }
 
 export function findVisibleFailureById(id: string, level: EntitlementLevel): FailureExperience | null {
@@ -34,4 +39,10 @@ export function findVisibleFailureById(id: string, level: EntitlementLevel): Fai
 
   const visible = findVisibleFailuresByProgramId(failure.programId, level)
   return visible.find((item) => item.id === id) ?? null
+}
+
+function getFailureLimit(level: EntitlementLevel): number {
+  if (level === 'paid') return Number.POSITIVE_INFINITY
+  if (level === 'survey') return 8
+  return 2
 }

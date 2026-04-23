@@ -1,6 +1,6 @@
-import { applyCors, getSingleQueryValue, type ApiRequest, type ApiResponse } from '../_lib/http.ts'
-import { getDeviceLevel } from '../_lib/entitlements.ts'
-import { kvStore } from '../_lib/store.ts'
+import { getDeviceLevel } from '../_lib/entitlements'
+import { applyCors, getSingleQueryValue, type ApiRequest, type ApiResponse } from '../_lib/http'
+import { kvStore } from '../_lib/store'
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (applyCors(req, res)) return
