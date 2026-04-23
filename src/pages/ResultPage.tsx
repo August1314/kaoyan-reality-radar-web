@@ -18,6 +18,13 @@ export function ResultPage() {
   const { slug = '' } = useParams()
   const program = findProgramBySlug(slug)
 
+  // Phase 6: Load failures asynchronously instead of bundling all 237KB in initial chunk
+  // Hook is called unconditionally (before any conditional return) to satisfy rules-of-hooks.
+  // When program is null we pass empty string so fetch returns [] and section stays hidden.
+  const { failures: resultFailures, loading: failuresLoading, error: failuresError } = useFailuresByProgramId(
+    program?.id ?? '',
+  )
+
   // SEO - 必须在条件判断之前调用
   useResultPageSEO(program ?? { school: '', major: '', year: 0, summary: '' })
 
@@ -44,9 +51,6 @@ export function ResultPage() {
       </main>
     )
   }
-
-  // Phase 6: Load failures asynchronously instead of bundling all 237KB in initial chunk
-  const { failures: resultFailures, loading: failuresLoading, error: failuresError } = useFailuresByProgramId(program.id)
 
   const metrics = [
     { label: '报录比', value: formatRatio(program.applicants, program.admitted) ? `${formatRatio(program.applicants, program.admitted)} : 1` : '未公开' },
