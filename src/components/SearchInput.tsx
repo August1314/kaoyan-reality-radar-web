@@ -178,11 +178,12 @@ export function SearchInput({ className }: SearchInputProps) {
   }, [])
 
   // Live region: 搜索结果数量通知（屏幕阅读器）
-  const liveRegionText = suggestions.length > 0
-    ? `找到 ${suggestions.length} 个匹配结果，使用上下键选择，回车确认`
-    : rawQuery.length > 0
-      ? '未找到匹配结果'
-      : ''
+  const liveRegionText =
+    suggestions.length > 0
+      ? `找到 ${suggestions.length} 个匹配结果，使用上下键选择，回车确认`
+      : rawQuery.length > 0
+        ? '未找到匹配结果'
+        : ''
 
   return (
     <div ref={containerRef} className={`search-input-container ${className ?? ''}`}>
@@ -195,8 +196,7 @@ export function SearchInput({ className }: SearchInputProps) {
       >
         {liveRegionText}
       </div>
-      <div className="search-input-wrapper">
-        {/* 搜索图标 */}
+      <div className="search-input-wrapper search-input-wrapper--featured">
         <svg
           className="search-input-icon"
           width="18"

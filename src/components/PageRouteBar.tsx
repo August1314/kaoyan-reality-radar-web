@@ -14,7 +14,7 @@ interface PageRouteBarProps {
 
 export function PageRouteBar({ actions = [] }: PageRouteBarProps) {
   return (
-    <header className="app-shell">
+    <header className="app-shell app-shell--compact">
       <nav className="app-shell__bar" aria-label="全站导航">
         <NavLink to={routeLinks.home()} end className="app-shell__brand">
           <span className="app-shell__brand-mark" aria-hidden="true" />
